@@ -1,9 +1,12 @@
+Here is an HTML document that creates a sleek, modern enrollment form for Freshman and Remedial programs, featuring a dual-panel layout and smooth interactions.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path Academy | Modern Enrollment Hub</title>
+  <title>Bright Path | Next-Gen Enrollment</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -16,745 +19,627 @@
     }
 
     body {
-      background: radial-gradient(circle at 10% 20%, rgba(5, 25, 55, 0.95), rgba(2, 15, 35, 1));
+      background: radial-gradient(ellipse at 30% 40%, #0B1120, #030614);
       font-family: 'Inter', sans-serif;
       padding: 2rem 1.5rem;
       min-height: 100vh;
     }
 
-    .container {
-      max-width: 1280px;
-      width: 100%;
+    /* Modern Glass Container */
+    .glass-container {
+      max-width: 1400px;
       margin: 0 auto;
-      background: #ffffff;
-      border-radius: 2rem;
-      box-shadow: 0 35px 60px -20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 2.5rem;
+      backdrop-filter: blur(0px);
+      box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
       overflow: hidden;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
-    /* Modern Glassmorphic Header */
-    .header {
-      background: linear-gradient(105deg, #0B2B5E 0%, #123A6F 45%, #1A4A7A 100%);
-      padding: 2rem 2rem 1.8rem;
-      text-align: center;
+    /* Dynamic Header with micro-interactions */
+    .hero-header {
+      background: linear-gradient(120deg, #0B2B44 0%, #1A4A6F 45%, #0F3A5A 100%);
+      padding: 2rem 2.5rem;
       position: relative;
-      backdrop-filter: blur(2px);
+      overflow: hidden;
     }
 
-    .logo-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .logo-img {
-      width: 88px;
-      height: 88px;
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,215,0,0.12), transparent);
       border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 6px;
-      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.25s ease;
+      pointer-events: none;
     }
 
-    .logo-img:hover {
-      transform: scale(1.02);
-    }
-
-    .logo-placeholder {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: linear-gradient(125deg, #FFD966, #FFB347);
+    .logo-badge {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #0A2F44;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .header h1 {
-      font-size: 2.3rem;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #FFF9E6, #FFE4B5);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: none;
-    }
-
-    .tagline {
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      font-size: 0.75rem;
-      background: rgba(255,255,240,0.2);
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      margin-top: 0.5rem;
-      backdrop-filter: blur(4px);
-    }
-
-    .badge-modern {
-      background: rgba(255,215,0,0.18);
-      border: 1px solid rgba(255,215,0,0.4);
-      border-radius: 40px;
-      padding: 0.4rem 1.2rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #F9F3D9;
-      display: inline-block;
-      margin-top: 1rem;
-    }
-
-    .form-content {
-      padding: 2rem 2rem 2.2rem;
-      background: #ffffff;
-    }
-
-    /* Modern card sections */
-    .form-section {
-      background: #FFFFFF;
-      border-radius: 1.5rem;
-      padding: 1.6rem;
-      margin-bottom: 1.8rem;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #eff3f8;
-      transition: box-shadow 0.2s;
-    }
-
-    .form-section:hover {
-      box-shadow: 0 12px 24px -12px rgba(0, 30, 60, 0.12), 0 0 0 1px #e0e7f0;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0f2b3d;
-      margin-bottom: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-left: 4px solid #f5b042;
-      padding-left: 1rem;
-    }
-
-    .section-title i {
-      color: #e09d32;
-      font-size: 1.3rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.4rem;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .input-group.full-width {
-      grid-column: span 2;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #1e3a5f;
-      letter-spacing: -0.2px;
-    }
-
-    .required {
-      color: #e25c5c;
-    }
-
-    input, select {
-      padding: 0.9rem 1rem;
-      border: 1.5px solid #e2edf2;
-      border-radius: 1rem;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-      background: #fefefe;
-      transition: all 0.2s;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #f5a623;
-      box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
-    }
-
-    /* toggle pill style */
-    .radio-group {
-      display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 0.25rem;
-    }
-
-    .radio-option {
-      background: #f8fafd;
-      border-radius: 60px;
-      padding: 0.55rem 1.6rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-weight: 500;
-      border: 1.5px solid #e4ecf2;
-    }
-
-    .radio-option.selected {
-      background: #1e4a76;
-      border-color: #1e4a76;
-      color: white;
-      box-shadow: 0 6px 12px -8px #1e4a7640;
-    }
-
-    .radio-option.selected label, .radio-option.selected input {
-      color: white;
-    }
-
-    .radio-option input {
-      display: none;
-    }
-
-    .radio-option label {
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    /* price cards modern */
-    .price-options {
-      display: flex;
-      gap: 1.4rem;
-      margin-top: 0.8rem;
-    }
-
-    .price-card {
-      flex: 1;
-      background: #ffffff;
-      border: 2px solid #e9f0f5;
-      border-radius: 1.4rem;
-      padding: 1.2rem;
-      text-align: center;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .price-card.selected {
-      border-color: #f0b34b;
-      background: #fffbf0;
-      box-shadow: 0 12px 20px -12px rgba(240, 180, 60, 0.25);
-    }
-
-    .price-icon {
-      font-size: 2rem;
-    }
-
-    .price-title {
-      font-weight: 800;
-      margin: 0.5rem 0;
-    }
-
-    .price-amount {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #c97e2a;
-    }
-
-    /* courses grid */
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.8rem;
-      margin: 1rem 0 0.5rem;
-    }
-
-    .course-card {
-      background: #fbfdff;
-      border: 1.5px solid #e2edf2;
-      border-radius: 1rem;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      transition: 0.15s;
-    }
-
-    .course-card.selected {
-      background: #ecf7f0;
-      border-color: #2c9b67;
-    }
-
-    .course-card input {
-      width: 18px;
-      height: 18px;
-      accent-color: #f5a623;
-      margin-right: 0.2rem;
-    }
-
-    /* fee summary premium */
-    .fee-summary {
-      background: linear-gradient(115deg, #1f3b4c, #0e2a3a);
-      border-radius: 1.4rem;
-      padding: 1.4rem 1.8rem;
-      margin: 1.2rem 0 1rem;
-      color: white;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-    }
-
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.7rem;
-      font-weight: 500;
-    }
-
-    .fee-row.total {
-      font-size: 1.2rem;
-      font-weight: 800;
-      border-top: 1px solid rgba(255,215,150,0.4);
-      padding-top: 0.8rem;
-      margin-top: 0.5rem;
-    }
-
-    /* payment grid */
-    .payment-methods {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin: 1rem 0 1rem;
-    }
-
-    .payment-card {
-      background: #fefcf7;
-      border-radius: 1.2rem;
-      padding: 1rem;
-      text-align: center;
-      border: 1px solid #ece5d8;
-      transition: 0.1s;
-    }
-
-    .payment-card i {
-      font-size: 1.8rem;
-      color: #f5a623;
-    }
-
-    .payment-number {
-      font-family: monospace;
-      font-weight: 700;
-      background: #f1f3f7;
-      padding: 0.3rem;
-      border-radius: 0.8rem;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-    }
-
-    .file-upload-area {
-      border: 2px dashed #bcd0e0;
-      background: #fafdff;
-      border-radius: 1.2rem;
-      padding: 1.2rem;
-      text-align: center;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .file-upload-area:hover {
-      border-color: #f5a623;
-      background: #fffaf2;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 3rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: #0f3b5c;
-      color: white;
-      flex: 1;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .btn-primary:hover {
-      background: #1e4f72;
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: #eef2f8;
-      color: #1f3a4b;
-    }
-
-    .message-popup {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 1100;
-      padding: 1rem 1.6rem;
-      border-radius: 60px;
-      backdrop-filter: blur(8px);
-      font-weight: 500;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .success-panel {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .success-icon {
-      font-size: 4.2rem;
       margin-bottom: 1rem;
     }
 
-    @media (max-width: 700px) {
-      .form-grid, .price-options, .payment-methods {
-        grid-template-columns: 1fr;
-      }
-      .btn-group {
+    .logo-circle {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(145deg, #FFE5B4, #FFC857);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1A3E50;
+      box-shadow: 0 12px 20px -8px rgba(0,0,0,0.3);
+    }
+
+    .title-glow h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF, #FFE2A4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .title-glow p {
+      color: rgba(255,245,200,0.85);
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+
+    .enrollment-badge {
+      background: rgba(255,200,100,0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 60px;
+      padding: 0.3rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(255,210,100,0.4);
+    }
+
+    /* Two column layout: modern split */
+    .main-dashboard {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .form-panel {
+      flex: 1.6;
+      padding: 2rem 2rem 2rem 2.2rem;
+      background: white;
+    }
+
+    .summary-panel {
+      flex: 1;
+      background: #F8FBFE;
+      padding: 2rem 1.8rem;
+      border-left: 1px solid #E9F0F5;
+      position: relative;
+    }
+
+    /* form sections */
+    .input-modern {
+      margin-bottom: 1.3rem;
+    }
+
+    .input-modern label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1E4A6E;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.2px;
+    }
+
+    .input-modern input, .input-modern select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1.5px solid #E2EDF2;
+      border-radius: 1rem;
+      font-family: 'Inter', sans-serif;
+      background: #FFFFFF;
+      transition: all 0.2s;
+    }
+
+    .input-modern input:focus {
+      border-color: #F0A73A;
+      box-shadow: 0 0 0 3px rgba(240, 167, 58, 0.12);
+      outline: none;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* radio toggle fresh */
+    .pill-switch {
+      display: flex;
+      gap: 0.8rem;
+      background: #F1F5F9;
+      padding: 0.4rem;
+      border-radius: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .pill-option {
+      flex: 1;
+      text-align: center;
+      padding: 0.7rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      background: transparent;
+      color: #335;
+    }
+
+    .pill-option.active {
+      background: #1F6392;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .pill-option input {
+      display: none;
+    }
+
+    .stream-selector {
+      margin: 1rem 0;
+    }
+
+    .chip-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 0.8rem 0;
+    }
+
+    .chip {
+      background: #F1F5F9;
+      border-radius: 40px;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .chip.selected {
+      background: #EFF7FF;
+      border-color: #F0A73A;
+      color: #1A4A6F;
+      font-weight: 600;
+    }
+
+    /* price cards */
+    .price-modern {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .price-card-modern {
+      flex: 1;
+      background: #FCFDFF;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      border: 1.5px solid #E9F0F5;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .price-card-modern.selected {
+      border-color: #F0A73A;
+      background: #FFFBF2;
+      transform: translateY(-2px);
+    }
+
+    .course-list-modern {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 0.8rem 0;
+    }
+
+    .course-tag {
+      background: #F1F6FA;
+      border-radius: 40px;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fee-card-side {
+      background: linear-gradient(125deg, #FFFFFF, #FEFCF7);
+      border-radius: 1.8rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #EFF3F8;
+    }
+
+    .fee-row-side {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      font-weight: 500;
+    }
+
+    .total-fee {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #CD7A2E;
+    }
+
+    .upload-area-modern {
+      border: 2px dashed #C9DDEB;
+      background: #FAFDFF;
+      border-radius: 1rem;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-submit {
+      background: #136B47;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background: #0D5539;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .main-dashboard {
         flex-direction: column;
       }
-      .container {
-        border-radius: 1.5rem;
-      }
-      .form-content {
-        padding: 1.5rem;
+      .summary-panel {
+        border-left: none;
+        border-top: 1px solid #E9F0F5;
       }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <div class="logo-container">
-      <!-- Live logo (if missing, fallback) -->
-      <img src="https://placehold.co/400x400?text=BP" alt="Bright Path Academy Logo" class="logo-img" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="logo-placeholder" style="display: none;">BP</div>
+<div class="glass-container">
+  <div class="hero-header">
+    <div class="logo-badge">
+      <div class="logo-circle">BP</div>
+      <div class="title-glow">
+        <h1>BRIGHT PATH <span style="color:#FFD966;">ACADEMY</span></h1>
+        <p>ETHIO UNIVERSITY • FUTURE-READY ENROLLMENT</p>
+      </div>
     </div>
-    <h1>BRIGHT <span style="color: #FFD966;">PATH</span></h1>
-    <div class="tagline">LEARN TODAY, LEAD TOMORROW • ETHIO UNIVERSITY</div>
-    <div class="badge-modern">✨ FRESHMAN & REMEDIAL ENROLLMENT 2026 ✨</div>
+    <div class="enrollment-badge"><i class="fas fa-calendar-alt"></i> 2026 FRESHMAN & REMEDIAL • ROLLING ADMISSION</div>
   </div>
 
-  <div class="form-content" id="dynamicFormRoot">
-    <!-- Personal Section -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-id-card"></i>
-        <span>Student Profile</span>
+  <div class="main-dashboard">
+    <!-- LEFT: FORM PANEL -->
+    <div class="form-panel">
+      <div class="input-modern">
+        <label>Full name <span style="color:#e25c5c;">*</span></label>
+        <input type="text" id="fullName" placeholder="Selam Tesfaye">
       </div>
-      <div class="form-grid">
-        <div class="input-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" placeholder="Abebe Bekele"></div>
-        <div class="input-group"><label>Phone <span class="required">*</span></label><input type="tel" id="phoneNumber" placeholder="09XXXXXXXX"></div>
-        <div class="input-group"><label>Email Address</label><input type="email" id="email" placeholder="student@example.com"></div>
-        <div class="input-group"><label>Telegram Username</label><input type="text" id="telegramUser" placeholder="@username"></div>
-        <div class="input-group full-width"><label>University / Institution <span class="required">*</span></label><input type="text" id="university" placeholder="Enter your university or high school"></div>
+      <div class="grid-2col">
+        <div class="input-modern"><label>Phone <span style="color:#e25c5c;">*</span></label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
+        <div class="input-modern"><label>Email</label><input type="email" id="email" placeholder="student@bright.com"></div>
       </div>
-    </div>
-
-    <!-- Program selection -->
-    <div class="form-section">
-      <div class="section-title"><i class="fas fa-graduation-cap"></i><span>Academic Path</span></div>
-      <div class="radio-group" id="programGroup">
-        <div class="radio-option" data-value="freshman"><input type="radio" name="program" value="freshman" id="programFreshman" checked><label for="programFreshman">🎓 Freshman Program</label></div>
-        <div class="radio-option" data-value="remedial"><input type="radio" name="program" value="remedial" id="programRemedial"><label for="programRemedial">📖 Remedial Program</label></div>
+      <div class="grid-2col">
+        <div class="input-modern"><label>Telegram</label><input type="text" id="telegram" placeholder="@username"></div>
+        <div class="input-modern"><label>Institution <span style="color:#e25c5c;">*</span></label><input type="text" id="institution" placeholder="University / College"></div>
       </div>
-    </div>
 
-    <!-- Stream (Remedial only) -->
-    <div class="form-section" id="streamSection" style="display: none;">
-      <div class="section-title"><i class="fas fa-chalkboard-user"></i><span>Stream Focus</span></div>
-      <div class="radio-group" id="streamGroup">
-        <div class="radio-option" data-value="natural"><input type="radio" name="stream" value="natural" id="streamNatural" checked><label for="streamNatural">🔬 Natural Science</label></div>
-        <div class="radio-option" data-value="social"><input type="radio" name="stream" value="social" id="streamSocial"><label for="streamSocial">📘 Social Science</label></div>
+      <!-- Program Pill Switch -->
+      <div style="margin: 1.5rem 0 0.8rem 0;"><label style="font-weight:700;">Program Track</label></div>
+      <div class="pill-switch" id="programSwitch">
+        <div class="pill-option active" data-prog="freshman"><input type="radio" name="programRadio" value="freshman" checked hidden> 🎓 Freshman</div>
+        <div class="pill-option" data-prog="remedial"><input type="radio" name="programRadio" value="remedial" hidden> 📚 Remedial</div>
       </div>
-    </div>
 
-    <!-- Price (Freshman only) -->
-    <div class="form-section" id="priceSection" style="display: none;">
-      <div class="section-title"><i class="fas fa-coins"></i><span>Enrollment Package</span></div>
-      <div class="price-options" id="priceOptions">
-        <div class="price-card" data-price="class"><div class="price-icon">📚</div><div class="price-title">Class Only</div><div class="price-amount">300 ETB</div><div class="price-desc">Full course access</div></div>
-        <div class="price-card" data-price="exam"><div class="price-icon">📝</div><div class="price-title">With Exam Pack</div><div class="price-amount">350 ETB</div><div class="price-desc">+ Exams & previous</div></div>
+      <!-- Stream (Remedial) -->
+      <div id="streamContainer" style="display: none;">
+        <div style="margin: 0.5rem 0 0.3rem 0;"><label>📌 Stream Focus</label></div>
+        <div class="chip-group" id="streamChips">
+          <div class="chip selected" data-stream="natural">🔬 Natural Science</div>
+          <div class="chip" data-stream="social">📖 Social Science</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Course Selection Grid -->
-    <div class="form-section">
-      <div class="section-title"><i class="fas fa-book-atlas"></i><span>Core Curriculum</span></div>
-      <div class="course-grid" id="courseGrid"></div>
-    </div>
-
-    <!-- Fee Summary preview -->
-    <div class="fee-summary" id="feeSummary">
-      <div class="fee-row"><span>📌 Program:</span><span id="selectedProgram">Freshman</span></div>
-      <div class="fee-row"><span>🎯 Stream / Track:</span><span id="selectedStream">-</span></div>
-      <div class="fee-row"><span>📘 Courses Enrolled:</span><span id="courseCount">6</span></div>
-      <div class="fee-row total"><span>💰 Total Fees:</span><span id="totalAmount">350 ETB</span></div>
-    </div>
-
-    <!-- Payment Details -->
-    <div class="form-section">
-      <div class="section-title"><i class="fas fa-credit-card"></i><span>Payment & Confirmation</span></div>
-      <div class="payment-methods">
-        <div class="payment-card"><i class="fas fa-university"></i><div>CBE</div><div class="payment-number">1000354138216</div></div>
-        <div class="payment-card"><i class="fas fa-mobile-alt"></i><div>Telebirr</div><div class="payment-number">0955273939</div></div>
-        <div class="payment-card"><i class="fas fa-building"></i><div>BOA</div><div class="payment-number">82411097</div></div>
+      <!-- Price Plan (Freshman) -->
+      <div id="priceContainer" style="display: block; margin-top: 0.5rem;">
+        <div style="margin: 0.5rem 0 0.5rem 0;"><label>💎 Enrollment Package</label></div>
+        <div class="price-modern" id="priceCards">
+          <div class="price-card-modern" data-price-type="class"><div><i class="fas fa-chalkboard-user"></i></div><strong>Class Only</strong><div style="font-size:1.3rem; font-weight:800;">300 ETB</div></div>
+          <div class="price-card-modern selected" data-price-type="exam"><div><i class="fas fa-file-alt"></i></div><strong>With Exam Pack</strong><div style="font-size:1.3rem; font-weight:800;">350 ETB</div></div>
+        </div>
       </div>
-      <p style="text-align:center; font-size:0.75rem; font-weight:500; margin-bottom:1rem;">Account: Samuel Ashenaf H/Mariam</p>
-      <div class="file-upload-area" id="fileUploadArea"><i class="fas fa-cloud-upload-alt"></i><p>Click to upload transaction screenshot</p><small>PNG, JPG, PDF up to 5MB</small><input type="file" id="paymentProof" accept="image/*,.pdf" style="display:none;"></div>
+
+      <!-- Courses section -->
+      <div style="margin: 1.2rem 0 0.5rem 0;"><label>📖 Core Courses (included)</label></div>
+      <div id="coursesContainer" class="course-list-modern"></div>
+      <small style="color:#4B6B87;">✓ All courses are mandatory within selected track</small>
+      
+      <div class="upload-area-modern" id="modernUpload">
+        <i class="fas fa-receipt"></i> <span id="uploadLabel">Click to upload payment proof (CBE/Telebirr)</span>
+        <input type="file" id="proofFile" style="display:none" accept="image/*,.pdf">
+      </div>
+
+      <button class="btn-submit" id="submitEnrollment"><i class="fas fa-arrow-right-to-bracket"></i> Secure Registration</button>
     </div>
 
-    <div class="btn-group">
-      <button class="btn btn-secondary" id="resetBtn">⟳ Reset Form</button>
-      <button class="btn btn-primary" id="submitBtn">✓ Submit Registration</button>
+    <!-- RIGHT: SMART SUMMARY & PAYMENT INFO -->
+    <div class="summary-panel">
+      <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.2rem;"><i class="fas fa-chart-simple" style="color:#F0A73A;"></i><h3 style="font-weight:700;">Enrollment Summary</h3></div>
+      <div class="fee-card-side">
+        <div class="fee-row-side"><span>👤 Student</span><span id="summaryName">—</span></div>
+        <div class="fee-row-side"><span>🎓 Program</span><span id="summaryProgram">Freshman</span></div>
+        <div class="fee-row-side"><span>📂 Stream</span><span id="summaryStream">—</span></div>
+        <div class="fee-row-side"><span>📚 Total Courses</span><span id="summaryCoursesCount">6</span></div>
+        <div class="fee-row-side" style="border-top:1px solid #E2E8F0; margin-top:6px; padding-top:8px;"><span>💰 Total Fees</span><span class="total-fee" id="summaryAmount">350 ETB</span></div>
+      </div>
+      <div style="background:#FFF4E5; border-radius:1.2rem; padding:1rem; margin:1rem 0;">
+        <div style="font-weight:700;"><i class="fas fa-university"></i> Payment Details</div>
+        <div style="font-size:0.75rem; margin-top:0.5rem;"><strong>CBE:</strong> 1000354138216 &nbsp;|&nbsp; <strong>Telebirr:</strong> 0955273939<br><strong>BOA:</strong> 82411097 &nbsp;|&nbsp; Name: Samuel Ashenaf H/Mariam</div>
+      </div>
+      <div class="fee-row-side" style="justify-content:center; font-size:0.7rem; color:#4A627A;"><i class="fas fa-shield-alt"></i> Upload screenshot after payment</div>
     </div>
   </div>
 </div>
 
 <script>
-  // -------- data ----------
-  const freshmanCourses = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography"];
-  const remedialNaturalCourses = ["Biology", "Physics", "Chemistry", "English", "Mathematics"];
-  const remedialSocialCourses = ["Mathematics", "English", "Geography", "History"];
+  // --- Data ---
+  const freshmanCourseList = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography"];
+  const remedialNatural = ["Biology", "Physics", "Chemistry", "English", "Mathematics"];
+  const remedialSocial = ["Mathematics", "English", "Geography", "History"];
 
-  let currentProgram = "freshman";
-  let currentStream = "natural";
-  let currentPrice = "exam";
-  let selectedCourses = [];
+  // State
+  let currentProgram = "freshman";     // freshman / remedial
+  let currentStream = "natural";       // natural / social
+  let currentPriceType = "exam";       // class / exam (freshman only)
+  let selectedCourses = [...freshmanCourseList];
 
-  // DOM
-  const courseGrid = document.getElementById('courseGrid');
-  const streamSection = document.getElementById('streamSection');
-  const priceSection = document.getElementById('priceSection');
-  const programRadios = document.querySelectorAll('input[name="program"]');
-  const streamRadios = document.querySelectorAll('input[name="stream"]');
-  const radioOptions = document.querySelectorAll('.radio-option');
-  const priceCards = document.querySelectorAll('.price-card');
-  const fileUploadArea = document.getElementById('fileUploadArea');
-  const fileInput = document.getElementById('paymentProof');
-  const submitBtn = document.getElementById('submitBtn');
-  const resetBtn = document.getElementById('resetBtn');
+  // DOM elements
+  const fullNameInput = document.getElementById('fullName');
+  const phoneInput = document.getElementById('phone');
+  const institutionInput = document.getElementById('institution');
+  const summaryNameSpan = document.getElementById('summaryName');
+  const summaryProgramSpan = document.getElementById('summaryProgram');
+  const summaryStreamSpan = document.getElementById('summaryStream');
+  const summaryCoursesCountSpan = document.getElementById('summaryCoursesCount');
+  const summaryAmountSpan = document.getElementById('summaryAmount');
+  const coursesContainer = document.getElementById('coursesContainer');
+  const streamContainer = document.getElementById('streamContainer');
+  const priceContainerDiv = document.getElementById('priceContainer');
+  const streamChips = document.querySelectorAll('#streamChips .chip');
+  const priceCardsDivs = document.querySelectorAll('.price-card-modern');
+  const programPills = document.querySelectorAll('.pill-option');
+  const uploadArea = document.getElementById('modernUpload');
+  const fileInputProof = document.getElementById('proofFile');
+  const submitBtn = document.getElementById('submitEnrollment');
 
-  function showMessage(msg, type) {
-    const existing = document.querySelector('.message-popup');
-    if(existing) existing.remove();
-    const div = document.createElement('div');
-    div.className = `message-popup message-${type}`;
-    div.style.background = type === 'success' ? '#dff0e4' : (type === 'error' ? '#ffe6e5' : '#fff3da');
-    div.style.color = type === 'success' ? '#155f3a' : (type === 'error' ? '#b13e3e' : '#b56c0e');
-    div.style.borderLeft = `4px solid ${type === 'success' ? '#2c9b67' : (type === 'error' ? '#e25c5c' : '#f0b34b')}`;
-    div.innerHTML = msg;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 4200);
-  }
-
-  function renderCourses() {
+  // Helper: Render course tags
+  function renderCoursesUI() {
     let courses = [];
-    if (currentProgram === 'freshman') courses = freshmanCourses;
-    else if (currentStream === 'natural') courses = remedialNaturalCourses;
-    else courses = remedialSocialCourses;
-    selectedCourses = [...courses];
-    courseGrid.innerHTML = courses.map(course => `
-      <div class="course-card selected">
-        <input type="checkbox" checked disabled style="pointer-events:none;">
-        <span class="course-name">${course}</span>
-      </div>
-    `).join('');
+    if (currentProgram === 'freshman') {
+      courses = freshmanCourseList;
+      selectedCourses = [...freshmanCourseList];
+    } else {
+      if (currentStream === 'natural') courses = remedialNatural;
+      else courses = remedialSocial;
+      selectedCourses = [...courses];
+    }
+    coursesContainer.innerHTML = courses.map(c => `<div class="course-tag"><i class="fas fa-check-circle" style="color:#2C9B67; font-size:0.7rem;"></i> ${c}</div>`).join('');
+    summaryCoursesCountSpan.innerText = courses.length;
   }
 
-  function updateFeeSummary() {
+  // Update summary panel fees, program details
+  function updateSummaryAndFees() {
     let total = 0;
-    let courseCountVal = 0;
+    let courseLen = 0;
     if (currentProgram === 'freshman') {
-      courseCountVal = freshmanCourses.length;
-      total = currentPrice === 'exam' ? 350 : 300;
-      document.getElementById('selectedProgram').innerHTML = '🎓 Freshman';
-      document.getElementById('selectedStream').innerHTML = '—';
+      courseLen = freshmanCourseList.length;
+      total = currentPriceType === 'exam' ? 350 : 300;
+      summaryProgramSpan.innerText = 'Freshman';
+      summaryStreamSpan.innerText = '—';
     } else {
-      courseCountVal = currentStream === 'natural' ? remedialNaturalCourses.length : remedialSocialCourses.length;
-      total = 250;
-      document.getElementById('selectedProgram').innerHTML = '📖 Remedial';
-      document.getElementById('selectedStream').innerHTML = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
+      courseLen = currentStream === 'natural' ? remedialNatural.length : remedialSocial.length;
+      total = 250;   // fixed remedial fee
+      summaryProgramSpan.innerText = 'Remedial';
+      summaryStreamSpan.innerText = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
     }
-    document.getElementById('courseCount').innerHTML = courseCountVal;
-    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
+    summaryCoursesCountSpan.innerText = courseLen;
+    summaryAmountSpan.innerText = `${total} ETB`;
+    // update name live
+    let nameVal = fullNameInput.value.trim();
+    summaryNameSpan.innerText = nameVal === "" ? "—" : nameVal;
   }
 
-  function updateUIVisibility() {
+  // full summary refresh including program/stream changes
+  function refreshUI() {
     if (currentProgram === 'freshman') {
-      streamSection.style.display = 'none';
-      priceSection.style.display = 'block';
+      streamContainer.style.display = 'none';
+      priceContainerDiv.style.display = 'block';
     } else {
-      streamSection.style.display = 'block';
-      priceSection.style.display = 'none';
+      streamContainer.style.display = 'block';
+      priceContainerDiv.style.display = 'none';
+      // ensure stream chip visuals selected
+      document.querySelectorAll('#streamChips .chip').forEach(chip => {
+        if (chip.dataset.stream === currentStream) chip.classList.add('selected');
+        else chip.classList.remove('selected');
+      });
     }
-    renderCourses();
-    updateFeeSummary();
+    renderCoursesUI();
+    updateSummaryAndFees();
   }
 
-  // radio logic with styling
-  function initRadioStyling() {
-    radioOptions.forEach(opt => {
-      const radio = opt.querySelector('input');
-      radio.addEventListener('change', () => {
-        if (radio.checked) {
-          const parentGroup = opt.parentElement;
-          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
-          if (radio.name === 'program') {
-            currentProgram = radio.value;
-            // reset stream default for remedial
-            if (currentProgram === 'remedial' && currentStream !== 'natural') currentStream = 'natural';
-            document.querySelectorAll('input[name="stream"]').forEach(r => { if(r.value === currentStream) r.checked = true; });
-            // trigger stream radio style
-            document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
-              if(o.querySelector('input').value === currentStream) o.classList.add('selected');
-              else o.classList.remove('selected');
-            });
-            updateUIVisibility();
-          } else if (radio.name === 'stream') {
-            currentStream = radio.value;
-            renderCourses();
-            updateFeeSummary();
-          }
-        }
-      });
-      if (radio.checked) opt.classList.add('selected');
+  // Program pill handlers
+  programPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const progVal = pill.dataset.prog;
+      if (!progVal) return;
+      currentProgram = progVal;
+      programPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      // reset stream default if remedial
+      if (currentProgram === 'remedial' && currentStream !== 'natural') {
+        currentStream = 'natural';
+      }
+      if (currentProgram === 'freshman') {
+        currentPriceType = "exam";
+        document.querySelectorAll('.price-card-modern').forEach(card => {
+          if(card.dataset.priceType === 'exam') card.classList.add('selected');
+          else card.classList.remove('selected');
+        });
+      }
+      refreshUI();
     });
-  }
-
-  function initPriceSelection() {
-    priceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        priceCards.forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        currentPrice = card.dataset.price;
-        updateFeeSummary();
-      });
-    });
-    const defaultPrice = document.querySelector('.price-card[data-price="exam"]');
-    if(defaultPrice) defaultPrice.classList.add('selected');
-    currentPrice = "exam";
-  }
-
-  // file upload
-  fileUploadArea?.addEventListener('click', () => fileInput.click());
-  fileInput?.addEventListener('change', () => {
-    if(fileInput.files.length) showMessage(`📎 Receipt "${fileInput.files[0].name}" attached`, 'success');
   });
 
-  function validateForm() {
-    const fullName = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phoneNumber').value.trim();
-    const uni = document.getElementById('university').value.trim();
-    if (!fullName) { showMessage('❌ Full name is required', 'error'); return false; }
-    if (!phone) { showMessage('❌ Phone number required', 'error'); return false; }
-    if (!uni) { showMessage('❌ University / Institution required', 'error'); return false; }
-    const phoneRegex = /^09\d{8}$|^0\d{9}$/;
-    if (!phoneRegex.test(phone) && phone.length > 0) showMessage('⚠️ Phone format: 09XXXXXXXX', 'error');
+  // Stream chips
+  streamChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (currentProgram !== 'remedial') return;
+      const streamVal = chip.dataset.stream;
+      if (streamVal === 'natural') currentStream = 'natural';
+      else if (streamVal === 'social') currentStream = 'social';
+      streamChips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      renderCoursesUI();
+      updateSummaryAndFees();
+    });
+  });
+
+  // Price cards selection (freshman)
+  priceCardsDivs.forEach(card => {
+    card.addEventListener('click', () => {
+      if (currentProgram !== 'freshman') return;
+      const type = card.dataset.priceType;
+      currentPriceType = type;
+      priceCardsDivs.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      updateSummaryAndFees();
+    });
+  });
+
+  // realtime name update
+  function updateNameLive() {
+    let name = fullNameInput.value.trim();
+    summaryNameSpan.innerText = name === "" ? "—" : name;
+  }
+  fullNameInput.addEventListener('input', updateNameLive);
+  phoneInput.addEventListener('input', () => {});
+  
+  // File upload
+  uploadArea.addEventListener('click', () => fileInputProof.click());
+  fileInputProof.addEventListener('change', () => {
+    if(fileInputProof.files.length) {
+      const fileName = fileInputProof.files[0].name;
+      document.getElementById('uploadLabel').innerHTML = `<i class="fas fa-check-circle"></i> ${fileName}`;
+    } else {
+      document.getElementById('uploadLabel').innerHTML = 'Click to upload payment proof (CBE/Telebirr)';
+    }
+  });
+
+  // Validation & submit modern
+  function validate() {
+    const name = fullNameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const institution = institutionInput.value.trim();
+    if (!name) { alert("❌ Full name is required"); return false; }
+    if (!phone) { alert("❌ Phone number required"); return false; }
+    if (!institution) { alert("❌ Institution name required"); return false; }
+    const phoneValid = /^09\d{8}$|^0\d{9}$/.test(phone);
+    if (!phoneValid) alert("⚠️ Phone number should be 10 digits (09XXXXXXXX)");
     return true;
   }
 
-  function getFormPayload() {
-    let total = currentProgram === 'freshman' ? (currentPrice === 'exam' ? 350 : 300) : 250;
+  function getRegistrationPayload() {
+    let totalAmount = currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 350 : 300) : 250;
     let coursesList = [];
-    if (currentProgram === 'freshman') coursesList = freshmanCourses;
-    else if (currentStream === 'natural') coursesList = remedialNaturalCourses;
-    else coursesList = remedialSocialCourses;
+    if (currentProgram === 'freshman') coursesList = freshmanCourseList;
+    else if (currentStream === 'natural') coursesList = remedialNatural;
+    else coursesList = remedialSocial;
     return {
       timestamp: new Date().toISOString(),
-      fullName: document.getElementById('fullName').value.trim(),
-      phone: document.getElementById('phoneNumber').value.trim(),
+      fullName: fullNameInput.value.trim(),
+      phone: phoneInput.value.trim(),
       email: document.getElementById('email').value.trim(),
-      telegram: document.getElementById('telegramUser').value.trim(),
-      university: document.getElementById('university').value.trim(),
+      telegram: document.getElementById('telegram').value.trim(),
+      institution: institutionInput.value.trim(),
       program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
-      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
-      packageType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Standard (250 ETB)',
+      stream: currentProgram === 'freshman' ? 'General' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
+      package: currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 'Exam Package (350 ETB)' : 'Class Only (300 ETB)') : 'Remedial Standard (250 ETB)',
       courses: coursesList,
-      totalAmount: total,
-      proofFile: fileInput.files.length ? fileInput.files[0].name : 'Pending upload',
-      status: 'awaiting verification'
+      totalAmount: totalAmount,
+      paymentProof: fileInputProof.files.length > 0 ? fileInputProof.files[0].name : 'Not uploaded',
+      status: 'Pending'
     };
   }
 
   submitBtn.addEventListener('click', (e) => {
-    if(!validateForm()) return;
-    const data = getFormPayload();
-    showMessage('⏳ Processing enrollment...', 'loading');
+    if (!validate()) return;
+    const data = getRegistrationPayload();
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Registering ...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Registering...';
     setTimeout(() => {
-      console.table(data);
-      showMessage(`✅ Welcome ${data.fullName}! Registration complete.`, 'success');
-      const formContainer = document.querySelector('.form-content');
-      formContainer.innerHTML = `
-        <div class="success-panel">
-          <div class="success-icon">🏅✨</div>
-          <h2 style="color: #0f5c3a;">Enrollment Confirmed</h2>
-          <p style="margin:0.5rem 0; font-size:1rem;"><strong>${data.fullName}</strong>, you're officially part of Bright Path Academy.</p>
-          <div style="background:#f5f9ff; padding:1.2rem; border-radius:1.2rem; text-align:left; margin:1.2rem 0;">
-            <p><i class="fas fa-chalkboard"></i> <strong>Program:</strong> ${data.program}</p>
-            <p><i class="fas fa-layer-group"></i> <strong>Track:</strong> ${data.stream}</p>
-            <p><i class="fas fa-book"></i> <strong>Courses:</strong> ${data.courses.length}</p>
-            <p><i class="fas fa-money-bill-wave"></i> <strong>Amount Due:</strong> ${data.totalAmount} ETB</p>
-            <p><i class="fas fa-mobile-alt"></i> <strong>Contact:</strong> ${data.phone}</p>
+      console.log("📋 Enrollment Data:", data);
+      const successHTML = `
+        <div style="text-align:center; padding: 1.5rem;">
+          <div style="font-size:4rem;">🎉✅</div>
+          <h2 style="color:#136B47;">Welcome, ${data.fullName}!</h2>
+          <div style="background:#F3F9F0; border-radius:1rem; padding:1rem; margin:1rem 0; text-align:left;">
+            <p><strong>Program:</strong> ${data.program}</p>
+            <p><strong>Stream/Track:</strong> ${data.stream}</p>
+            <p><strong>Courses enrolled:</strong> ${data.courses.length}</p>
+            <p><strong>Total amount:</strong> ${data.totalAmount} ETB</p>
+            <p><strong>Reference:</strong> Confirmation SMS sent to ${data.phone}</p>
           </div>
-          <p style="font-size:0.8rem;">📢 A confirmation SMS will be sent within 24h. Keep your payment reference.</p>
-          <button class="btn btn-primary" onclick="location.reload()">➕ Register Another Student</button>
+          <button class="btn-submit" onclick="location.reload()" style="background:#1A4A6F;">Register Another →</button>
         </div>
       `;
+      const formPanelDiv = document.querySelector('.form-panel');
+      const summaryDiv = document.querySelector('.summary-panel');
+      if (formPanelDiv) formPanelDiv.innerHTML = successHTML;
+      if (summaryDiv) summaryDiv.style.opacity = '0.6';
     }, 1400);
   });
 
-  resetBtn.addEventListener('click', () => {
-    if(confirm('Clear all form fields?')) location.reload();
-  });
-
-  // stream default refresh
-  function initStreamSync() {
-    const streamNatural = document.getElementById('streamNatural');
-    const streamSocial = document.getElementById('streamSocial');
-    if(streamNatural) streamNatural.checked = true;
-    currentStream = 'natural';
-    document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
-      if(o.querySelector('input').value === 'natural') o.classList.add('selected');
-      else o.classList.remove('selected');
-    });
-  }
-
+  // initialize
   function init() {
-    initRadioStyling();
-    initPriceSelection();
-    initStreamSync();
-    updateUIVisibility();
-    document.getElementById('programFreshman').checked = true;
-    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
+    renderCoursesUI();
+    updateSummaryAndFees();
+    updateNameLive();
+    document.querySelector('#streamChips .chip[data-stream="natural"]').classList.add('selected');
+    currentStream = 'natural';
+    refreshUI();
   }
   init();
 </script>
 </body>
 </html>
+```
