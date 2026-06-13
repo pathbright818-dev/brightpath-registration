@@ -3,440 +3,756 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path Academy | Student Registration</title>
+  <title>Bright Path Academy | Modern Enrollment Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: radial-gradient(ellipse at 20% 30%, #0A1628, #020A17);
+      background: radial-gradient(circle at 10% 20%, rgba(5, 25, 55, 0.95), rgba(2, 15, 35, 1));
       font-family: 'Inter', sans-serif;
       padding: 2rem 1.5rem;
       min-height: 100vh;
     }
-    .premium-container {
-      max-width: 1300px;
+
+    .container {
+      max-width: 1280px;
+      width: 100%;
       margin: 0 auto;
-      background: #FFFFFF;
+      background: #ffffff;
       border-radius: 2rem;
-      box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 35px 60px -20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
       overflow: hidden;
+      transition: all 0.2s ease;
     }
-    .luxury-header {
-      background: linear-gradient(115deg, #0F2B3D 0%, #1B4A6E 50%, #0F3550 100%);
-      padding: 2rem 2.5rem;
+
+    /* Modern Glassmorphic Header */
+    .header {
+      background: linear-gradient(105deg, #0B2B5E 0%, #123A6F 45%, #1A4A7A 100%);
+      padding: 2rem 2rem 1.8rem;
+      text-align: center;
       position: relative;
+      backdrop-filter: blur(2px);
     }
-    .brand-flex { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: space-between; }
-    .logo-icon {
-      background: linear-gradient(135deg, #FFD966, #FFB347);
-      width: 70px; height: 70px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; font-weight: 800; color: #1F3E48;
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
     }
-    .title-area h1 {
-      font-size: 2rem; font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF, #FFE4A0);
-      background-clip: text; -webkit-background-clip: text; color: transparent;
+
+    .logo-img {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease;
     }
-    .badge-smart {
-      background: rgba(255,215,0,0.2); border-radius: 40px;
-      padding: 0.3rem 1.2rem; font-size: 0.7rem; font-weight: 600;
+
+    .logo-img:hover {
+      transform: scale(1.02);
     }
-    .dashboard-split { display: flex; flex-wrap: wrap; }
-    .enrollment-form { flex: 1.6; padding: 2rem; background: white; }
-    .smart-sidebar { flex: 1; background: #F9FCFE; border-left: 1px solid #EAF0F5; padding: 2rem 1.8rem; }
-    .input-futuristic { margin-bottom: 1.3rem; }
-    .input-futuristic label { font-size: 0.8rem; font-weight: 700; color: #1B4A6E; display: block; margin-bottom: 0.4rem; }
-    .input-futuristic input {
-      width: 100%; padding: 0.85rem 1rem; border: 1.5px solid #E2EDF2;
-      border-radius: 1rem; font-family: 'Inter', sans-serif;
+
+    .logo-placeholder {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(125deg, #FFD966, #FFB347);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0A2F44;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    .input-futuristic input:focus { border-color: #F0A73A; outline: none; }
-    .grid-double { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .program-switch { display: flex; gap: 1rem; background: #F1F5F9; padding: 0.35rem; border-radius: 60px; margin: 1rem 0; }
-    .program-pill { flex: 1; text-align: center; padding: 0.7rem; border-radius: 50px; font-weight: 700; cursor: pointer; }
-    .program-pill.active { background: #1F6392; color: white; }
-    .stream-chips { display: flex; gap: 1rem; margin: 0.8rem 0; }
-    .stream-chip { background: #F0F4F9; padding: 0.6rem 1.4rem; border-radius: 40px; cursor: pointer; }
-    .stream-chip.active { background: #EFF7FF; border: 1px solid #F0A73A; }
-    .price-flex { display: flex; gap: 1rem; margin: 0.8rem 0; }
-    .price-card-premium {
-      flex: 1; background: white; border: 1.5px solid #E9F0F5;
-      border-radius: 1.2rem; padding: 1rem; text-align: center; cursor: pointer;
+
+    .header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #FFF9E6, #FFE4B5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: none;
     }
-    .price-card-premium.selected { border-color: #F0A73A; background: #FFFBF2; }
-    .course-selector-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 0.75rem; margin: 1rem 0; max-height: 280px; overflow-y: auto;
+
+    .tagline {
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      font-size: 0.75rem;
+      background: rgba(255,255,240,0.2);
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+      backdrop-filter: blur(4px);
     }
-    .course-item {
-      background: #F9FCFE; border: 1.5px solid #E9F0F5; border-radius: 1rem;
-      padding: 0.7rem 0.9rem; display: flex; align-items: center; gap: 0.7rem; cursor: pointer;
+
+    .badge-modern {
+      background: rgba(255,215,0,0.18);
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #F9F3D9;
+      display: inline-block;
+      margin-top: 1rem;
     }
-    .course-item.selected { background: #F0F9FF; border-color: #F0A73A; }
-    .course-item input { width: 18px; height: 18px; accent-color: #F0A73A; cursor: pointer; }
-    .upload-modern {
-      border: 2px dashed #C9DDEB; background: #FAFDFF; border-radius: 1rem;
-      padding: 1rem; text-align: center; cursor: pointer; margin-top: 1rem;
+
+    .form-content {
+      padding: 2rem 2rem 2.2rem;
+      background: #ffffff;
     }
-    .btn-gold {
-      background: #136B47; color: white; width: 100%; padding: 1rem;
-      border-radius: 2rem; font-weight: 700; font-size: 1rem; border: none;
-      cursor: pointer; margin-top: 1.5rem;
+
+    /* Modern card sections */
+    .form-section {
+      background: #FFFFFF;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #eff3f8;
+      transition: box-shadow 0.2s;
     }
-    .btn-gold:hover { background: #0E5539; transform: translateY(-2px); }
-    @media (max-width: 850px) { .dashboard-split { flex-direction: column; } .smart-sidebar { border-left: none; border-top: 1px solid #EAF0F5; } }
+
+    .form-section:hover {
+      box-shadow: 0 12px 24px -12px rgba(0, 30, 60, 0.12), 0 0 0 1px #e0e7f0;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f2b3d;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-left: 4px solid #f5b042;
+      padding-left: 1rem;
+    }
+
+    .section-title i {
+      color: #e09d32;
+      font-size: 1.3rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #1e3a5f;
+      letter-spacing: -0.2px;
+    }
+
+    .required {
+      color: #e25c5c;
+    }
+
+    input, select {
+      padding: 0.9rem 1rem;
+      border: 1.5px solid #e2edf2;
+      border-radius: 1rem;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      background: #fefefe;
+      transition: all 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #f5a623;
+      box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+    }
+
+    /* toggle pill style */
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .radio-option {
+      background: #f8fafd;
+      border-radius: 60px;
+      padding: 0.55rem 1.6rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+      border: 1.5px solid #e4ecf2;
+    }
+
+    .radio-option.selected {
+      background: #1e4a76;
+      border-color: #1e4a76;
+      color: white;
+      box-shadow: 0 6px 12px -8px #1e4a7640;
+    }
+
+    .radio-option.selected label, .radio-option.selected input {
+      color: white;
+    }
+
+    .radio-option input {
+      display: none;
+    }
+
+    .radio-option label {
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* price cards modern */
+    .price-options {
+      display: flex;
+      gap: 1.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .price-card {
+      flex: 1;
+      background: #ffffff;
+      border: 2px solid #e9f0f5;
+      border-radius: 1.4rem;
+      padding: 1.2rem;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .price-card.selected {
+      border-color: #f0b34b;
+      background: #fffbf0;
+      box-shadow: 0 12px 20px -12px rgba(240, 180, 60, 0.25);
+    }
+
+    .price-icon {
+      font-size: 2rem;
+    }
+
+    .price-title {
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+
+    .price-amount {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #c97e2a;
+    }
+
+    /* courses grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .course-card {
+      background: #fbfdff;
+      border: 1.5px solid #e2edf2;
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: 0.15s;
+    }
+
+    .course-card.selected {
+      background: #ecf7f0;
+      border-color: #2c9b67;
+    }
+
+    .course-card input {
+      width: 18px;
+      height: 18px;
+      accent-color: #f5a623;
+      margin-right: 0.2rem;
+    }
+
+    /* fee summary premium */
+    .fee-summary {
+      background: linear-gradient(115deg, #1f3b4c, #0e2a3a);
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.8rem;
+      margin: 1.2rem 0 1rem;
+      color: white;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.7rem;
+      font-weight: 500;
+    }
+
+    .fee-row.total {
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-top: 1px solid rgba(255,215,150,0.4);
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    /* payment grid */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0 1rem;
+    }
+
+    .payment-card {
+      background: #fefcf7;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #ece5d8;
+      transition: 0.1s;
+    }
+
+    .payment-card i {
+      font-size: 1.8rem;
+      color: #f5a623;
+    }
+
+    .payment-number {
+      font-family: monospace;
+      font-weight: 700;
+      background: #f1f3f7;
+      padding: 0.3rem;
+      border-radius: 0.8rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .file-upload-area {
+      border: 2px dashed #bcd0e0;
+      background: #fafdff;
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      text-align: center;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .file-upload-area:hover {
+      border-color: #f5a623;
+      background: #fffaf2;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #0f3b5c;
+      color: white;
+      flex: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-primary:hover {
+      background: #1e4f72;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #eef2f8;
+      color: #1f3a4b;
+    }
+
+    .message-popup {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 1100;
+      padding: 1rem 1.6rem;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .success-panel {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-icon {
+      font-size: 4.2rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid, .price-options, .payment-methods {
+        grid-template-columns: 1fr;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      .container {
+        border-radius: 1.5rem;
+      }
+      .form-content {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-<div class="premium-container">
-  <div class="luxury-header">
-    <div class="brand-flex">
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <div class="logo-icon">BP</div>
-        <div class="title-area"><h1>BRIGHT PATH ACADEMY</h1><div style="color:#FFE4B5; font-size:0.7rem;">STUDENT REGISTRATION</div></div>
-      </div>
-      <div class="badge-smart"><i class="fas fa-graduation-cap"></i> 2026 Enrollment</div>
+<div class="container">
+  <div class="header">
+    <div class="logo-container">
+      <!-- Live logo (if missing, fallback) -->
+      <img src="https://placehold.co/400x400?text=BP" alt="Bright Path Academy Logo" class="logo-img" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display: none;">BP</div>
     </div>
+    <h1>BRIGHT <span style="color: #FFD966;">PATH</span></h1>
+    <div class="tagline">LEARN TODAY, LEAD TOMORROW • ETHIO UNIVERSITY</div>
+    <div class="badge-modern">✨ FRESHMAN & REMEDIAL ENROLLMENT 2026 ✨</div>
   </div>
-  <div class="dashboard-split">
-    <div class="enrollment-form" id="studentForm">
-      <div class="grid-double">
-        <div class="input-futuristic"><label>ሙሉ ስም <span style="color:#e25c5c;">*</span></label><input type="text" id="fullName" placeholder="Abebe Kebede"></div>
-        <div class="input-futuristic"><label>ስልክ ቁጥር <span style="color:#e25c5c;">*</span></label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
+
+  <div class="form-content" id="dynamicFormRoot">
+    <!-- Personal Section -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-id-card"></i>
+        <span>Student Profile</span>
       </div>
-      <div class="grid-double">
-        <div class="input-futuristic"><label>ኢሜይል</label><input type="email" id="email" placeholder="student@example.com"></div>
-        <div class="input-futuristic"><label>ተቋም/ዩኒቨርሲቲ <span style="color:#e25c5c;">*</span></label><input type="text" id="institution" placeholder="University Name"></div>
+      <div class="form-grid">
+        <div class="input-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" placeholder="Abebe Bekele"></div>
+        <div class="input-group"><label>Phone <span class="required">*</span></label><input type="tel" id="phoneNumber" placeholder="09XXXXXXXX"></div>
+        <div class="input-group"><label>Email Address</label><input type="email" id="email" placeholder="student@example.com"></div>
+        <div class="input-group"><label>Telegram Username</label><input type="text" id="telegramUser" placeholder="@username"></div>
+        <div class="input-group full-width"><label>University / Institution <span class="required">*</span></label><input type="text" id="university" placeholder="Enter your university or high school"></div>
       </div>
-      <div class="program-switch" id="programToggle">
-        <div class="program-pill active" data-prog="freshman">🎓 ፍሬሽማን</div>
-        <div class="program-pill" data-prog="remedial">📚 ሪሚዲያል</div>
-      </div>
-      <div id="streamBlock" style="display: none;"><label>📌 ዥረት</label><div class="stream-chips" id="streamChipGroup"><div class="stream-chip active" data-stream="natural">🔬 ናቸራል ሳይንስ</div><div class="stream-chip" data-stream="social">📖 ሶሻል ሳይንስ</div></div></div>
-      <div id="priceBlock"><label>💰 የምዝገባ ጥቅል</label><div class="price-flex" id="priceGroupFlex"><div class="price-card-premium" data-price="class"><i class="fas fa-chalkboard"></i><br><strong>ክላስ ብቻ</strong><div>300 ETB</div></div><div class="price-card-premium selected" data-price="exam"><i class="fas fa-file-signature"></i><br><strong>ከፈተና ጋር</strong><div>350 ETB</div></div></div></div>
-      <div><label><i class="fas fa-check-double"></i> ኮርሶች ይምረጡ</label><div id="courseListContainer" class="course-selector-grid"></div></div>
-      <div class="upload-modern" id="uploadTrigger"><i class="fas fa-cloud-upload-alt"></i> <span id="uploadText">የክፍያ ማስረጃ አስገቡ (ስክሪንሾት)</span><input type="file" id="paymentProof" style="display:none" accept="image/*,.pdf"></div>
-      <button class="btn-gold" id="submitRegistration"><i class="fas fa-paper-plane"></i> ምዝገባ አስገባ</button>
     </div>
-    <div class="smart-sidebar">
-      <div style="display: flex; gap: 0.6rem; border-bottom: 2px solid #F0E3D0; padding-bottom: 0.8rem;"><i class="fas fa-info-circle" style="color:#F0A73A;"></i><h3>መረጃ</h3></div>
-      <div style="padding: 1rem 0;">
-        <p><i class="fas fa-lock"></i> ምዝገባዎ ለአስተዳዳሪ በራስ ሰር ይልካል</p>
-        <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">ክፍያ ከፍለው ማስረጃውን ያስገቡ</p>
+
+    <!-- Program selection -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-graduation-cap"></i><span>Academic Path</span></div>
+      <div class="radio-group" id="programGroup">
+        <div class="radio-option" data-value="freshman"><input type="radio" name="program" value="freshman" id="programFreshman" checked><label for="programFreshman">🎓 Freshman Program</label></div>
+        <div class="radio-option" data-value="remedial"><input type="radio" name="program" value="remedial" id="programRemedial"><label for="programRemedial">📖 Remedial Program</label></div>
       </div>
-      <div style="background:#FFF6EA; border-radius:1rem; padding:1rem; margin-top:1rem; font-size:0.75rem;">
-        <i class="fas fa-university"></i> <strong>የክፍያ መረጃ</strong><br>
-        CBE: 1000354138216<br>
-        Telebirr: 0955273939<br>
-        BOA: 82411097<br>
-        ስም: Samuel Ashenaf H/Mariam
+    </div>
+
+    <!-- Stream (Remedial only) -->
+    <div class="form-section" id="streamSection" style="display: none;">
+      <div class="section-title"><i class="fas fa-chalkboard-user"></i><span>Stream Focus</span></div>
+      <div class="radio-group" id="streamGroup">
+        <div class="radio-option" data-value="natural"><input type="radio" name="stream" value="natural" id="streamNatural" checked><label for="streamNatural">🔬 Natural Science</label></div>
+        <div class="radio-option" data-value="social"><input type="radio" name="stream" value="social" id="streamSocial"><label for="streamSocial">📘 Social Science</label></div>
       </div>
+    </div>
+
+    <!-- Price (Freshman only) -->
+    <div class="form-section" id="priceSection" style="display: none;">
+      <div class="section-title"><i class="fas fa-coins"></i><span>Enrollment Package</span></div>
+      <div class="price-options" id="priceOptions">
+        <div class="price-card" data-price="class"><div class="price-icon">📚</div><div class="price-title">Class Only</div><div class="price-amount">300 ETB</div><div class="price-desc">Full course access</div></div>
+        <div class="price-card" data-price="exam"><div class="price-icon">📝</div><div class="price-title">With Exam Pack</div><div class="price-amount">350 ETB</div><div class="price-desc">+ Exams & previous</div></div>
+      </div>
+    </div>
+
+    <!-- Course Selection Grid -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-book-atlas"></i><span>Core Curriculum</span></div>
+      <div class="course-grid" id="courseGrid"></div>
+    </div>
+
+    <!-- Fee Summary preview -->
+    <div class="fee-summary" id="feeSummary">
+      <div class="fee-row"><span>📌 Program:</span><span id="selectedProgram">Freshman</span></div>
+      <div class="fee-row"><span>🎯 Stream / Track:</span><span id="selectedStream">-</span></div>
+      <div class="fee-row"><span>📘 Courses Enrolled:</span><span id="courseCount">6</span></div>
+      <div class="fee-row total"><span>💰 Total Fees:</span><span id="totalAmount">350 ETB</span></div>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-credit-card"></i><span>Payment & Confirmation</span></div>
+      <div class="payment-methods">
+        <div class="payment-card"><i class="fas fa-university"></i><div>CBE</div><div class="payment-number">1000354138216</div></div>
+        <div class="payment-card"><i class="fas fa-mobile-alt"></i><div>Telebirr</div><div class="payment-number">0955273939</div></div>
+        <div class="payment-card"><i class="fas fa-building"></i><div>BOA</div><div class="payment-number">82411097</div></div>
+      </div>
+      <p style="text-align:center; font-size:0.75rem; font-weight:500; margin-bottom:1rem;">Account: Samuel Ashenaf H/Mariam</p>
+      <div class="file-upload-area" id="fileUploadArea"><i class="fas fa-cloud-upload-alt"></i><p>Click to upload transaction screenshot</p><small>PNG, JPG, PDF up to 5MB</small><input type="file" id="paymentProof" accept="image/*,.pdf" style="display:none;"></div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" id="resetBtn">⟳ Reset Form</button>
+      <button class="btn btn-primary" id="submitBtn">✓ Submit Registration</button>
     </div>
   </div>
 </div>
 
 <script>
-  // ==================== የኮርሶች ዝርዝር ====================
-  const freshmanCourses = [
-    "Communicative English", "Mathematics", "Physics", "Psychology", 
-    "Critical Thinking", "Geography", "Applied Mathematics", "History", 
-    "Emerging Technology", "Civics and Moral Education", "Anthropology", 
-    "English Skill 2", "Computer Programming"
-  ];
-  const remedialNatural = [
-    "Biology", "Physics", "Chemistry", "English", "Mathematics", 
-    "Applied Mathematics", "Emerging Technology", "Computer Programming", 
-    "Civics and Moral Education"
-  ];
-  const remedialSocial = [
-    "Mathematics", "English", "Geography", "History", "Applied Mathematics", 
-    "Civics and Moral Education", "Anthropology", "English Skill 2", "Emerging Technology"
-  ];
+  // -------- data ----------
+  const freshmanCourses = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography"];
+  const remedialNaturalCourses = ["Biology", "Physics", "Chemistry", "English", "Mathematics"];
+  const remedialSocialCourses = ["Mathematics", "English", "Geography", "History"];
 
-  // ==================== ሁኔታ (State) ====================
   let currentProgram = "freshman";
   let currentStream = "natural";
-  let currentPriceType = "exam";
-  let availableCourses = [...freshmanCourses];
-  let selectedCourses = new Set(freshmanCourses.slice(0, 6));
+  let currentPrice = "exam";
+  let selectedCourses = [];
 
-  // ==================== DOM Elements ====================
-  const courseContainer = document.getElementById('courseListContainer');
-  const streamBlock = document.getElementById('streamBlock');
-  const priceBlock = document.getElementById('priceBlock');
-  const programPills = document.querySelectorAll('.program-pill');
-  const streamChips = document.querySelectorAll('.stream-chip');
-  const priceCards = document.querySelectorAll('.price-card-premium');
-  const fullNameInput = document.getElementById('fullName');
-  const phoneInput = document.getElementById('phone');
-  const institutionInput = document.getElementById('institution');
-  const submitBtn = document.getElementById('submitRegistration');
-  const uploadArea = document.getElementById('uploadTrigger');
+  // DOM
+  const courseGrid = document.getElementById('courseGrid');
+  const streamSection = document.getElementById('streamSection');
+  const priceSection = document.getElementById('priceSection');
+  const programRadios = document.querySelectorAll('input[name="program"]');
+  const streamRadios = document.querySelectorAll('input[name="stream"]');
+  const radioOptions = document.querySelectorAll('.radio-option');
+  const priceCards = document.querySelectorAll('.price-card');
+  const fileUploadArea = document.getElementById('fileUploadArea');
   const fileInput = document.getElementById('paymentProof');
-  const uploadTextSpan = document.getElementById('uploadText');
+  const submitBtn = document.getElementById('submitBtn');
+  const resetBtn = document.getElementById('resetBtn');
 
-  // ==================== ተግባራት (Functions) ====================
-  function computeTotal() {
-    let count = selectedCourses.size;
-    if (currentProgram === 'freshman') {
-      let extra = Math.max(0, count - 6);
-      let base = currentPriceType === 'exam' ? 350 : 300;
-      return base + (extra * 30);
-    } else {
-      return count * 45;
-    }
+  function showMessage(msg, type) {
+    const existing = document.querySelector('.message-popup');
+    if(existing) existing.remove();
+    const div = document.createElement('div');
+    div.className = `message-popup message-${type}`;
+    div.style.background = type === 'success' ? '#dff0e4' : (type === 'error' ? '#ffe6e5' : '#fff3da');
+    div.style.color = type === 'success' ? '#155f3a' : (type === 'error' ? '#b13e3e' : '#b56c0e');
+    div.style.borderLeft = `4px solid ${type === 'success' ? '#2c9b67' : (type === 'error' ? '#e25c5c' : '#f0b34b')}`;
+    div.innerHTML = msg;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 4200);
   }
 
   function renderCourses() {
-    courseContainer.innerHTML = '';
-    availableCourses.forEach(course => {
-      const isChecked = selectedCourses.has(course);
-      const div = document.createElement('div');
-      div.className = `course-item ${isChecked ? 'selected' : ''}`;
-      div.innerHTML = `<input type="checkbox" value="${course.replace(/"/g, '&quot;')}" ${isChecked ? 'checked' : ''}><span class="course-name">${course}</span>`;
-      const chk = div.querySelector('input');
-      chk.addEventListener('change', (e) => {
-        e.stopPropagation();
-        if (chk.checked) {
-          selectedCourses.add(course);
-        } else {
-          selectedCourses.delete(course);
-        }
-        div.classList.toggle('selected', chk.checked);
-      });
-      div.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'INPUT') {
-          chk.checked = !chk.checked;
-          if (chk.checked) selectedCourses.add(course);
-          else selectedCourses.delete(course);
-          div.classList.toggle('selected', chk.checked);
-        }
-      });
-      courseContainer.appendChild(div);
-    });
-  }
-
-  function refreshCatalog() {
-    if (currentProgram === 'freshman') {
-      availableCourses = [...freshmanCourses];
-    } else {
-      availableCourses = currentStream === 'natural' ? [...remedialNatural] : [...remedialSocial];
-    }
-    let newSel = new Set();
-    for (let c of selectedCourses) {
-      if (availableCourses.includes(c)) newSel.add(c);
-    }
-    if (newSel.size === 0 && availableCourses.length) {
-      newSel.add(availableCourses[0]);
-    }
-    selectedCourses = newSel;
-    renderCourses();
-  }
-
-  function toggleSections() {
-    if (currentProgram === 'freshman') {
-      streamBlock.style.display = 'none';
-      priceBlock.style.display = 'block';
-    } else {
-      streamBlock.style.display = 'block';
-      priceBlock.style.display = 'none';
-    }
-    refreshCatalog();
-  }
-
-  // ==================== ኢቨንት ሊስነሮች ====================
-  programPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      currentProgram = pill.dataset.prog;
-      programPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      if (currentProgram === 'remedial') {
-        currentStream = 'natural';
-        document.querySelectorAll('.stream-chip').forEach(ch => {
-          if (ch.dataset.stream === 'natural') ch.classList.add('active');
-          else ch.classList.remove('active');
-        });
-      } else {
-        currentPriceType = 'exam';
-        priceCards.forEach(card => {
-          if (card.dataset.price === 'exam') card.classList.add('selected');
-          else card.classList.remove('selected');
-        });
-      }
-      toggleSections();
-    });
-  });
-
-  streamChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      if (currentProgram !== 'remedial') return;
-      currentStream = chip.dataset.stream;
-      streamChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      refreshCatalog();
-    });
-  });
-
-  priceCards.forEach(card => {
-    card.addEventListener('click', () => {
-      if (currentProgram !== 'freshman') return;
-      currentPriceType = card.dataset.price;
-      priceCards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-    });
-  });
-
-  uploadArea.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) {
-      uploadTextSpan.innerHTML = `<i class="fas fa-check-circle"></i> ${fileInput.files[0].name}`;
-    } else {
-      uploadTextSpan.innerHTML = 'የክፍያ ማስረጃ አስገቡ (ስክሪንሾት)';
-    }
-  });
-
-  // ==================== ተማሪው ማየት የሚችለው ነገር ብቻ (Student sees only thank you) ====================
-  function showStudentThankYou() {
-    const formDiv = document.getElementById('studentForm');
-    formDiv.innerHTML = `
-      <div style="text-align: center; padding: 3rem 2rem;">
-        <div style="font-size: 5rem;">✅</div>
-        <h2 style="color: #136B47; margin: 1rem 0;">እናመሰግናለን!</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">ምዝገባዎ በተሳካ ሁኔታ ተልኳል።</p>
-        <p style="color: #666; margin-bottom: 2rem;">አስተዳዳሪዎቻችን መረጃዎን ተቀብለዋል፣ በቅርቡ ያግኙዎታል።</p>
-        <div style="background: #F0F7F3; padding: 1rem; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <i class="fas fa-clock"></i> መልስ በስልክ ወይም በቴሌግራም ይሰጥዎታል
-        </div>
-        <button class="btn-gold" onclick="location.reload()" style="width: auto; padding: 0.8rem 2rem;">
-          <i class="fas fa-plus"></i> አዲስ ምዝገባ
-        </button>
+    let courses = [];
+    if (currentProgram === 'freshman') courses = freshmanCourses;
+    else if (currentStream === 'natural') courses = remedialNaturalCourses;
+    else courses = remedialSocialCourses;
+    selectedCourses = [...courses];
+    courseGrid.innerHTML = courses.map(course => `
+      <div class="course-card selected">
+        <input type="checkbox" checked disabled style="pointer-events:none;">
+        <span class="course-name">${course}</span>
       </div>
-    `;
-    document.querySelector('.smart-sidebar').style.opacity = '0.5';
+    `).join('');
   }
 
-  // ==================== ኢሜይል ወደ አድሚን መላክ (Email to Admin Only) ====================
-  function sendEmailToAdmin(formData) {
-    // የኢሜይል አድራሻ - ለአስተዳዳሪ ብቻ
-    const adminEmail = "pathbright818@gmail.com";
-    
-    // የኢሜይል ይዘት ማዘጋጀት
-    const subject = `📋 አዲስ ምዝገባ - ${formData.fullName}`;
-    
-    let coursesList = "";
-    for (let i = 0; i < formData.courses.length; i++) {
-      coursesList += `   • ${formData.courses[i]}\n`;
+  function updateFeeSummary() {
+    let total = 0;
+    let courseCountVal = 0;
+    if (currentProgram === 'freshman') {
+      courseCountVal = freshmanCourses.length;
+      total = currentPrice === 'exam' ? 350 : 300;
+      document.getElementById('selectedProgram').innerHTML = '🎓 Freshman';
+      document.getElementById('selectedStream').innerHTML = '—';
+    } else {
+      courseCountVal = currentStream === 'natural' ? remedialNaturalCourses.length : remedialSocialCourses.length;
+      total = 250;
+      document.getElementById('selectedProgram').innerHTML = '📖 Remedial';
+      document.getElementById('selectedStream').innerHTML = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
     }
-    
-    const body = `
-📋 *የብራይት ፓዝ አካዳሚ አዲስ የተማሪ ምዝገባ* 📋
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-👤 *የተማሪ መረጃ*
-━━━━━━━━━━━━━━━━━━
-ሙሉ ስም: ${formData.fullName}
-ስልክ ቁጥር: ${formData.phone}
-ኢሜይል: ${formData.email || "አልተሞላም"}
-ተቋም: ${formData.institution}
-ቴሌግራም: ${formData.telegram || "አልተሞላም"}
-
-🎓 *አካዳሚክ መረጃ*
-━━━━━━━━━━━━━━━━
-ፕሮግራም: ${formData.program}
-ዥረት: ${formData.stream}
-የክፍያ ዓይነት: ${formData.packageType}
-
-📚 *የተመረጡ ኮርሶች (${formData.courses.length})*
-━━━━━━━━━━━━━━━━
-${coursesList}
-
-💰 *የክፍያ መረጃ*
-━━━━━━━━━━━━━━━━
-ጠቅላላ ክፍያ: ${formData.totalAmount} ETB
-የክፍያ ማስረጃ: ${formData.proofFile || "አልተጫነም"}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🕐 ሰዓት: ${new Date().toLocaleString('et-ET')}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📌 ይህ መልእክት በራስ ሰር የተላከ ነው።
-    `;
-
-    // የኢሜይል አገናኝ መፍጠር (mailto: በመጠቀም ተማሪው ሳያውቅ ይከፈታል)
-    // ነገር ግን ይህ አገላለጽ አዲስ ትእዛዝ ይከፍታል - በድብቅ መላክ አይቻልም
-    // ስለዚህ መረጃውን ኮንሶል ላይ አሳይተን ተማሪው እንዳያየው እናደርጋለን
-    // ለእውነተኛ አገልግሎት EmailJS ወይም የሰርቨር ሳይድ መጠቀም ያስፈልጋል
-    
-    console.log("========== ለአስተዳዳሪ የሚላክ ኢሜይል ==========");
-    console.log("ለ: " + adminEmail);
-    console.log("ርዕስ: " + subject);
-    console.log("ይዘት:\n" + body);
-    console.log("==========================================");
-    
-    // መልእክቱ ተልኳል የሚል ማሳወቂያ (ለአስተዳዳሪ ብቻ በconsole ላይ)
-    // በእውነተኛ ጊዜ ኢሜይል መላክ ከፈለጉ ከታች ያለውን ኮድ ይጠቀሙ
-    
-    // አማራጭ: አዲስ መስኮት ሳይከፈት ለመላክ ከፈለጉ ሰርቨር ሳይድ አስፈላጊ ነው
-    // ለሙከራ ዓላማ ከታች ያለውን መስመር ኮሜንት ማድረግ ይችላሉ:
-    // window.open(`mailto:${adminEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
-    
-    alert(`✅ ምዝገባዎ ተልኳል!\n\nአስተዳዳሪዎች መረጃዎን ተቀብለዋል። በቅርቡ ያግኙዎታል።`);
+    document.getElementById('courseCount').innerHTML = courseCountVal;
+    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
   }
 
-  // ==================== ፎርም ማረጋገጫ ====================
+  function updateUIVisibility() {
+    if (currentProgram === 'freshman') {
+      streamSection.style.display = 'none';
+      priceSection.style.display = 'block';
+    } else {
+      streamSection.style.display = 'block';
+      priceSection.style.display = 'none';
+    }
+    renderCourses();
+    updateFeeSummary();
+  }
+
+  // radio logic with styling
+  function initRadioStyling() {
+    radioOptions.forEach(opt => {
+      const radio = opt.querySelector('input');
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          const parentGroup = opt.parentElement;
+          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          if (radio.name === 'program') {
+            currentProgram = radio.value;
+            // reset stream default for remedial
+            if (currentProgram === 'remedial' && currentStream !== 'natural') currentStream = 'natural';
+            document.querySelectorAll('input[name="stream"]').forEach(r => { if(r.value === currentStream) r.checked = true; });
+            // trigger stream radio style
+            document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
+              if(o.querySelector('input').value === currentStream) o.classList.add('selected');
+              else o.classList.remove('selected');
+            });
+            updateUIVisibility();
+          } else if (radio.name === 'stream') {
+            currentStream = radio.value;
+            renderCourses();
+            updateFeeSummary();
+          }
+        }
+      });
+      if (radio.checked) opt.classList.add('selected');
+    });
+  }
+
+  function initPriceSelection() {
+    priceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        priceCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        currentPrice = card.dataset.price;
+        updateFeeSummary();
+      });
+    });
+    const defaultPrice = document.querySelector('.price-card[data-price="exam"]');
+    if(defaultPrice) defaultPrice.classList.add('selected');
+    currentPrice = "exam";
+  }
+
+  // file upload
+  fileUploadArea?.addEventListener('click', () => fileInput.click());
+  fileInput?.addEventListener('change', () => {
+    if(fileInput.files.length) showMessage(`📎 Receipt "${fileInput.files[0].name}" attached`, 'success');
+  });
+
   function validateForm() {
-    const name = fullNameInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const inst = institutionInput.value.trim();
-    
-    if (!name) { alert("እባክዎ ሙሉ ስምዎን ያስገቡ"); return false; }
-    if (!phone) { alert("እባክዎ ስልክ ቁጥርዎን ያስገቡ"); return false; }
-    if (!inst) { alert("እባክዎ የትምህርት ተቋምዎን ያስገቡ"); return false; }
-    if (selectedCourses.size === 0) { alert("እባክዎ ቢያንስ አንድ ኮርስ ይምረጡ"); return false; }
-    
+    const fullName = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phoneNumber').value.trim();
+    const uni = document.getElementById('university').value.trim();
+    if (!fullName) { showMessage('❌ Full name is required', 'error'); return false; }
+    if (!phone) { showMessage('❌ Phone number required', 'error'); return false; }
+    if (!uni) { showMessage('❌ University / Institution required', 'error'); return false; }
+    const phoneRegex = /^09\d{8}$|^0\d{9}$/;
+    if (!phoneRegex.test(phone) && phone.length > 0) showMessage('⚠️ Phone format: 09XXXXXXXX', 'error');
     return true;
   }
 
-  // ==================== ዋና የማስገቢያ ተግባር ====================
-  submitBtn.addEventListener('click', () => {
-    if (!validateForm()) return;
-    
-    const total = computeTotal();
-    
-    // ለአስተዳዳሪ የሚላክ መረጃ ማዘጋጀት
-    const adminData = {
-      fullName: fullNameInput.value.trim(),
-      phone: phoneInput.value.trim(),
+  function getFormPayload() {
+    let total = currentProgram === 'freshman' ? (currentPrice === 'exam' ? 350 : 300) : 250;
+    let coursesList = [];
+    if (currentProgram === 'freshman') coursesList = freshmanCourses;
+    else if (currentStream === 'natural') coursesList = remedialNaturalCourses;
+    else coursesList = remedialSocialCourses;
+    return {
+      timestamp: new Date().toISOString(),
+      fullName: document.getElementById('fullName').value.trim(),
+      phone: document.getElementById('phoneNumber').value.trim(),
       email: document.getElementById('email').value.trim(),
-      institution: institutionInput.value.trim(),
-      telegram: document.getElementById('telegram')?.value.trim() || "",
-      program: currentProgram === 'freshman' ? 'Freshman (ፍሬሽማን)' : 'Remedial (ሪሚዲያል)',
-      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science (ናቸራል ሳይንስ)' : 'Social Science (ሶሻል ሳይንስ)'),
-      packageType: currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 'With Exam Pack (ከፈተና ጋር) - 350 ETB' : 'Class Only (ክላስ ብቻ) - 300 ETB') : 'Remedial Standard - 250 ETB',
-      courses: Array.from(selectedCourses),
+      telegram: document.getElementById('telegramUser').value.trim(),
+      university: document.getElementById('university').value.trim(),
+      program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
+      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
+      packageType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Standard (250 ETB)',
+      courses: coursesList,
       totalAmount: total,
-      proofFile: fileInput.files.length ? fileInput.files[0].name : 'አልተጫነም'
+      proofFile: fileInput.files.length ? fileInput.files[0].name : 'Pending upload',
+      status: 'awaiting verification'
     };
-    
-    // ኢሜይል ለአስተዳዳሪ መላክ (ተማሪው አያውቀውም)
-    sendEmailToAdmin(adminData);
-    
-    // ለተማሪው ማሳወቂያ ብቻ (ውጤት አያይም)
-    showStudentThankYou();
-    
-    // ኮንሶል ላይ ሙሉ መረጃ ማሳየት (ለአስተዳዳሪ ፈተሽ)
-    console.log("የተማሪ ሙሉ መረጃ (ለአስተዳዳሪ):", adminData);
+  }
+
+  submitBtn.addEventListener('click', (e) => {
+    if(!validateForm()) return;
+    const data = getFormPayload();
+    showMessage('⏳ Processing enrollment...', 'loading');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Registering ...';
+    setTimeout(() => {
+      console.table(data);
+      showMessage(`✅ Welcome ${data.fullName}! Registration complete.`, 'success');
+      const formContainer = document.querySelector('.form-content');
+      formContainer.innerHTML = `
+        <div class="success-panel">
+          <div class="success-icon">🏅✨</div>
+          <h2 style="color: #0f5c3a;">Enrollment Confirmed</h2>
+          <p style="margin:0.5rem 0; font-size:1rem;"><strong>${data.fullName}</strong>, you're officially part of Bright Path Academy.</p>
+          <div style="background:#f5f9ff; padding:1.2rem; border-radius:1.2rem; text-align:left; margin:1.2rem 0;">
+            <p><i class="fas fa-chalkboard"></i> <strong>Program:</strong> ${data.program}</p>
+            <p><i class="fas fa-layer-group"></i> <strong>Track:</strong> ${data.stream}</p>
+            <p><i class="fas fa-book"></i> <strong>Courses:</strong> ${data.courses.length}</p>
+            <p><i class="fas fa-money-bill-wave"></i> <strong>Amount Due:</strong> ${data.totalAmount} ETB</p>
+            <p><i class="fas fa-mobile-alt"></i> <strong>Contact:</strong> ${data.phone}</p>
+          </div>
+          <p style="font-size:0.8rem;">📢 A confirmation SMS will be sent within 24h. Keep your payment reference.</p>
+          <button class="btn btn-primary" onclick="location.reload()">➕ Register Another Student</button>
+        </div>
+      `;
+    }, 1400);
   });
 
-  // ==================== መጀመሪያ (Initialization) ====================
+  resetBtn.addEventListener('click', () => {
+    if(confirm('Clear all form fields?')) location.reload();
+  });
+
+  // stream default refresh
+  function initStreamSync() {
+    const streamNatural = document.getElementById('streamNatural');
+    const streamSocial = document.getElementById('streamSocial');
+    if(streamNatural) streamNatural.checked = true;
+    currentStream = 'natural';
+    document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
+      if(o.querySelector('input').value === 'natural') o.classList.add('selected');
+      else o.classList.remove('selected');
+    });
+  }
+
   function init() {
-    renderCourses();
-    toggleSections();
+    initRadioStyling();
+    initPriceSelection();
+    initStreamSync();
+    updateUIVisibility();
+    document.getElementById('programFreshman').checked = true;
+    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
   }
   init();
 </script>
