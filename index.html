@@ -1,12 +1,9 @@
-Here is an HTML document that creates a sleek, modern enrollment form for Freshman and Remedial programs, featuring a dual-panel layout and smooth interactions.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path | Next-Gen Enrollment</title>
+  <title>Bright Path Academy | Smart Course Enrollment</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -19,504 +16,579 @@ Here is an HTML document that creates a sleek, modern enrollment form for Freshm
     }
 
     body {
-      background: radial-gradient(ellipse at 30% 40%, #0B1120, #030614);
+      background: radial-gradient(ellipse at 20% 30%, #0A1628, #020A17);
       font-family: 'Inter', sans-serif;
       padding: 2rem 1.5rem;
       min-height: 100vh;
     }
 
-    /* Modern Glass Container */
-    .glass-container {
+    .premium-container {
       max-width: 1400px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 2.5rem;
-      backdrop-filter: blur(0px);
-      box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+      background: #FFFFFF;
+      border-radius: 2rem;
+      box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.5);
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.2s;
     }
 
-    /* Dynamic Header with micro-interactions */
-    .hero-header {
-      background: linear-gradient(120deg, #0B2B44 0%, #1A4A6F 45%, #0F3A5A 100%);
+    /* Modern Header with Depth */
+    .luxury-header {
+      background: linear-gradient(115deg, #0F2B3D 0%, #1B4A6E 50%, #0F3550 100%);
       padding: 2rem 2.5rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-header::before {
+    .luxury-header::after {
       content: '';
       position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255,215,0,0.12), transparent);
+      top: -40%;
+      right: -5%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(255, 200, 100, 0.15), transparent);
       border-radius: 50%;
-      pointer-events: none;
     }
 
-    .logo-badge {
+    .brand-flex {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
-    .logo-circle {
+    .logo-icon {
+      background: linear-gradient(135deg, #FFD966, #FFB347);
       width: 70px;
       height: 70px;
-      background: linear-gradient(145deg, #FFE5B4, #FFC857);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
-      color: #1A3E50;
-      box-shadow: 0 12px 20px -8px rgba(0,0,0,0.3);
+      color: #1F3E48;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    .title-glow h1 {
-      font-size: 2.2rem;
+    .title-area h1 {
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF, #FFE2A4);
+      background: linear-gradient(135deg, #FFFFFF, #FFE4A0);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      letter-spacing: -0.02em;
     }
 
-    .title-glow p {
-      color: rgba(255,245,200,0.85);
-      font-weight: 500;
-      font-size: 0.8rem;
-    }
-
-    .enrollment-badge {
-      background: rgba(255,200,100,0.2);
-      backdrop-filter: blur(4px);
-      border-radius: 60px;
-      padding: 0.3rem 1rem;
+    .badge-smart {
+      background: rgba(255,215,0,0.2);
+      border-radius: 40px;
+      padding: 0.3rem 1.2rem;
       font-size: 0.7rem;
       font-weight: 600;
-      display: inline-block;
-      margin-top: 0.8rem;
-      border: 1px solid rgba(255,210,100,0.4);
+      backdrop-filter: blur(4px);
     }
 
-    /* Two column layout: modern split */
-    .main-dashboard {
+    /* Dashboard 2 Column Layout */
+    .dashboard-split {
       display: flex;
       flex-wrap: wrap;
     }
 
-    .form-panel {
+    .enrollment-form {
       flex: 1.6;
       padding: 2rem 2rem 2rem 2.2rem;
       background: white;
     }
 
-    .summary-panel {
+    .smart-sidebar {
       flex: 1;
-      background: #F8FBFE;
+      background: #F9FCFE;
+      border-left: 1px solid #EAF0F5;
       padding: 2rem 1.8rem;
-      border-left: 1px solid #E9F0F5;
-      position: relative;
     }
 
-    /* form sections */
-    .input-modern {
+    /* Form styling */
+    .input-futuristic {
       margin-bottom: 1.3rem;
     }
 
-    .input-modern label {
-      display: block;
+    .input-futuristic label {
       font-size: 0.8rem;
-      font-weight: 600;
-      color: #1E4A6E;
+      font-weight: 700;
+      color: #1B4A6E;
+      display: block;
       margin-bottom: 0.4rem;
-      letter-spacing: -0.2px;
     }
 
-    .input-modern input, .input-modern select {
+    .input-futuristic input {
       width: 100%;
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       border: 1.5px solid #E2EDF2;
       border-radius: 1rem;
       font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      transition: all 0.2s;
+      transition: 0.2s;
     }
 
-    .input-modern input:focus {
+    .input-futuristic input:focus {
       border-color: #F0A73A;
-      box-shadow: 0 0 0 3px rgba(240, 167, 58, 0.12);
       outline: none;
+      box-shadow: 0 0 0 3px rgba(240, 167, 58, 0.1);
     }
 
-    .grid-2col {
+    .grid-double {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
 
-    /* radio toggle fresh */
-    .pill-switch {
+    /* Modern Toggle */
+    .program-switch {
       display: flex;
-      gap: 0.8rem;
+      gap: 1rem;
       background: #F1F5F9;
-      padding: 0.4rem;
+      padding: 0.35rem;
       border-radius: 60px;
-      margin-bottom: 1rem;
+      margin: 1rem 0 1.2rem;
     }
 
-    .pill-option {
+    .program-pill {
       flex: 1;
       text-align: center;
       padding: 0.7rem;
-      border-radius: 40px;
-      font-weight: 600;
+      border-radius: 50px;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.9rem;
-      background: transparent;
-      color: #335;
+      transition: 0.2s;
     }
 
-    .pill-option.active {
+    .program-pill.active {
       background: #1F6392;
       color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    .pill-option input {
-      display: none;
-    }
-
-    .stream-selector {
-      margin: 1rem 0;
-    }
-
-    .chip-group {
+    /* Chip selection */
+    .stream-chips {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
       margin: 0.8rem 0;
     }
 
-    .chip {
-      background: #F1F5F9;
-      border-radius: 40px;
+    .stream-chip {
+      background: #F0F4F9;
       padding: 0.6rem 1.4rem;
-      cursor: pointer;
+      border-radius: 40px;
       font-weight: 500;
+      cursor: pointer;
       transition: 0.15s;
-      border: 1px solid transparent;
     }
 
-    .chip.selected {
+    .stream-chip.active {
       background: #EFF7FF;
-      border-color: #F0A73A;
-      color: #1A4A6F;
-      font-weight: 600;
+      border: 1px solid #F0A73A;
+      color: #1F4E72;
     }
 
-    /* price cards */
-    .price-modern {
+    .price-flex {
       display: flex;
       gap: 1rem;
-      margin: 1rem 0;
+      margin: 0.8rem 0;
     }
 
-    .price-card-modern {
+    .price-card-premium {
       flex: 1;
-      background: #FCFDFF;
+      background: white;
+      border: 1.5px solid #E9F0F5;
       border-radius: 1.2rem;
       padding: 1rem;
-      border: 1.5px solid #E9F0F5;
+      text-align: center;
       cursor: pointer;
       transition: all 0.2s;
     }
 
-    .price-card-modern.selected {
+    .price-card-premium.selected {
       border-color: #F0A73A;
       background: #FFFBF2;
       transform: translateY(-2px);
     }
 
-    .course-list-modern {
+    /* Course Grid with checkboxes (selectable) */
+    .course-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 0.2rem;
+    }
+
+    .course-item {
+      background: #F9FCFE;
+      border: 1.5px solid #E9F0F5;
+      border-radius: 1rem;
+      padding: 0.7rem 0.9rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin: 0.8rem 0;
-    }
-
-    .course-tag {
-      background: #F1F6FA;
-      border-radius: 40px;
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.7rem;
+      cursor: pointer;
+      transition: 0.1s;
     }
 
-    .fee-card-side {
-      background: linear-gradient(125deg, #FFFFFF, #FEFCF7);
-      border-radius: 1.8rem;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #EFF3F8;
+    .course-item.selected {
+      background: #F0F9FF;
+      border-color: #F0A73A;
     }
 
-    .fee-row-side {
+    .course-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #F0A73A;
+      cursor: pointer;
+    }
+
+    .course-name {
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .fee-summary-card {
+      background: linear-gradient(115deg, #FFFFFF, #FEFAF2);
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      margin: 1.2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 0 0 1px #EFF3F8;
+    }
+
+    .fee-row-summary {
       display: flex;
       justify-content: space-between;
-      padding: 0.6rem 0;
-      font-weight: 500;
+      margin: 0.7rem 0;
     }
 
-    .total-fee {
+    .total-fee-large {
       font-size: 1.4rem;
       font-weight: 800;
-      color: #CD7A2E;
+      color: #C5711E;
     }
 
-    .upload-area-modern {
+    .upload-modern {
       border: 2px dashed #C9DDEB;
       background: #FAFDFF;
       border-radius: 1rem;
-      text-align: center;
       padding: 1rem;
+      text-align: center;
       cursor: pointer;
-      transition: 0.2s;
+      margin-top: 1rem;
     }
 
-    .btn-submit {
+    .btn-gold {
       background: #136B47;
       color: white;
-      border: none;
       width: 100%;
       padding: 1rem;
       border-radius: 2rem;
       font-weight: 700;
       font-size: 1rem;
+      border: none;
       cursor: pointer;
-      transition: all 0.2s;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      transition: 0.2s;
     }
 
-    .btn-submit:hover {
-      background: #0D5539;
+    .btn-gold:hover {
+      background: #0E5539;
       transform: translateY(-2px);
     }
 
-    @media (max-width: 900px) {
-      .main-dashboard {
+    @media (max-width: 850px) {
+      .dashboard-split {
         flex-direction: column;
       }
-      .summary-panel {
+      .smart-sidebar {
         border-left: none;
-        border-top: 1px solid #E9F0F5;
+        border-top: 1px solid #EAF0F5;
       }
     }
   </style>
 </head>
 <body>
-<div class="glass-container">
-  <div class="hero-header">
-    <div class="logo-badge">
-      <div class="logo-circle">BP</div>
-      <div class="title-glow">
-        <h1>BRIGHT PATH <span style="color:#FFD966;">ACADEMY</span></h1>
-        <p>ETHIO UNIVERSITY • FUTURE-READY ENROLLMENT</p>
+<div class="premium-container">
+  <div class="luxury-header">
+    <div class="brand-flex">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="logo-icon">BP</div>
+        <div class="title-area">
+          <h1>BRIGHT PATH ACADEMY</h1>
+          <div style="color: #FFE4B5; font-size: 0.7rem;">ETHIO UNIVERSITY · MODULAR ENROLLMENT</div>
+        </div>
       </div>
+      <div class="badge-smart"><i class="fas fa-rocket"></i> 2026 FRESHMAN & REMEDIAL</div>
     </div>
-    <div class="enrollment-badge"><i class="fas fa-calendar-alt"></i> 2026 FRESHMAN & REMEDIAL • ROLLING ADMISSION</div>
   </div>
 
-  <div class="main-dashboard">
-    <!-- LEFT: FORM PANEL -->
-    <div class="form-panel">
-      <div class="input-modern">
-        <label>Full name <span style="color:#e25c5c;">*</span></label>
-        <input type="text" id="fullName" placeholder="Selam Tesfaye">
+  <div class="dashboard-split">
+    <!-- LEFT FORM PANEL -->
+    <div class="enrollment-form">
+      <div class="grid-double">
+        <div class="input-futuristic"><label>Full Name <span style="color:#e25c5c;">*</span></label><input type="text" id="fullName" placeholder="Meron Desta"></div>
+        <div class="input-futuristic"><label>Phone <span style="color:#e25c5c;">*</span></label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
       </div>
-      <div class="grid-2col">
-        <div class="input-modern"><label>Phone <span style="color:#e25c5c;">*</span></label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
-        <div class="input-modern"><label>Email</label><input type="email" id="email" placeholder="student@bright.com"></div>
+      <div class="grid-double">
+        <div class="input-futuristic"><label>Email</label><input type="email" id="email" placeholder="meron@bright.com"></div>
+        <div class="input-futuristic"><label>Institution <span style="color:#e25c5c;">*</span></label><input type="text" id="institution" placeholder="University / College"></div>
       </div>
-      <div class="grid-2col">
-        <div class="input-modern"><label>Telegram</label><input type="text" id="telegram" placeholder="@username"></div>
-        <div class="input-modern"><label>Institution <span style="color:#e25c5c;">*</span></label><input type="text" id="institution" placeholder="University / College"></div>
+      <div class="input-futuristic"><label>Telegram (optional)</label><input type="text" id="telegram" placeholder="@username"></div>
+
+      <!-- Program Toggle -->
+      <div class="program-switch" id="programToggle">
+        <div class="program-pill active" data-prog="freshman">🎓 Freshman Program</div>
+        <div class="program-pill" data-prog="remedial">📚 Remedial Program</div>
       </div>
 
-      <!-- Program Pill Switch -->
-      <div style="margin: 1.5rem 0 0.8rem 0;"><label style="font-weight:700;">Program Track</label></div>
-      <div class="pill-switch" id="programSwitch">
-        <div class="pill-option active" data-prog="freshman"><input type="radio" name="programRadio" value="freshman" checked hidden> 🎓 Freshman</div>
-        <div class="pill-option" data-prog="remedial"><input type="radio" name="programRadio" value="remedial" hidden> 📚 Remedial</div>
-      </div>
-
-      <!-- Stream (Remedial) -->
-      <div id="streamContainer" style="display: none;">
-        <div style="margin: 0.5rem 0 0.3rem 0;"><label>📌 Stream Focus</label></div>
-        <div class="chip-group" id="streamChips">
-          <div class="chip selected" data-stream="natural">🔬 Natural Science</div>
-          <div class="chip" data-stream="social">📖 Social Science</div>
+      <!-- Stream (Remedial only) -->
+      <div id="streamBlock" style="display: none;">
+        <label style="font-weight:700;">📌 Academic Stream</label>
+        <div class="stream-chips" id="streamChipGroup">
+          <div class="stream-chip active" data-stream="natural">🔬 Natural Science</div>
+          <div class="stream-chip" data-stream="social">📖 Social Science</div>
         </div>
       </div>
 
-      <!-- Price Plan (Freshman) -->
-      <div id="priceContainer" style="display: block; margin-top: 0.5rem;">
-        <div style="margin: 0.5rem 0 0.5rem 0;"><label>💎 Enrollment Package</label></div>
-        <div class="price-modern" id="priceCards">
-          <div class="price-card-modern" data-price-type="class"><div><i class="fas fa-chalkboard-user"></i></div><strong>Class Only</strong><div style="font-size:1.3rem; font-weight:800;">300 ETB</div></div>
-          <div class="price-card-modern selected" data-price-type="exam"><div><i class="fas fa-file-alt"></i></div><strong>With Exam Pack</strong><div style="font-size:1.3rem; font-weight:800;">350 ETB</div></div>
+      <!-- Price (Freshman only) -->
+      <div id="priceBlock">
+        <label style="font-weight:700;">💰 Enrollment Package</label>
+        <div class="price-flex" id="priceGroupFlex">
+          <div class="price-card-premium" data-price="class"><i class="fas fa-chalkboard"></i><br><strong>Class Only</strong><div style="font-size:1.2rem; font-weight:800;">300 ETB</div></div>
+          <div class="price-card-premium selected" data-price="exam"><i class="fas fa-file-signature"></i><br><strong>With Exam Pack</strong><div style="font-size:1.2rem; font-weight:800;">350 ETB</div></div>
         </div>
       </div>
 
-      <!-- Courses section -->
-      <div style="margin: 1.2rem 0 0.5rem 0;"><label>📖 Core Courses (included)</label></div>
-      <div id="coursesContainer" class="course-list-modern"></div>
-      <small style="color:#4B6B87;">✓ All courses are mandatory within selected track</small>
-      
-      <div class="upload-area-modern" id="modernUpload">
-        <i class="fas fa-receipt"></i> <span id="uploadLabel">Click to upload payment proof (CBE/Telebirr)</span>
-        <input type="file" id="proofFile" style="display:none" accept="image/*,.pdf">
+      <!-- Course Selection with all requested new courses -->
+      <div style="margin-top: 0.8rem;">
+        <label style="font-weight:700; display:flex; justify-content:space-between;"><span><i class="fas fa-check-double"></i> Select Your Courses</span> <span style="font-size:0.7rem; background:#EFF3F8; padding:0.2rem 0.7rem; border-radius:20px;" id="selectedCountBadge">0 selected</span></label>
+        <div id="courseListContainer" class="course-selector-grid"></div>
+        <small style="color:#4A627A;">✓ Choose any combination of courses per your program</small>
       </div>
 
-      <button class="btn-submit" id="submitEnrollment"><i class="fas fa-arrow-right-to-bracket"></i> Secure Registration</button>
+      <div class="upload-modern" id="uploadTrigger">
+        <i class="fas fa-cloud-upload-alt"></i> <span id="uploadText">Upload payment screenshot (CBE / Telebirr / BOA)</span>
+        <input type="file" id="paymentProof" style="display:none" accept="image/*,.pdf">
+      </div>
+
+      <button class="btn-gold" id="submitRegistration"><i class="fas fa-arrow-right"></i> Complete Registration</button>
     </div>
 
-    <!-- RIGHT: SMART SUMMARY & PAYMENT INFO -->
-    <div class="summary-panel">
-      <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.2rem;"><i class="fas fa-chart-simple" style="color:#F0A73A;"></i><h3 style="font-weight:700;">Enrollment Summary</h3></div>
-      <div class="fee-card-side">
-        <div class="fee-row-side"><span>👤 Student</span><span id="summaryName">—</span></div>
-        <div class="fee-row-side"><span>🎓 Program</span><span id="summaryProgram">Freshman</span></div>
-        <div class="fee-row-side"><span>📂 Stream</span><span id="summaryStream">—</span></div>
-        <div class="fee-row-side"><span>📚 Total Courses</span><span id="summaryCoursesCount">6</span></div>
-        <div class="fee-row-side" style="border-top:1px solid #E2E8F0; margin-top:6px; padding-top:8px;"><span>💰 Total Fees</span><span class="total-fee" id="summaryAmount">350 ETB</span></div>
+    <!-- RIGHT SUMMARY SIDEBAR -->
+    <div class="smart-sidebar">
+      <div style="display: flex; gap: 0.6rem; align-items:center; border-bottom: 2px solid #F0E3D0; padding-bottom: 0.8rem;">
+        <i class="fas fa-receipt" style="color:#F0A73A;"></i>
+        <h3 style="font-weight:700;">Enrollment Summary</h3>
       </div>
-      <div style="background:#FFF4E5; border-radius:1.2rem; padding:1rem; margin:1rem 0;">
-        <div style="font-weight:700;"><i class="fas fa-university"></i> Payment Details</div>
-        <div style="font-size:0.75rem; margin-top:0.5rem;"><strong>CBE:</strong> 1000354138216 &nbsp;|&nbsp; <strong>Telebirr:</strong> 0955273939<br><strong>BOA:</strong> 82411097 &nbsp;|&nbsp; Name: Samuel Ashenaf H/Mariam</div>
+      <div class="fee-summary-card">
+        <div class="fee-row-summary"><span>👤 Student</span><span id="sumName">—</span></div>
+        <div class="fee-row-summary"><span>🎓 Program</span><span id="sumProgram">Freshman</span></div>
+        <div class="fee-row-summary"><span>📖 Stream/Track</span><span id="sumStream">—</span></div>
+        <div class="fee-row-summary"><span>📚 Courses Selected</span><span id="sumCoursesCount">0</span></div>
+        <div class="fee-row-summary" style="border-top:1px solid #E0E9F0; margin-top:8px; padding-top:8px;"><span>💰 Total Fees</span><span class="total-fee-large" id="sumTotal">0 ETB</span></div>
       </div>
-      <div class="fee-row-side" style="justify-content:center; font-size:0.7rem; color:#4A627A;"><i class="fas fa-shield-alt"></i> Upload screenshot after payment</div>
+      <div style="background: #FFF6EA; border-radius: 1rem; padding: 1rem; margin-top: 0.5rem;">
+        <div><i class="fas fa-university"></i> <strong>Payment Info</strong></div>
+        <div style="font-size: 0.7rem; margin-top: 0.5rem;">CBE: 1000354138216<br>Telebirr: 0955273939<br>BOA: 82411097<br>Name: Samuel Ashenaf H/Mariam</div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  // --- Data ---
-  const freshmanCourseList = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography"];
-  const remedialNatural = ["Biology", "Physics", "Chemistry", "English", "Mathematics"];
-  const remedialSocial = ["Mathematics", "English", "Geography", "History"];
+  // ---------- COURSE DATABASE (Including new requested courses) ----------
+  // Base courses per program (but now user can select/unselect any)
+  const freshmanCoreAll = [
+    "Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography",
+    "Applied Mathematics", "History", "Emerging Technology", "Civics and Moral Education", "Anthropology", "English Skill 2", "Computer Programming"
+  ];
+  
+  const remedialNaturalAll = [
+    "Biology", "Physics", "Chemistry", "English", "Mathematics",
+    "Applied Mathematics", "Emerging Technology", "Computer Programming", "Civics and Moral Education"
+  ];
+  
+  const remedialSocialAll = [
+    "Mathematics", "English", "Geography", "History",
+    "Applied Mathematics", "Civics and Moral Education", "Anthropology", "English Skill 2", "Emerging Technology"
+  ];
 
-  // State
-  let currentProgram = "freshman";     // freshman / remedial
-  let currentStream = "natural";       // natural / social
-  let currentPriceType = "exam";       // class / exam (freshman only)
-  let selectedCourses = [...freshmanCourseList];
+  // State management
+  let currentProgram = "freshman";      // freshman / remedial
+  let currentStream = "natural";        // natural / social
+  let currentPriceType = "exam";        // class / exam (for freshman)
+  let availableCourses = [...freshmanCoreAll];
+  let selectedCoursesSet = new Set(freshmanCoreAll); // initially all selected for freshman
 
   // DOM elements
+  const courseContainer = document.getElementById('courseListContainer');
+  const selectedCountSpan = document.getElementById('selectedCountBadge');
+  const sumCoursesSpan = document.getElementById('sumCoursesCount');
+  const sumTotalSpan = document.getElementById('sumTotal');
+  const sumProgramSpan = document.getElementById('sumProgram');
+  const sumStreamSpan = document.getElementById('sumStream');
+  const sumNameSpan = document.getElementById('sumName');
+  const streamBlock = document.getElementById('streamBlock');
+  const priceBlock = document.getElementById('priceBlock');
+  const programPills = document.querySelectorAll('.program-pill');
+  const streamChips = document.querySelectorAll('.stream-chip');
+  const priceCards = document.querySelectorAll('.price-card-premium');
   const fullNameInput = document.getElementById('fullName');
   const phoneInput = document.getElementById('phone');
   const institutionInput = document.getElementById('institution');
-  const summaryNameSpan = document.getElementById('summaryName');
-  const summaryProgramSpan = document.getElementById('summaryProgram');
-  const summaryStreamSpan = document.getElementById('summaryStream');
-  const summaryCoursesCountSpan = document.getElementById('summaryCoursesCount');
-  const summaryAmountSpan = document.getElementById('summaryAmount');
-  const coursesContainer = document.getElementById('coursesContainer');
-  const streamContainer = document.getElementById('streamContainer');
-  const priceContainerDiv = document.getElementById('priceContainer');
-  const streamChips = document.querySelectorAll('#streamChips .chip');
-  const priceCardsDivs = document.querySelectorAll('.price-card-modern');
-  const programPills = document.querySelectorAll('.pill-option');
-  const uploadArea = document.getElementById('modernUpload');
-  const fileInputProof = document.getElementById('proofFile');
-  const submitBtn = document.getElementById('submitEnrollment');
+  const submitBtn = document.getElementById('submitRegistration');
+  const uploadArea = document.getElementById('uploadTrigger');
+  const fileInput = document.getElementById('paymentProof');
+  const uploadTextSpan = document.getElementById('uploadText');
 
-  // Helper: Render course tags
-  function renderCoursesUI() {
-    let courses = [];
+  // Helper: compute fee based on program + selected courses count + freshman priceType
+  function computeTotalFee() {
+    let basePerCourse = 0;
     if (currentProgram === 'freshman') {
-      courses = freshmanCourseList;
-      selectedCourses = [...freshmanCourseList];
+      // freshman pricing: base package + extra courses beyond core? instead each course 40ETB ? system more friendly: flat package + optional extra?
+      // To reflect modern approach: Freshman has base price (package) + additional courses cost? Let's design:
+      // Package includes first 6 core courses for 300/350, additional selected courses each 30 ETB.
+      const coreDefaultCount = 6; // first 6 are default in original plan but we allow all.
+      let selectedCount = selectedCoursesSet.size;
+      let extra = Math.max(0, selectedCount - 6);
+      let packagePrice = currentPriceType === 'exam' ? 350 : 300;
+      return packagePrice + (extra * 30);
     } else {
-      if (currentStream === 'natural') courses = remedialNatural;
-      else courses = remedialSocial;
-      selectedCourses = [...courses];
+      // Remedial: each course = 45 ETB flat, flexible (up to 9 courses)
+      let selectedCount = selectedCoursesSet.size;
+      return selectedCount * 45;
     }
-    coursesContainer.innerHTML = courses.map(c => `<div class="course-tag"><i class="fas fa-check-circle" style="color:#2C9B67; font-size:0.7rem;"></i> ${c}</div>`).join('');
-    summaryCoursesCountSpan.innerText = courses.length;
   }
 
-  // Update summary panel fees, program details
-  function updateSummaryAndFees() {
-    let total = 0;
-    let courseLen = 0;
-    if (currentProgram === 'freshman') {
-      courseLen = freshmanCourseList.length;
-      total = currentPriceType === 'exam' ? 350 : 300;
-      summaryProgramSpan.innerText = 'Freshman';
-      summaryStreamSpan.innerText = '—';
-    } else {
-      courseLen = currentStream === 'natural' ? remedialNatural.length : remedialSocial.length;
-      total = 250;   // fixed remedial fee
-      summaryProgramSpan.innerText = 'Remedial';
-      summaryStreamSpan.innerText = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
-    }
-    summaryCoursesCountSpan.innerText = courseLen;
-    summaryAmountSpan.innerText = `${total} ETB`;
-    // update name live
-    let nameVal = fullNameInput.value.trim();
-    summaryNameSpan.innerText = nameVal === "" ? "—" : nameVal;
+  function updateSummary() {
+    let total = computeTotalFee();
+    let count = selectedCoursesSet.size;
+    sumCoursesSpan.innerText = count;
+    sumTotalSpan.innerText = `${total} ETB`;
+    selectedCountSpan.innerText = `${count} selected`;
+    
+    // program & stream text
+    sumProgramSpan.innerText = currentProgram === 'freshman' ? 'Freshman' : 'Remedial';
+    if (currentProgram === 'freshman') sumStreamSpan.innerText = '—';
+    else sumStreamSpan.innerText = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
+    
+    // update name
+    let name = fullNameInput.value.trim();
+    sumNameSpan.innerText = name || '—';
   }
 
-  // full summary refresh including program/stream changes
-  function refreshUI() {
-    if (currentProgram === 'freshman') {
-      streamContainer.style.display = 'none';
-      priceContainerDiv.style.display = 'block';
-    } else {
-      streamContainer.style.display = 'block';
-      priceContainerDiv.style.display = 'none';
-      // ensure stream chip visuals selected
-      document.querySelectorAll('#streamChips .chip').forEach(chip => {
-        if (chip.dataset.stream === currentStream) chip.classList.add('selected');
-        else chip.classList.remove('selected');
+  // Render course list with checkboxes based on availableCourses & selected set
+  function renderCourses() {
+    if (!courseContainer) return;
+    courseContainer.innerHTML = '';
+    availableCourses.forEach(course => {
+      const isChecked = selectedCoursesSet.has(course);
+      const div = document.createElement('div');
+      div.className = `course-item ${isChecked ? 'selected' : ''}`;
+      div.innerHTML = `
+        <input type="checkbox" value="${course.replace(/"/g, '&quot;')}" ${isChecked ? 'checked' : ''}>
+        <span class="course-name">${course}</span>
+      `;
+      const checkbox = div.querySelector('input');
+      checkbox.addEventListener('change', (e) => {
+        e.stopPropagation();
+        if (checkbox.checked) {
+          selectedCoursesSet.add(course);
+        } else {
+          selectedCoursesSet.delete(course);
+        }
+        if (checkbox.checked) div.classList.add('selected');
+        else div.classList.remove('selected');
+        updateSummary();
       });
+      div.addEventListener('click', (e) => {
+        if (e.target.tagName !== 'INPUT') {
+          checkbox.checked = !checkbox.checked;
+          if (checkbox.checked) {
+            selectedCoursesSet.add(course);
+            div.classList.add('selected');
+          } else {
+            selectedCoursesSet.delete(course);
+            div.classList.remove('selected');
+          }
+          updateSummary();
+        }
+      });
+      courseContainer.appendChild(div);
+    });
+    updateSummary();
+  }
+
+  // Refresh course list based on program + stream selection
+  function refreshCourseCatalog() {
+    if (currentProgram === 'freshman') {
+      availableCourses = [...freshmanCoreAll];
+    } else {
+      if (currentStream === 'natural') availableCourses = [...remedialNaturalAll];
+      else availableCourses = [...remedialSocialAll];
     }
-    renderCoursesUI();
-    updateSummaryAndFees();
+    // Preserve selections that exist in new catalog
+    const newSelected = new Set();
+    for (let c of selectedCoursesSet) {
+      if (availableCourses.includes(c)) newSelected.add(c);
+    }
+    // If program change and no courses selected, select default first 3?
+    if (newSelected.size === 0 && availableCourses.length > 0) {
+      // auto-select first 3 popular to avoid empty
+      const defaultSel = availableCourses.slice(0, Math.min(3, availableCourses.length));
+      defaultSel.forEach(c => newSelected.add(c));
+    }
+    selectedCoursesSet = newSelected;
+    renderCourses();
+  }
+
+  // Update UI visibility (stream / price)
+  function toggleProgramSections() {
+    if (currentProgram === 'freshman') {
+      streamBlock.style.display = 'none';
+      priceBlock.style.display = 'block';
+      // reset stream flag meaningless but keep
+    } else {
+      streamBlock.style.display = 'block';
+      priceBlock.style.display = 'none';
+    }
+    refreshCourseCatalog();
   }
 
   // Program pill handlers
   programPills.forEach(pill => {
     pill.addEventListener('click', () => {
-      const progVal = pill.dataset.prog;
-      if (!progVal) return;
-      currentProgram = progVal;
+      const prog = pill.dataset.prog;
+      if (prog === 'freshman') currentProgram = 'freshman';
+      else currentProgram = 'remedial';
       programPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      // reset stream default if remedial
-      if (currentProgram === 'remedial' && currentStream !== 'natural') {
-        currentStream = 'natural';
-      }
+      // adjust default stream for remedial if needed
+      if (currentProgram === 'remedial' && currentStream !== 'natural') currentStream = 'natural';
+      else if (currentProgram === 'freshman') currentPriceType = 'exam';
+      // update stream chip active style
+      document.querySelectorAll('.stream-chip').forEach(chip => {
+        if (chip.dataset.stream === currentStream) chip.classList.add('active');
+        else chip.classList.remove('active');
+      });
+      // price card active exam default for freshman
       if (currentProgram === 'freshman') {
-        currentPriceType = "exam";
-        document.querySelectorAll('.price-card-modern').forEach(card => {
-          if(card.dataset.priceType === 'exam') card.classList.add('selected');
+        priceCards.forEach(card => {
+          if (card.dataset.price === 'exam') card.classList.add('selected');
           else card.classList.remove('selected');
         });
+        currentPriceType = 'exam';
       }
-      refreshUI();
+      toggleProgramSections();
     });
   });
 
@@ -525,66 +597,59 @@ Here is an HTML document that creates a sleek, modern enrollment form for Freshm
     chip.addEventListener('click', () => {
       if (currentProgram !== 'remedial') return;
       const streamVal = chip.dataset.stream;
-      if (streamVal === 'natural') currentStream = 'natural';
-      else if (streamVal === 'social') currentStream = 'social';
-      streamChips.forEach(c => c.classList.remove('selected'));
-      chip.classList.add('selected');
-      renderCoursesUI();
-      updateSummaryAndFees();
+      currentStream = streamVal;
+      streamChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      refreshCourseCatalog();
     });
   });
 
-  // Price cards selection (freshman)
-  priceCardsDivs.forEach(card => {
+  // Price cards
+  priceCards.forEach(card => {
     card.addEventListener('click', () => {
       if (currentProgram !== 'freshman') return;
-      const type = card.dataset.priceType;
-      currentPriceType = type;
-      priceCardsDivs.forEach(c => c.classList.remove('selected'));
+      const priceType = card.dataset.price;
+      currentPriceType = priceType;
+      priceCards.forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
-      updateSummaryAndFees();
+      updateSummary();
     });
   });
 
-  // realtime name update
-  function updateNameLive() {
-    let name = fullNameInput.value.trim();
-    summaryNameSpan.innerText = name === "" ? "—" : name;
-  }
-  fullNameInput.addEventListener('input', updateNameLive);
-  phoneInput.addEventListener('input', () => {});
-  
-  // File upload
-  uploadArea.addEventListener('click', () => fileInputProof.click());
-  fileInputProof.addEventListener('change', () => {
-    if(fileInputProof.files.length) {
-      const fileName = fileInputProof.files[0].name;
-      document.getElementById('uploadLabel').innerHTML = `<i class="fas fa-check-circle"></i> ${fileName}`;
+  // Name live update
+  fullNameInput.addEventListener('input', () => {
+    sumNameSpan.innerText = fullNameInput.value.trim() || '—';
+  });
+
+  // File upload 
+  uploadArea.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) {
+      uploadTextSpan.innerHTML = `<i class="fas fa-check-circle"></i> ${fileInput.files[0].name}`;
     } else {
-      document.getElementById('uploadLabel').innerHTML = 'Click to upload payment proof (CBE/Telebirr)';
+      uploadTextSpan.innerHTML = 'Upload payment screenshot (CBE / Telebirr / BOA)';
     }
   });
 
-  // Validation & submit modern
-  function validate() {
+  // Validation & Submit
+  function validateForm() {
     const name = fullNameInput.value.trim();
     const phone = phoneInput.value.trim();
     const institution = institutionInput.value.trim();
-    if (!name) { alert("❌ Full name is required"); return false; }
-    if (!phone) { alert("❌ Phone number required"); return false; }
-    if (!institution) { alert("❌ Institution name required"); return false; }
-    const phoneValid = /^09\d{8}$|^0\d{9}$/.test(phone);
-    if (!phoneValid) alert("⚠️ Phone number should be 10 digits (09XXXXXXXX)");
+    if (!name) { alert("Full name is required"); return false; }
+    if (!phone) { alert("Phone number required"); return false; }
+    if (!institution) { alert("Institution name required"); return false; }
+    if (selectedCoursesSet.size === 0) { alert("Please select at least one course"); return false; }
+    if (!fileInput.files.length) { 
+      if (!confirm("No payment proof uploaded. Continue anyway?")) return false;
+    }
     return true;
   }
 
-  function getRegistrationPayload() {
-    let totalAmount = currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 350 : 300) : 250;
-    let coursesList = [];
-    if (currentProgram === 'freshman') coursesList = freshmanCourseList;
-    else if (currentStream === 'natural') coursesList = remedialNatural;
-    else coursesList = remedialSocial;
-    return {
+  submitBtn.addEventListener('click', (e) => {
+    if (!validateForm()) return;
+    const totalAmount = computeTotalFee();
+    const payload = {
       timestamp: new Date().toISOString(),
       fullName: fullNameInput.value.trim(),
       phone: phoneInput.value.trim(),
@@ -593,53 +658,42 @@ Here is an HTML document that creates a sleek, modern enrollment form for Freshm
       institution: institutionInput.value.trim(),
       program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
       stream: currentProgram === 'freshman' ? 'General' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
-      package: currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 'Exam Package (350 ETB)' : 'Class Only (300 ETB)') : 'Remedial Standard (250 ETB)',
-      courses: coursesList,
+      packageType: currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 'Exam Package' : 'Class Only') : 'Flex Remedial',
+      selectedCourses: Array.from(selectedCoursesSet),
       totalAmount: totalAmount,
-      paymentProof: fileInputProof.files.length > 0 ? fileInputProof.files[0].name : 'Not uploaded',
-      status: 'Pending'
+      proofFile: fileInput.files.length ? fileInput.files[0].name : 'Not uploaded'
     };
-  }
-
-  submitBtn.addEventListener('click', (e) => {
-    if (!validate()) return;
-    const data = getRegistrationPayload();
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Registering...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
     setTimeout(() => {
-      console.log("📋 Enrollment Data:", data);
-      const successHTML = `
-        <div style="text-align:center; padding: 1.5rem;">
-          <div style="font-size:4rem;">🎉✅</div>
-          <h2 style="color:#136B47;">Welcome, ${data.fullName}!</h2>
-          <div style="background:#F3F9F0; border-radius:1rem; padding:1rem; margin:1rem 0; text-align:left;">
-            <p><strong>Program:</strong> ${data.program}</p>
-            <p><strong>Stream/Track:</strong> ${data.stream}</p>
-            <p><strong>Courses enrolled:</strong> ${data.courses.length}</p>
-            <p><strong>Total amount:</strong> ${data.totalAmount} ETB</p>
-            <p><strong>Reference:</strong> Confirmation SMS sent to ${data.phone}</p>
+      console.log("Enrollment Data:", payload);
+      const formDiv = document.querySelector('.enrollment-form');
+      formDiv.innerHTML = `
+        <div style="text-align:center; padding:2rem;">
+          <div style="font-size:3.5rem;">🎉✨</div>
+          <h2 style="color:#136B47;">Registration Confirmed, ${payload.fullName}!</h2>
+          <div style="background:#F4F9F4; border-radius:1.5rem; padding:1rem; margin:1rem 0; text-align:left;">
+            <p><strong>📘 Program:</strong> ${payload.program}</p>
+            <p><strong>📚 Courses:</strong> ${payload.selectedCourses.length} modules</p>
+            <p><strong>💰 Total:</strong> ${payload.totalAmount} ETB</p>
+            <p><strong>📞 Confirmation sent to:</strong> ${payload.phone}</p>
           </div>
-          <button class="btn-submit" onclick="location.reload()" style="background:#1A4A6F;">Register Another →</button>
+          <button class="btn-gold" onclick="location.reload()">➕ Register Another Student</button>
         </div>
       `;
-      const formPanelDiv = document.querySelector('.form-panel');
-      const summaryDiv = document.querySelector('.summary-panel');
-      if (formPanelDiv) formPanelDiv.innerHTML = successHTML;
-      if (summaryDiv) summaryDiv.style.opacity = '0.6';
-    }, 1400);
+      document.querySelector('.smart-sidebar').style.opacity = '0.7';
+    }, 1300);
   });
 
-  // initialize
+  // Initialization
   function init() {
-    renderCoursesUI();
-    updateSummaryAndFees();
-    updateNameLive();
-    document.querySelector('#streamChips .chip[data-stream="natural"]').classList.add('selected');
-    currentStream = 'natural';
-    refreshUI();
+    selectedCoursesSet = new Set(freshmanCoreAll.slice(0, 7)); // select 7 default
+    refreshCourseCatalog();
+    toggleProgramSections();
+    sumNameSpan.innerText = '—';
+    updateSummary();
   }
   init();
 </script>
 </body>
 </html>
-```
