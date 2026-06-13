@@ -860,6 +860,832 @@
   init();
 </script>
 </body>
+</html>      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Logo Styles */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 5px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 0.8rem;
+    }
+
+    .logo-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0A4D9E;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .header h1 span {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-top: 0.3rem;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+      margin-top: 1rem;
+      color: white;
+    }
+
+    .form-content {
+      padding: 2rem;
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title i {
+      color: #0A4D9E;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+
+    label .required {
+      color: #ef4444;
+    }
+
+    input, select {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 0.8rem;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      background: white;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0A4D9E;
+      box-shadow: 0 0 0 3px rgba(10, 77, 158, 0.1);
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background: white;
+      border-radius: 2rem;
+      border: 1.5px solid #e2e8f0;
+      transition: all 0.2s;
+    }
+
+    .radio-option.selected {
+      border-color: #0A4D9E;
+      background: #eef2ff;
+    }
+
+    .price-options {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .price-card {
+      flex: 1;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .price-card.selected {
+      border-color: #0A4D9E;
+      background: #eef2ff;
+    }
+
+    .price-card .price-icon {
+      font-size: 1.5rem;
+    }
+
+    .price-card .price-title {
+      font-weight: 700;
+      margin: 0.5rem 0;
+    }
+
+    .price-card .price-amount {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0A4D9E;
+    }
+
+    .price-card .price-desc {
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .course-card {
+      background: white;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .course-card.selected {
+      border-color: #0A4D9E;
+      background: #eef2ff;
+    }
+
+    .course-card input {
+      width: 18px;
+      height: 18px;
+      accent-color: #0A4D9E;
+    }
+
+    .course-card .course-name {
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    .fee-summary {
+      background: linear-gradient(135deg, #0A4D9E, #0f5bb3);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      color: white;
+    }
+
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+    }
+
+    .fee-row.total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .payment-card {
+      background: white;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .payment-card i {
+      font-size: 1.5rem;
+      color: #0A4D9E;
+    }
+
+    .payment-card .payment-number {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: #f1f5f9;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .file-upload-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      text-align: center;
+      cursor: pointer;
+      background: #f8fafc;
+    }
+
+    .file-upload-area:hover {
+      border-color: #0A4D9E;
+      background: #eef2ff;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: #0A4D9E;
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: #0c5bb3;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+
+    .message-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 1rem 1.5rem;
+      border-radius: 0.8rem;
+      animation: slideIn 0.3s ease;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(100%); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .message-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+    .message-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+    .message-loading { background: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
+
+    .success-panel {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+
+    @media (max-width: 700px) {
+      .form-grid, .course-grid, .payment-methods, .price-options {
+        grid-template-columns: 1fr;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo-container">
+      <!-- Logo Image - Replace the src with your actual image URL -->
+      <!-- Option 1: If you upload image to GitHub, use: -->
+      <img src="logo.png" alt="Bright Path Academy Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display: none;">BP</div>
+      
+      <!-- Option 2: If you have a direct image URL, uncomment and use:
+      <img src="https://your-image-url.com/logo.png" alt="Bright Path Academy Logo" class="logo-img">
+      -->
+    </div>
+    <h1>BRIGHT <span>PATH</span></h1>
+    <div class="tagline">LEARN TODAY, LEAD TOMORROW</div>
+    <div class="subtitle">ETHIO UNIVERSITY</div>
+    <div class="badge">📚 FRESHMAN & REMEDIAL COURSES 2026</div>
+  </div>
+
+  <div class="form-content">
+    <!-- Personal Information -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-user-graduate"></i>
+        <span>Personal Information</span>
+      </div>
+      <div class="form-grid">
+        <div class="input-group">
+          <label>Full Name <span class="required">*</span></label>
+          <input type="text" id="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="input-group">
+          <label>Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phoneNumber" placeholder="09XXXXXXXX">
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="input-group">
+          <label>Telegram Username</label>
+          <input type="text" id="telegramUser" placeholder="@username">
+        </div>
+        <div class="input-group full-width">
+          <label>University / Institution <span class="required">*</span></label>
+          <input type="text" id="university" placeholder="Enter your university name">
+        </div>
+      </div>
+    </div>
+
+    <!-- Program Selection -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Program Selection</span>
+      </div>
+      <div class="radio-group" id="programGroup">
+        <div class="radio-option" data-value="freshman">
+          <input type="radio" name="program" value="freshman" id="programFreshman">
+          <label for="programFreshman">🎓 Freshman Program</label>
+        </div>
+        <div class="radio-option" data-value="remedial">
+          <input type="radio" name="program" value="remedial" id="programRemedial">
+          <label for="programRemedial">📚 Remedial Program</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stream Selection (only for Remedial) -->
+    <div class="form-section" id="streamSection" style="display: none;">
+      <div class="section-title">
+        <i class="fas fa-chart-line"></i>
+        <span>Stream Selection</span>
+      </div>
+      <div class="radio-group" id="streamGroup">
+        <div class="radio-option" data-value="natural">
+          <input type="radio" name="stream" value="natural" id="streamNatural">
+          <label for="streamNatural">🔬 Natural Science</label>
+        </div>
+        <div class="radio-option" data-value="social">
+          <input type="radio" name="stream" value="social" id="streamSocial">
+          <label for="streamSocial">📖 Social Science</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price Selection (only for Freshman) -->
+    <div class="form-section" id="priceSection" style="display: none;">
+      <div class="section-title">
+        <i class="fas fa-tag"></i>
+        <span>Payment Type</span>
+      </div>
+      <div class="price-options" id="priceOptions">
+        <div class="price-card" data-price="class">
+          <div class="price-icon">📚</div>
+          <div class="price-title">Class Only</div>
+          <div class="price-amount">300 ETB</div>
+          <div class="price-desc">Without Exam</div>
+        </div>
+        <div class="price-card" data-price="exam">
+          <div class="price-icon">📝</div>
+          <div class="price-title">With Exam</div>
+          <div class="price-amount">350 ETB</div>
+          <div class="price-desc">Class + Exam & Previous</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Selection -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-book-open"></i>
+        <span>Course Selection</span>
+      </div>
+      <div class="course-grid" id="courseGrid">
+        <!-- Courses will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Fee Summary -->
+    <div class="fee-summary" id="feeSummary">
+      <div class="fee-row">
+        <span>Program:</span>
+        <span id="selectedProgram">Freshman</span>
+      </div>
+      <div class="fee-row">
+        <span>Stream:</span>
+        <span id="selectedStream">-</span>
+      </div>
+      <div class="fee-row">
+        <span>Courses:</span>
+        <span id="courseCount">0</span>
+      </div>
+      <div class="fee-row total">
+        <span>Total Amount:</span>
+        <span id="totalAmount">0 ETB</span>
+      </div>
+    </div>
+
+    <!-- Payment Information -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-credit-card"></i>
+        <span>Payment Information</span>
+      </div>
+      
+      <div class="payment-methods">
+        <div class="payment-card">
+          <i class="fas fa-university"></i>
+          <div class="payment-name">CBE</div>
+          <div class="payment-number">1000354138216</div>
+        </div>
+        <div class="payment-card">
+          <i class="fas fa-mobile-alt"></i>
+          <div class="payment-name">Telebirr</div>
+          <div class="payment-number">0955273939</div>
+        </div>
+        <div class="payment-card">
+          <i class="fas fa-building"></i>
+          <div class="payment-name">BOA</div>
+          <div class="payment-number">82411097</div>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 0.8rem; color: #64748b;">
+        Account Name: Samuel Ashenaf H/Mariam
+      </p>
+
+      <div class="file-upload-area" id="fileUploadArea">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Click to upload payment screenshot</p>
+        <small>PNG, JPG or PDF (max 5MB)</small>
+        <input type="file" id="paymentProof" accept="image/*,.pdf" style="display: none;">
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      <button class="btn btn-primary" id="submitBtn">Submit Registration</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ========================
+  // COURSE DATA
+  // ========================
+  const freshmanCourses = [
+    "Communicative English",
+    "Mathematics",
+    "Physics",
+    "Psychology",
+    "Critical Thinking",
+    "Geography"
+  ];
+
+  const remedialNaturalCourses = [
+    "Biology",
+    "Physics",
+    "Chemistry",
+    "English",
+    "Mathematics"
+  ];
+
+  const remedialSocialCourses = [
+    "Mathematics",
+    "English",
+    "Geography",
+    "History"
+  ];
+
+  // State
+  let currentProgram = "freshman";
+  let currentStream = "natural";
+  let currentPrice = "exam";
+  let selectedCourses = [];
+
+  // DOM Elements
+  const courseGrid = document.getElementById('courseGrid');
+  const streamSection = document.getElementById('streamSection');
+  const priceSection = document.getElementById('priceSection');
+  const programRadios = document.querySelectorAll('input[name="program"]');
+  const streamRadios = document.querySelectorAll('input[name="stream"]');
+  const radioOptions = document.querySelectorAll('.radio-option');
+  const priceCards = document.querySelectorAll('.price-card');
+  const fileUploadArea = document.getElementById('fileUploadArea');
+  const fileInput = document.getElementById('paymentProof');
+  const submitBtn = document.getElementById('submitBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  // ========================
+  // UI FUNCTIONS
+  // ========================
+  function showMessage(message, type) {
+    const existing = document.querySelector('.message-popup');
+    if (existing) existing.remove();
+    
+    const div = document.createElement('div');
+    div.className = `message-popup message-${type}`;
+    div.innerHTML = message;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 4000);
+  }
+
+  function updateCourseGrid() {
+    let courses = [];
+    
+    if (currentProgram === 'freshman') {
+      courses = freshmanCourses;
+    } else {
+      if (currentStream === 'natural') {
+        courses = remedialNaturalCourses;
+      } else {
+        courses = remedialSocialCourses;
+      }
+    }
+    
+    selectedCourses = [...courses];
+    
+    courseGrid.innerHTML = courses.map(course => `
+      <div class="course-card selected">
+        <input type="checkbox" value="${course}" checked disabled>
+        <div class="course-name">${course}</div>
+      </div>
+    `).join('');
+    
+    document.querySelectorAll('.course-card').forEach(card => card.classList.add('selected'));
+  }
+
+  function updateFeeSummary() {
+    let total = 0;
+    let courseCount = 0;
+    
+    if (currentProgram === 'freshman') {
+      courseCount = freshmanCourses.length;
+      total = currentPrice === 'exam' ? 350 : 300;
+      document.getElementById('selectedProgram').innerHTML = 'Freshman';
+      document.getElementById('selectedStream').innerHTML = '-';
+    } else {
+      if (currentStream === 'natural') {
+        courseCount = remedialNaturalCourses.length;
+        total = 250;
+        document.getElementById('selectedStream').innerHTML = 'Natural Science';
+      } else {
+        courseCount = remedialSocialCourses.length;
+        total = 250;
+        document.getElementById('selectedStream').innerHTML = 'Social Science';
+      }
+      document.getElementById('selectedProgram').innerHTML = 'Remedial';
+    }
+    
+    document.getElementById('courseCount').innerHTML = courseCount;
+    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
+  }
+
+  function updateUI() {
+    if (currentProgram === 'freshman') {
+      streamSection.style.display = 'none';
+      priceSection.style.display = 'block';
+    } else {
+      streamSection.style.display = 'block';
+      priceSection.style.display = 'none';
+    }
+    updateCourseGrid();
+    updateFeeSummary();
+  }
+
+  // ========================
+  // RADIO STYLING
+  // ========================
+  function initRadioStyling() {
+    radioOptions.forEach(opt => {
+      const radio = opt.querySelector('input');
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          const parentGroup = opt.parentElement;
+          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          
+          if (radio.name === 'program') {
+            currentProgram = radio.value;
+            updateUI();
+          } else if (radio.name === 'stream') {
+            currentStream = radio.value;
+            updateCourseGrid();
+            updateFeeSummary();
+          }
+        }
+      });
+      if (radio.checked) opt.classList.add('selected');
+    });
+  }
+
+  // Price selection styling
+  function initPriceSelection() {
+    priceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        priceCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        currentPrice = card.dataset.price;
+        updateFeeSummary();
+      });
+    });
+    document.querySelector('.price-card[data-price="exam"]').classList.add('selected');
+  }
+
+  // ========================
+  // FILE UPLOAD
+  // ========================
+  fileUploadArea.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) {
+      showMessage(`📎 ${fileInput.files[0].name} uploaded`, 'success');
+    }
+  });
+
+  // ========================
+  // FORM VALIDATION & SUBMIT
+  // ========================
+  function validateForm() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phoneNumber').value.trim();
+    const university = document.getElementById('university').value.trim();
+    
+    if (!fullName) { showMessage('Please enter your full name', 'error'); return false; }
+    if (!phone) { showMessage('Please enter your phone number', 'error'); return false; }
+    if (!university) { showMessage('Please enter your university name', 'error'); return false; }
+    
+    return true;
+  }
+
+  function getFormData() {
+    let totalAmount = 0;
+    let courses = [];
+    
+    if (currentProgram === 'freshman') {
+      totalAmount = currentPrice === 'exam' ? 350 : 300;
+      courses = freshmanCourses;
+    } else {
+      totalAmount = 250;
+      courses = currentStream === 'natural' ? remedialNaturalCourses : remedialSocialCourses;
+    }
+    
+    return {
+      timestamp: new Date().toISOString(),
+      fullName: document.getElementById('fullName').value.trim(),
+      phoneNumber: document.getElementById('phoneNumber').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      telegramUser: document.getElementById('telegramUser').value.trim(),
+      university: document.getElementById('university').value.trim(),
+      program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
+      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
+      paymentType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Fixed (250 ETB)',
+      selectedCourses: courses,
+      totalAmount: totalAmount,
+      paymentProof: fileInput.files.length > 0 ? fileInput.files[0].name : 'Not uploaded',
+      status: 'Pending Verification'
+    };
+  }
+
+  submitBtn.addEventListener('click', () => {
+    if (!validateForm()) return;
+    
+    const formData = getFormData();
+    
+    showMessage('⏳ Submitting your registration...', 'loading');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Processing...';
+    
+    setTimeout(() => {
+      console.log('Registration Data:', formData);
+      showMessage('✅ Registration Submitted Successfully!', 'success');
+      
+      document.querySelector('.form-content').innerHTML = `
+        <div class="success-panel">
+          <div class="success-icon">🎓✨</div>
+          <h2 style="color: #2c7a4d;">Registration Successful!</h2>
+          <p style="margin: 1rem 0;">Welcome to Bright Path Academy, <strong>${formData.fullName}</strong>!</p>
+          <div style="background: #f8fafc; padding: 1rem; border-radius: 1rem; text-align: left;">
+            <p><strong>📚 Program:</strong> ${formData.program}</p>
+            <p><strong>🎯 Stream:</strong> ${formData.stream}</p>
+            <p><strong>📖 Courses:</strong> ${formData.selectedCourses.length}</p>
+            <p><strong>💰 Total Amount:</strong> ${formData.totalAmount} ETB</p>
+          </div>
+          <p>🌟 Confirmation will be sent to ${formData.phoneNumber}</p>
+          <button class="btn btn-primary" onclick="location.reload()">Register Another</button>
+        </div>
+      `;
+    }, 1500);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    if (confirm('Reset form?')) location.reload();
+  });
+
+  // ========================
+  // INITIALIZATION
+  // ========================
+  function init() {
+    initRadioStyling();
+    initPriceSelection();
+    updateUI();
+    document.getElementById('programFreshman').checked = true;
+    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
+  }
+  
+  init();
+</script>
+</body>
 </html>      font-weight: 600;
       margin-top: 0.5rem;
       color: #64748b;
