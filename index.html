@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path Academy | Freshman & Remedial Enrollment</title>
+  <title>Bright Path Academy | Futuristic Enrollment System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- EmailJS Library -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -16,54 +18,70 @@
     }
 
     body {
-      background: radial-gradient(ellipse at 20% 30%, #0A1628, #020A17);
+      background: linear-gradient(135deg, #0A0F1E 0%, #0F1A2F 50%, #1A1B3A 100%);
       font-family: 'Inter', sans-serif;
       padding: 1.5rem;
       min-height: 100vh;
     }
 
+    /* Glowing container */
     .main-wrapper {
       max-width: 1600px;
       margin: 0 auto;
     }
 
-    /* Tabs */
+    /* Futuristic Tabs */
     .tabs-container {
       display: flex;
       gap: 1rem;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .tab-btn {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: none;
+      background: rgba(10, 20, 40, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
       padding: 0.8rem 2rem;
       border-radius: 60px;
       font-weight: 600;
-      color: white;
+      color: #CCDDFF;
       cursor: pointer;
-      transition: 0.2s;
+      transition: all 0.3s ease;
       font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .tab-btn i {
+      margin-right: 8px;
     }
 
     .tab-btn.active {
-      background: #F0A73A;
-      color: #0A1628;
-      box-shadow: 0 4px 12px rgba(240,167,58,0.3);
+      background: linear-gradient(135deg, #00B4D8, #0077B6);
+      border-color: #00FFFF;
+      color: white;
+      box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
     }
 
     .tab-btn:hover:not(.active) {
-      background: rgba(255,255,255,0.2);
+      border-color: #00B4D8;
+      background: rgba(0, 180, 216, 0.2);
     }
 
+    /* Panels */
     .panel {
       display: none;
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.96);
       border-radius: 2rem;
       overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.1);
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .panel.active-panel {
@@ -72,7 +90,7 @@
 
     /* Admin Header */
     .admin-header {
-      background: linear-gradient(115deg, #0F2B3D, #1B4A6E);
+      background: linear-gradient(115deg, #0B2B44, #1A4A6F, #0F3A5A);
       padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -84,22 +102,29 @@
     .admin-header h2 {
       color: white;
       font-weight: 700;
+      text-shadow: 0 0 5px rgba(0,255,255,0.3);
     }
 
     .export-btn {
-      background: #F0A73A;
+      background: linear-gradient(135deg, #F0A73A, #E85D04);
       border: none;
       padding: 0.6rem 1.2rem;
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
+      transition: transform 0.2s;
     }
 
+    .export-btn:hover {
+      transform: scale(1.02);
+    }
+
+    /* Stats Cards */
     .stats-cards {
       display: flex;
       gap: 1rem;
       padding: 1.2rem 2rem;
-      background: #F8FBFE;
+      background: linear-gradient(135deg, #F8FBFE, #F0F4FA);
       border-bottom: 1px solid #E9F0F5;
       flex-wrap: wrap;
     }
@@ -108,10 +133,11 @@
       background: white;
       border-radius: 1rem;
       padding: 0.8rem 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border: 1px solid #E9F0F5;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid #00B4D8;
     }
 
+    /* Table */
     .table-responsive {
       overflow-x: auto;
       padding: 1rem 2rem 2rem;
@@ -130,36 +156,16 @@
     }
 
     th {
-      background: #F1F5F9;
+      background: linear-gradient(135deg, #E8F0FE, #DCE5F5);
       font-weight: 700;
-      color: #1F3E48;
-      position: sticky;
-      top: 0;
+      color: #0F2B3D;
     }
 
     tr:hover {
       background: #FEFBF5;
     }
 
-    .delete-btn {
-      background: none;
-      border: none;
-      color: #e25c5c;
-      cursor: pointer;
-      font-size: 1.1rem;
-      padding: 0.3rem 0.6rem;
-    }
-
-    .view-btn {
-      background: none;
-      border: none;
-      color: #1F6392;
-      cursor: pointer;
-      font-size: 1rem;
-      margin-right: 0.5rem;
-    }
-
-    /* Enrollment Form */
+    /* Modern Form */
     .enrollment-form-panel {
       padding: 2rem;
       background: white;
@@ -195,9 +201,16 @@
       border: 1.5px solid #E2EDF2;
       border-radius: 1rem;
       font-family: 'Inter', sans-serif;
-      background: white;
+      transition: all 0.2s;
     }
 
+    .input-group input:focus, .input-group select:focus {
+      border-color: #00B4D8;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+    }
+
+    /* Pills */
     .program-switch {
       display: flex;
       gap: 1rem;
@@ -210,17 +223,19 @@
       border-radius: 40px;
       cursor: pointer;
       font-weight: 500;
-      transition: 0.2s;
+      transition: all 0.2s;
     }
 
     .pill.active {
-      background: #1F6392;
+      background: linear-gradient(135deg, #0077B6, #00B4D8);
       color: white;
+      box-shadow: 0 4px 10px rgba(0, 180, 216, 0.3);
     }
 
+    /* Course Grid */
     .course-grid-select {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 0.6rem;
       max-height: 280px;
       overflow-y: auto;
@@ -239,14 +254,23 @@
       background: #FFFFFF;
       border-radius: 0.8rem;
       cursor: pointer;
+      transition: all 0.2s;
     }
 
     .course-check:hover {
-      background: #F0F4F9;
+      background: linear-gradient(135deg, #E8F4FD, #DCF0FA);
+      transform: translateX(3px);
     }
 
+    .course-check input {
+      width: 18px;
+      height: 18px;
+      accent-color: #00B4D8;
+    }
+
+    /* Submit Button */
     .submit-btn {
-      background: #136B47;
+      background: linear-gradient(135deg, #136B47, #0D5539);
       color: white;
       width: 100%;
       padding: 1rem;
@@ -256,12 +280,15 @@
       margin-top: 1rem;
       cursor: pointer;
       font-size: 1rem;
+      transition: all 0.3s;
     }
 
     .submit-btn:hover {
-      background: #0D5539;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -269,31 +296,60 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
 
     .modal-content {
-      background: white;
+      background: linear-gradient(135deg, #FFFFFF, #F8F9FF);
       border-radius: 1.5rem;
       padding: 2rem;
       max-width: 550px;
       width: 90%;
       max-height: 80vh;
       overflow-y: auto;
+      border: 1px solid rgba(0, 180, 216, 0.3);
     }
 
     .close-modal {
       float: right;
       cursor: pointer;
       font-size: 1.5rem;
+      color: #0077B6;
+    }
+
+    /* Toast */
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #136B47, #0D5539);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.8rem;
+      z-index: 1100;
+      animation: slideIn 0.3s ease;
+      font-weight: 500;
+    }
+
+    .toast-error {
+      background: linear-gradient(135deg, #C1121F, #9B2226);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     @media (max-width: 700px) {
       .grid-double, .grid-triple {
         grid-template-columns: 1fr;
+      }
+      body {
+        padding: 1rem;
       }
     }
   </style>
@@ -301,381 +357,258 @@
 <body>
 <div class="main-wrapper">
   <div class="tabs-container">
-    <button class="tab-btn active" data-tab="enroll">📝 አዲስ ምዝገባ</button>
-    <button class="tab-btn" data-tab="admin">👑 የአድሚን ዳሽቦርድ</button>
+    <button class="tab-btn active" data-tab="enroll"><i class="fas fa-pen-fancy"></i> አዲስ ምዝገባ</button>
+    <button class="tab-btn" data-tab="admin"><i class="fas fa-chalkboard-user"></i> የአድሚን ዳሽቦርድ</button>
   </div>
 
   <!-- ENROLLMENT PANEL -->
   <div id="enrollPanel" class="panel active-panel">
     <div class="enrollment-form-panel">
-      <h2 style="margin-bottom:1rem;">✨ ብራይት ፓዝ አካዳሚ - የምዝገባ ቅጽ</h2>
+      <h2 style="margin-bottom:1rem; background: linear-gradient(135deg, #0077B6, #00B4D8); background-clip: text; -webkit-background-clip: text; color: transparent;">✨ ብራይት ፓዝ አካዳሚ - ዘመናዊ የምዝገባ ሥርዓት</h2>
       
-      <!-- Personal Info -->
       <div class="grid-double">
-        <div class="input-group"><label>ሙሉ ስም *</label><input type="text" id="fullName" placeholder="አበበ በቀለ"></div>
-        <div class="input-group"><label>ስልክ ቁጥር *</label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
+        <div class="input-group"><label><i class="fas fa-user"></i> ሙሉ ስም *</label><input type="text" id="fullName" placeholder="አበበ በቀለ"></div>
+        <div class="input-group"><label><i class="fas fa-phone"></i> ስልክ ቁጥር *</label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
       </div>
       <div class="grid-double">
-        <div class="input-group"><label>ኢሜል</label><input type="email" id="email" placeholder="student@example.com"></div>
-        <div class="input-group"><label>ተቋም / ዩኒቨርሲቲ *</label><input type="text" id="institution" placeholder="ዩኒቨርሲቲ ስም"></div>
+        <div class="input-group"><label><i class="fas fa-envelope"></i> ኢሜል</label><input type="email" id="email" placeholder="student@example.com"></div>
+        <div class="input-group"><label><i class="fas fa-university"></i> ተቋም *</label><input type="text" id="institution" placeholder="ዩኒቨርሲቲ ስም"></div>
       </div>
-      <div class="input-group"><label>ቴሌግራም ዩዘርኔም (አማራጭ)</label><input type="text" id="telegramUser" placeholder="@username"></div>
+      <div class="input-group"><label><i class="fab fa-telegram"></i> ቴሌግራም</label><input type="text" id="telegramUser" placeholder="@username"></div>
 
       <!-- Program Toggle -->
       <div class="program-switch" id="programSwitch">
-        <div class="pill active" data-prog="freshman">🎓 ፍሬሽማን ፕሮግራም</div>
-        <div class="pill" data-prog="remedial">📚 ሪሚዲያል ፕሮግራም</div>
+        <div class="pill active" data-prog="freshman">🎓 ፍሬሽማን</div>
+        <div class="pill" data-prog="remedial">📚 ሪሚዲያል</div>
       </div>
 
-      <!-- Stream for Freshman (NEW) -->
+      <!-- Stream for Freshman -->
       <div id="freshmanStreamBlock" style="display: block; margin-bottom: 1rem;">
-        <label>📌 ስትሪም ምረጥ (ለፍሬሽማን)</label>
+        <label><i class="fas fa-chart-line"></i> ስትሪም (ለፍሬሽማን)</label>
         <div style="display:flex; gap:1rem; margin-top:0.5rem;">
           <div class="pill freshman-stream-pill active" data-freshman-stream="natural">🔬 ናቸራል ሳይንስ</div>
           <div class="pill freshman-stream-pill" data-freshman-stream="social">📖 ሶሻል ሳይንስ</div>
         </div>
       </div>
 
-      <!-- Stream for Remedial (original) -->
-      <div id="remedialStreamBlock" style="display:none; margin-bottom:1rem;">
-        <label>📌 ስትሪም ምረጥ (ለሪሚዲያል)</label>
+      <!-- Stream for Remedial -->
+      <div id="remedialStreamBlock" style="display:none; margin-bottom: 1rem;">
+        <label><i class="fas fa-chart-line"></i> ስትሪም (ለሪሚዲያል)</label>
         <div style="display:flex; gap:1rem; margin-top:0.5rem;">
-          <div class="pill remedial-stream-pill active" data-remedial-stream="natural">🔬 ናቸራል ሳይንስ</div>
-          <div class="pill remedial-stream-pill" data-remedial-stream="social">📖 ሶሻል ሳይንስ</div>
+          <div class="pill remedial-stream-pill active" data-remedial-stream="natural">🔬 ናቸራል</div>
+          <div class="pill remedial-stream-pill" data-remedial-stream="social">📖 ሶሻል</div>
         </div>
       </div>
 
-      <!-- Academic Year & Semester (NEW for Freshman) -->
+      <!-- Academic Info -->
       <div id="academicBlock" style="display: block; margin-bottom: 1rem;">
         <div class="grid-double">
-          <div class="input-group">
-            <label>📅 አካዳሚክ አመት</label>
-            <select id="academicYear">
-              <option value="1ኛ አመት">1ኛ አመት (1st Year)</option>
-              <option value="2ኛ አመት">2ኛ አመት (2nd Year)</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>📖 ሴሚስተር</label>
-            <select id="semester">
-              <option value="1ኛ ሴሚስተር">1ኛ ሴሚስተር (1st Semester)</option>
-              <option value="2ኛ ሴሚስተር">2ኛ ሴሚስተር (2nd Semester)</option>
-            </select>
-          </div>
+          <div class="input-group"><label>📅 አካዳሚክ አመት</label><select id="academicYear"><option>1ኛ አመት</option><option>2ኛ አመት</option></select></div>
+          <div class="input-group"><label>📖 ሴሚስተር</label><select id="semester"><option>1ኛ ሴሚስተር</option><option>2ኛ ሴሚስተር</option></select></div>
         </div>
       </div>
 
-      <!-- Price Freshman -->
+      <!-- Price -->
       <div id="priceBlock" style="margin-bottom:1rem;">
-        <label>💰 የክፍያ ፓኬጅ</label>
-        <div style="display:flex; gap:1rem; margin-top:0.5rem;">
+        <label>💰 ፓኬጅ</label>
+        <div style="display:flex; gap:1rem;">
           <div class="pill price-pill" data-price="class">📚 ክላስ ብቻ (300 ብር)</div>
           <div class="pill price-pill active" data-price="exam">📝 ከኤግዛም ጋር (350 ብር)</div>
         </div>
       </div>
 
-      <label>📖 ኮርሶች (አንድ ወይም ብዙ መምረጥ ይቻላል)</label>
+      <label><i class="fas fa-book-open"></i> ኮርሶች (አንድ ወይም ብዙ ይምረጡ)</label>
       <div id="coursesContainer" class="course-grid-select"></div>
 
-      <div class="input-group"><label>📎 የክፍያ ማስረጃ (ስክሪንሾት) - አማራጭ</label>
+      <div class="input-group"><label><i class="fas fa-receipt"></i> የክፍያ ማስረጃ (አማራጭ)</label>
         <input type="file" id="paymentProof" accept="image/*,.pdf">
       </div>
-      <button class="submit-btn" id="submitEnrollmentBtn"><i class="fas fa-save"></i> ምዝገባ አስገባ</button>
+      <button class="submit-btn" id="submitEnrollmentBtn"><i class="fas fa-rocket"></i> ምዝገባ አስገባ & ኢሜይል ላክ</button>
     </div>
   </div>
 
   <!-- ADMIN PANEL -->
   <div id="adminPanel" class="panel">
     <div class="admin-header">
-      <h2><i class="fas fa-users"></i> የተመዘገቡ ተማሪዎች ዝርዝር</h2>
-      <button class="export-btn" id="exportCSVBtn"><i class="fas fa-download"></i> እንደ CSV አውርድ</button>
+      <h2><i class="fas fa-chart-simple"></i> የተመዘገቡ ተማሪዎች ዳሽቦርድ</h2>
+      <button class="export-btn" id="exportCSVBtn"><i class="fas fa-download"></i> CSV አውርድ</button>
     </div>
     <div class="stats-cards">
-      <div class="stat-card">📊 ጠቅላላ ተማሪዎች: <strong id="totalCount">0</strong></div>
+      <div class="stat-card">📊 ጠቅላላ: <strong id="totalCount">0</strong></div>
       <div class="stat-card">🎓 ፍሬሽማን: <strong id="freshmanCount">0</strong></div>
       <div class="stat-card">📚 ሪሚዲያል: <strong id="remedialCount">0</strong></div>
-      <div class="stat-card">💰 አጠቃላይ ገቢ: <strong id="totalRevenue">0</strong> ብር</div>
+      <div class="stat-card">💰 ገቢ: <strong id="totalRevenue">0</strong> ብር</div>
     </div>
     <div class="table-responsive">
       <table id="adminTable">
         <thead>
-          <tr><th>ተ.ቁ</th><th>ሙሉ ስም</th><th>ስልክ</th><th>ተቋም</th><th>ፕሮግራም</th><th>ስትሪም</th><th>አካዳሚክ አመት</th><th>ሴሚስተር</th><th>ኮርሶች</th><th>ጠቅላላ ዋጋ</th><th>ዝርዝር</th><th>ሰርዝ</th></tr>
+          <tr><th>#</th><th>ስም</th><th>ስልክ</th><th>ተቋም</th><th>ፕሮግራም</th><th>ስትሪም</th><th>አመት</th><th>ሴሚ</th><th>ኮርሶች</th><th>ዋጋ</th><th>ዝርዝር</th><th>ሰርዝ</th></tr>
         </thead>
         <tbody id="adminTableBody"></tbody>
-       </table>
+      8able
     </div>
   </div>
 </div>
 
-<!-- Modal for details -->
-<div id="detailsModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h3>📋 የተማሪ ዝርዝር መረጃ</h3>
-    <div id="modalDetails"></div>
-  </div>
-</div>
+<!-- Modal -->
+<div id="detailsModal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><h3>📋 ዝርዝር</h3><div id="modalDetails"></div></div></div>
 
 <script>
-  // ==================== COURSES DATA ====================
-  // Freshman Natural Science Courses
-  const freshmanNaturalCourses = [
-    "Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography",
-    "Applied Mathematics", "Emerging Technology", "Computer Programming", "General Biology"
-  ];
+  // ==================== EMAILJS CONFIG ====================
+  // 🔧 እባክዎ እነዚህን በእውነተኛ እሴቶች ይተኩ (from EmailJS)
+  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+  const ADMIN_EMAIL = "brightpath818@gmail.com";
   
-  // Freshman Social Science Courses
-  const freshmanSocialCourses = [
-    "Communicative English", "Mathematics", "Psychology", "Critical Thinking", "Geography",
-    "History", "Civics and Moral Education", "Anthropology", "English Skill 2", "Economics"
-  ];
+  if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") emailjs.init(EMAILJS_PUBLIC_KEY);
   
-  // Remedial Courses
-  const remedialNaturalCourses = [
-    "Biology", "Physics", "Chemistry", "English", "Mathematics", "Applied Mathematics",
-    "Emerging Technology", "Computer Programming", "Civics and Moral Education"
-  ];
-  const remedialSocialCourses = [
-    "Mathematics", "English", "Geography", "History", "Applied Mathematics",
-    "Civics and Moral Education", "Anthropology", "English Skill 2", "Emerging Technology"
-  ];
-
+  // ==================== COURSES ====================
+  const freshmanNatural = ["Communicative English","Mathematics","Physics","Psychology","Critical Thinking","Geography","Applied Mathematics","Emerging Technology","Computer Programming","General Biology"];
+  const freshmanSocial = ["Communicative English","Mathematics","Psychology","Critical Thinking","Geography","History","Civics and Moral Education","Anthropology","English Skill 2","Economics"];
+  const remedialNatural = ["Biology","Physics","Chemistry","English","Mathematics","Applied Mathematics","Emerging Technology","Computer Programming","Civics"];
+  const remedialSocial = ["Mathematics","English","Geography","History","Applied Mathematics","Civics","Anthropology","English Skill 2","Emerging Technology"];
+  
   // State
   let currentProgram = "freshman";
-  let currentFreshmanStream = "natural";    // for freshman
-  let currentRemedialStream = "natural";    // for remedial
+  let currentFreshmanStream = "natural";
+  let currentRemedialStream = "natural";
   let currentPrice = "exam";
-  let availableCourses = [...freshmanNaturalCourses];
-  let selectedCoursesSet = new Set(freshmanNaturalCourses.slice(0, 5));
-
-  // Admin data
+  let availableCourses = [...freshmanNatural];
+  let selectedCoursesSet = new Set(freshmanNatural.slice(0,5));
   let registrations = [];
 
-  // Load from localStorage
+  // Load/Save
   function loadRegistrations() {
-    const stored = localStorage.getItem("brightpath_registrations_v2");
-    if (stored) {
-      registrations = JSON.parse(stored);
-    } else {
-      registrations = [];
-    }
+    const stored = localStorage.getItem("brightpath_final");
+    registrations = stored ? JSON.parse(stored) : [];
     renderAdminTable();
   }
+  function saveRegistrations() { localStorage.setItem("brightpath_final", JSON.stringify(registrations)); renderAdminTable(); }
 
-  function saveRegistrations() {
-    localStorage.setItem("brightpath_registrations_v2", JSON.stringify(registrations));
-    renderAdminTable();
-  }
-
-  // Get current stream based on program
-  function getCurrentStream() {
+  function getCurrentStream() { return currentProgram === "freshman" ? currentFreshmanStream : currentRemedialStream; }
+  
+  function computeTotalFee() {
+    let count = selectedCoursesSet.size;
     if (currentProgram === "freshman") {
-      return currentFreshmanStream;
-    } else {
-      return currentRemedialStream;
+      let base = currentPrice === "exam" ? 350 : 300;
+      return base + Math.max(0, count-6)*30;
     }
+    return count * 45;
   }
 
-  function computeTotalFee(program, priceType, selectedCount) {
-    if (program === "freshman") {
-      let base = priceType === "exam" ? 350 : 300;
-      let extra = Math.max(0, selectedCount - 6);
-      return base + (extra * 30);
-    } else {
-      return selectedCount * 45;
-    }
-  }
-
-  // Update available courses based on program and stream
   function updateAvailableCourses() {
-    if (currentProgram === "freshman") {
-      if (currentFreshmanStream === "natural") {
-        availableCourses = [...freshmanNaturalCourses];
-      } else {
-        availableCourses = [...freshmanSocialCourses];
-      }
-    } else {
-      if (currentRemedialStream === "natural") {
-        availableCourses = [...remedialNaturalCourses];
-      } else {
-        availableCourses = [...remedialSocialCourses];
-      }
-    }
-    
-    // Keep only valid selections
-    const newSet = new Set();
-    for (let c of selectedCoursesSet) {
-      if (availableCourses.includes(c)) newSet.add(c);
-    }
-    if (newSet.size === 0 && availableCourses.length) {
-      newSet.add(availableCourses[0]);
-    }
+    if (currentProgram === "freshman") availableCourses = currentFreshmanStream === "natural" ? [...freshmanNatural] : [...freshmanSocial];
+    else availableCourses = currentRemedialStream === "natural" ? [...remedialNatural] : [...remedialSocial];
+    let newSet = new Set();
+    for (let c of selectedCoursesSet) if (availableCourses.includes(c)) newSet.add(c);
+    if (newSet.size === 0 && availableCourses.length) newSet.add(availableCourses[0]);
     selectedCoursesSet = newSet;
-    renderCourseCheckboxes();
+    renderCourses();
   }
 
-  function renderCourseCheckboxes() {
+  function renderCourses() {
     const container = document.getElementById('coursesContainer');
     if (!container) return;
-    container.innerHTML = '';
-    availableCourses.forEach(course => {
-      const isChecked = selectedCoursesSet.has(course);
-      const div = document.createElement('div');
-      div.className = 'course-check';
-      div.innerHTML = `<input type="checkbox" value="${course.replace(/"/g, '&quot;')}" ${isChecked ? 'checked' : ''}> <span>${course}</span>`;
+    container.innerHTML = availableCourses.map(course => `
+      <div class="course-check" data-course="${course}">
+        <input type="checkbox" value="${course}" ${selectedCoursesSet.has(course) ? 'checked' : ''}>
+        <span>${course}</span>
+      </div>
+    `).join('');
+    document.querySelectorAll('.course-check').forEach(div => {
       const chk = div.querySelector('input');
       chk.addEventListener('change', () => {
-        if (chk.checked) selectedCoursesSet.add(course);
-        else selectedCoursesSet.delete(course);
+        if (chk.checked) selectedCoursesSet.add(chk.value);
+        else selectedCoursesSet.delete(chk.value);
       });
-      container.appendChild(div);
     });
   }
 
-  // Toggle UI sections based on program
   function toggleSections() {
-    const freshmanStreamDiv = document.getElementById('freshmanStreamBlock');
-    const remedialStreamDiv = document.getElementById('remedialStreamBlock');
-    const academicBlock = document.getElementById('academicBlock');
-    const priceDiv = document.getElementById('priceBlock');
-    
-    if (currentProgram === 'freshman') {
-      freshmanStreamDiv.style.display = 'block';
-      remedialStreamDiv.style.display = 'none';
-      academicBlock.style.display = 'block';
-      priceDiv.style.display = 'block';
-    } else {
-      freshmanStreamDiv.style.display = 'none';
-      remedialStreamDiv.style.display = 'block';
-      academicBlock.style.display = 'none';
-      priceDiv.style.display = 'none';
-    }
+    document.getElementById('freshmanStreamBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
+    document.getElementById('remedialStreamBlock').style.display = currentProgram === 'remedial' ? 'block' : 'none';
+    document.getElementById('academicBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
+    document.getElementById('priceBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
     updateAvailableCourses();
   }
 
-  // Event Listeners
-  // Program selection
-  document.querySelectorAll('.pill[data-prog]').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.pill[data-prog]').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      currentProgram = pill.dataset.prog;
-      toggleSections();
-      updateFreshmanStreamPillsActive();
-      updateRemedialStreamPillsActive();
-    });
-  });
-
-  // Freshman stream pills
-  function updateFreshmanStreamPillsActive() {
-    document.querySelectorAll('.freshman-stream-pill').forEach(p => {
-      if (p.dataset.freshmanStream === currentFreshmanStream) p.classList.add('active');
-      else p.classList.remove('active');
-    });
+  // Email
+  function showToast(msg, isError=false) {
+    let div = document.createElement('div');
+    div.className = `toast-message ${isError ? 'toast-error' : ''}`;
+    div.innerHTML = isError ? `❌ ${msg}` : `✅ ${msg}`;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 4000);
   }
-  
-  document.querySelectorAll('.freshman-stream-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      if (currentProgram !== 'freshman') return;
-      currentFreshmanStream = pill.dataset.freshmanStream;
-      updateFreshmanStreamPillsActive();
-      updateAvailableCourses();
-    });
-  });
 
-  // Remedial stream pills
-  function updateRemedialStreamPillsActive() {
-    document.querySelectorAll('.remedial-stream-pill').forEach(p => {
-      if (p.dataset.remedialStream === currentRemedialStream) p.classList.add('active');
-      else p.classList.remove('active');
-    });
+  async function sendEmailNotification(data) {
+    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+      showToast("ኢሜይል አልተዋቀረም (EmailJS not configured)", true);
+      return false;
+    }
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: ADMIN_EMAIL,
+        fullName: data.fullName,
+        phone: data.phone,
+        email: data.email || "—",
+        institution: data.institution,
+        program: data.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል',
+        stream: data.stream === 'natural' ? 'ናቸራል' : 'ሶሻል',
+        academicYear: data.academicYear || '—',
+        semester: data.semester || '—',
+        courses: data.selectedCourses.join(", "),
+        coursesCount: data.selectedCourses.length,
+        total: data.totalAmount,
+        date: new Date().toLocaleString('et-ET')
+      });
+      showToast("ኢሜይል ለ አድሚን ተልኳል!");
+      return true;
+    } catch(e) { console.error(e); showToast("ኢሜይል መላክ አልተቻለም", true); return false; }
   }
-  
-  document.querySelectorAll('.remedial-stream-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      if (currentProgram !== 'remedial') return;
-      currentRemedialStream = pill.dataset.remedialStream;
-      updateRemedialStreamPillsActive();
-      updateAvailableCourses();
-    });
-  });
 
-  // Price pills
-  document.querySelectorAll('.price-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      if (currentProgram !== 'freshman') return;
-      document.querySelectorAll('.price-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      currentPrice = pill.dataset.price;
-    });
-  });
-
+  // Registration
   function addRegistration(formData) {
-    const newId = Date.now();
-    const registration = {
-      id: newId,
-      fullName: formData.fullName,
-      phone: formData.phone,
-      email: formData.email,
-      institution: formData.institution,
-      telegram: formData.telegram,
-      program: formData.program,
-      stream: formData.stream,
-      academicYear: formData.academicYear,
-      semester: formData.semester,
-      selectedCourses: formData.selectedCourses,
-      totalAmount: formData.totalAmount,
-      timestamp: new Date().toISOString()
-    };
-    registrations.unshift(registration);
+    let newReg = { id: Date.now(), ...formData, timestamp: new Date().toISOString() };
+    registrations.unshift(newReg);
     saveRegistrations();
-    return registration;
+    return newReg;
   }
 
   function deleteRegistration(id) {
-    if (confirm("እርግጠኛ ነህ? ይህን ምዝገባ መሰረዝ ትፈልጋለህ?")) {
-      registrations = registrations.filter(reg => reg.id !== id);
+    if (confirm("ሰርዝ? ይህ ድርጊት ሊቀለበስ አይችልም!")) {
+      registrations = registrations.filter(r => r.id !== id);
       saveRegistrations();
     }
   }
 
   function showDetails(reg) {
-    const modal = document.getElementById('detailsModal');
-    const modalDetails = document.getElementById('modalDetails');
-    modalDetails.innerHTML = `
-      <p><strong>👤 ሙሉ ስም:</strong> ${reg.fullName}</p>
-      <p><strong>📞 ስልክ:</strong> ${reg.phone}</p>
-      <p><strong>📧 ኢሜል:</strong> ${reg.email || '—'}</p>
-      <p><strong>🏫 ተቋም:</strong> ${reg.institution}</p>
-      <p><strong>💬 ቴሌግራም:</strong> ${reg.telegram || '—'}</p>
-      <p><strong>🎓 ፕሮግራም:</strong> ${reg.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል'}</p>
-      <p><strong>📚 ስትሪም:</strong> ${reg.stream === 'natural' ? 'ናቸራል ሳይንስ' : 'ሶሻል ሳይንስ'}</p>
-      ${reg.academicYear ? `<p><strong>📅 አካዳሚክ አመት:</strong> ${reg.academicYear}</p>` : ''}
-      ${reg.semester ? `<p><strong>📖 ሴሚስተር:</strong> ${reg.semester}</p>` : ''}
-      <p><strong>📖 የተመረጡ ኮርሶች (${reg.selectedCourses.length}):</strong></p>
-      <ul>${reg.selectedCourses.map(c => `<li>${c}</li>`).join('')}</ul>
-      <p><strong>💰 ጠቅላላ ዋጋ:</strong> ${reg.totalAmount} ብር</p>
-      <p><strong>📅 የተመዘገበበት ቀን:</strong> ${new Date(reg.timestamp).toLocaleString()}</p>
+    let modal = document.getElementById('detailsModal');
+    document.getElementById('modalDetails').innerHTML = `
+      <p><strong>ስም:</strong> ${reg.fullName}</p><p><strong>ስልክ:</strong> ${reg.phone}</p>
+      <p><strong>ኢሜል:</strong> ${reg.email || '—'}</p><p><strong>ተቋም:</strong> ${reg.institution}</p>
+      <p><strong>ፕሮግራም:</strong> ${reg.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል'}</p>
+      <p><strong>ስትሪም:</strong> ${reg.stream === 'natural' ? 'ናቸራል' : 'ሶሻል'}</p>
+      ${reg.academicYear ? `<p><strong>አመት:</strong> ${reg.academicYear}</p>` : ''}
+      ${reg.semester ? `<p><strong>ሴሚስተር:</strong> ${reg.semester}</p>` : ''}
+      <p><strong>ኮርሶች (${reg.selectedCourses.length}):</strong> ${reg.selectedCourses.join(", ")}</p>
+      <p><strong>ዋጋ:</strong> ${reg.totalAmount} ብር</p>
+      <p><strong>ቀን:</strong> ${new Date(reg.timestamp).toLocaleString()}</p>
     `;
     modal.style.display = 'flex';
   }
 
   function renderAdminTable() {
-    const tbody = document.getElementById('adminTableBody');
+    let tbody = document.getElementById('adminTableBody');
     if (!tbody) return;
     tbody.innerHTML = '';
-    
-    let totalRevenue = 0;
-    let freshmanTotal = 0;
-    let remedialTotal = 0;
-    
+    let totalRev = 0, fCount = 0, rCount = 0;
     registrations.forEach((reg, idx) => {
-      totalRevenue += reg.totalAmount;
-      if (reg.program === 'freshman') freshmanTotal++;
-      else remedialTotal++;
-      
-      const row = tbody.insertRow();
-      row.insertCell(0).innerText = idx + 1;
+      totalRev += reg.totalAmount;
+      if (reg.program === 'freshman') fCount++; else rCount++;
+      let row = tbody.insertRow();
+      row.insertCell(0).innerText = idx+1;
       row.insertCell(1).innerText = reg.fullName;
       row.insertCell(2).innerText = reg.phone;
       row.insertCell(3).innerText = reg.institution;
@@ -683,139 +616,99 @@
       row.insertCell(5).innerText = reg.stream === 'natural' ? 'ናቸራል' : 'ሶሻል';
       row.insertCell(6).innerText = reg.academicYear || '—';
       row.insertCell(7).innerText = reg.semester || '—';
-      row.insertCell(8).innerHTML = `${reg.selectedCourses.length} ኮርሶች`;
+      row.insertCell(8).innerText = `${reg.selectedCourses.length} ኮርሶች`;
       row.insertCell(9).innerHTML = `<strong>${reg.totalAmount} ብር</strong>`;
-      
-      const actionCell = row.insertCell(10);
-      const viewBtn = document.createElement('button');
-      viewBtn.innerHTML = '<i class="fas fa-eye"></i>';
-      viewBtn.className = 'view-btn';
-      viewBtn.title = 'ዝርዝር ማየት';
-      viewBtn.onclick = () => showDetails(reg);
-      actionCell.appendChild(viewBtn);
-      
-      const delBtn = document.createElement('button');
-      delBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-      delBtn.className = 'delete-btn';
-      delBtn.title = 'ሰርዝ';
-      delBtn.onclick = () => deleteRegistration(reg.id);
-      actionCell.appendChild(delBtn);
+      let action = row.insertCell(10);
+      let viewBtn = document.createElement('button'); viewBtn.innerHTML = '<i class="fas fa-eye"></i>'; viewBtn.className = 'view-btn'; viewBtn.onclick = () => showDetails(reg);
+      let delBtn = document.createElement('button'); delBtn.innerHTML = '<i class="fas fa-trash"></i>'; delBtn.className = 'delete-btn'; delBtn.onclick = () => deleteRegistration(reg.id);
+      action.appendChild(viewBtn); action.appendChild(delBtn);
     });
-    
     document.getElementById('totalCount').innerText = registrations.length;
-    document.getElementById('freshmanCount').innerText = freshmanTotal;
-    document.getElementById('remedialCount').innerText = remedialTotal;
-    document.getElementById('totalRevenue').innerText = totalRevenue;
+    document.getElementById('freshmanCount').innerText = fCount;
+    document.getElementById('remedialCount').innerText = rCount;
+    document.getElementById('totalRevenue').innerText = totalRev;
   }
 
-  function exportToCSV() {
-    if (registrations.length === 0) { alert("ምንም የተመዘገበ ተማሪ የለም"); return; }
-    let csvRows = [["ሙሉ ስም","ስልክ","ኢሜል","ተቋም","ፕሮግራም","ስትሪም","አካዳሚክ አመት","ሴሚስተር","የኮርሶች ብዛት","ኮርሶች","ጠቅላላ ዋጋ","የተመዘገበበት ቀን"]];
-    for (let reg of registrations) {
-      csvRows.push([
-        reg.fullName, reg.phone, reg.email, reg.institution,
-        reg.program === 'freshman' ? 'Freshman' : 'Remedial',
-        reg.stream === 'natural' ? 'Natural' : 'Social',
-        reg.academicYear || '-',
-        reg.semester || '-',
-        reg.selectedCourses.length,
-        reg.selectedCourses.join("; "),
-        reg.totalAmount,
-        new Date(reg.timestamp).toLocaleString()
-      ]);
-    }
-    const csvContent = csvRows.map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
-    const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-    link.href = url;
-    link.setAttribute("download", "brightpath_registrations.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+  function exportCSV() {
+    if (!registrations.length) { alert("ምንም ውጤት የለም"); return; }
+    let rows = [["ስም","ስልክ","ኢሜል","ተቋም","ፕሮግራም","ስትሪም","አመት","ሴሚ","ኮርሶች","ዋጋ","ቀን"]];
+    registrations.forEach(r => rows.push([r.fullName, r.phone, r.email, r.institution, r.program, r.stream, r.academicYear||'', r.semester||'', r.selectedCourses.join("; "), r.totalAmount, new Date(r.timestamp).toLocaleString()]));
+    let csv = rows.map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
+    let blob = new Blob(["\uFEFF" + csv], {type: "text/csv"});
+    let a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = "brightpath_data.csv"; a.click(); URL.revokeObjectURL(a.href);
   }
 
-  // Submit
-  document.getElementById('submitEnrollmentBtn').addEventListener('click', () => {
-    const fullName = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const institution = document.getElementById('institution').value.trim();
-    if (!fullName || !phone || !institution) {
-      alert("እባክዎ ሙሉ ስም፣ ስልክ ቁጥር እና ተቋም ይሙሉ");
-      return;
-    }
-    if (selectedCoursesSet.size === 0) {
-      alert("እባክዎ ቢያንስ አንድ ኮርስ ይምረጡ");
-      return;
-    }
-    
-    const currentStreamValue = getCurrentStream();
-    const total = computeTotalFee(currentProgram, currentPrice, selectedCoursesSet.size);
-    const academicYear = document.getElementById('academicYear').value;
-    const semester = document.getElementById('semester').value;
-    
-    const newReg = {
-      fullName, 
-      phone, 
-      email: document.getElementById('email').value.trim(),
-      institution, 
-      telegram: document.getElementById('telegramUser').value.trim(),
-      program: currentProgram,
-      stream: currentStreamValue,
-      academicYear: currentProgram === 'freshman' ? academicYear : null,
-      semester: currentProgram === 'freshman' ? semester : null,
-      selectedCourses: Array.from(selectedCoursesSet),
-      totalAmount: total
-    };
-    addRegistration(newReg);
-    alert(`✅ ምዝገባ ተሳክቷል!\n\nለ ${fullName} በተሳካ ሁኔታ ተመዝግቧል።\nጠቅላላ ክፍያ: ${total} ብር\n\nውጤቱን በአድሚን ዳሽቦርድ ትር ውስጥ ይመልከቱ።`);
-    
-    // Reset form
-    document.getElementById('fullName').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('institution').value = '';
-    document.getElementById('telegramUser').value = '';
-    document.getElementById('paymentProof').value = '';
-    
-    // Reset course selection to default
-    selectedCoursesSet = new Set(availableCourses.slice(0, 5));
-    renderCourseCheckboxes();
-  });
-
-  // Tab switching
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tabId = btn.dataset.tab;
-      document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active-panel'));
-      if (tabId === 'enroll') document.getElementById('enrollPanel').classList.add('active-panel');
-      else document.getElementById('adminPanel').classList.add('active-panel');
-      if (tabId === 'admin') renderAdminTable();
-    });
-  });
-
-  document.getElementById('exportCSVBtn')?.addEventListener('click', exportToCSV);
-  
-  // Modal close
-  document.querySelector('.close-modal')?.addEventListener('click', () => {
-    document.getElementById('detailsModal').style.display = 'none';
-  });
-  window.addEventListener('click', (e) => {
-    if (e.target === document.getElementById('detailsModal')) {
-      document.getElementById('detailsModal').style.display = 'none';
-    }
-  });
-
-  function init() {
-    loadRegistrations();
+  // Event Listeners
+  document.querySelectorAll('.pill[data-prog]').forEach(p => p.addEventListener('click', function() {
+    document.querySelectorAll('.pill[data-prog]').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    currentProgram = this.dataset.prog;
     toggleSections();
-    updateFreshmanStreamPillsActive();
-    updateRemedialStreamPillsActive();
-    renderCourseCheckboxes();
-  }
+    if (currentProgram === 'remedial' && currentRemedialStream !== 'natural') currentRemedialStream = 'natural';
+    document.querySelectorAll('.freshman-stream-pill, .remedial-stream-pill').forEach(p => p.classList.remove('active'));
+    if (currentProgram === 'freshman') document.querySelector('.freshman-stream-pill[data-freshman-stream="natural"]')?.classList.add('active');
+    else document.querySelector('.remedial-stream-pill[data-remedial-stream="natural"]')?.classList.add('active');
+  }));
+  document.querySelectorAll('.freshman-stream-pill').forEach(p => p.addEventListener('click', function() {
+    if (currentProgram !== 'freshman') return;
+    document.querySelectorAll('.freshman-stream-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    currentFreshmanStream = this.dataset.freshmanStream;
+    updateAvailableCourses();
+  }));
+  document.querySelectorAll('.remedial-stream-pill').forEach(p => p.addEventListener('click', function() {
+    if (currentProgram !== 'remedial') return;
+    document.querySelectorAll('.remedial-stream-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    currentRemedialStream = this.dataset.remedialStream;
+    updateAvailableCourses();
+  }));
+  document.querySelectorAll('.price-pill').forEach(p => p.addEventListener('click', function() {
+    if (currentProgram !== 'freshman') return;
+    document.querySelectorAll('.price-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    currentPrice = this.dataset.price;
+  }));
+
+  document.getElementById('submitEnrollmentBtn').addEventListener('click', async () => {
+    let fullName = document.getElementById('fullName').value.trim();
+    let phone = document.getElementById('phone').value.trim();
+    let institution = document.getElementById('institution').value.trim();
+    if (!fullName || !phone || !institution) { alert("ሙሉ ስም፣ ስልክ እና ተቋም ያስፈልጋሉ"); return; }
+    if (selectedCoursesSet.size === 0) { alert("ቢያንስ አንድ ኮርስ ይምረጡ"); return; }
+    
+    let regData = {
+      fullName, phone, email: document.getElementById('email').value.trim(),
+      institution, telegram: document.getElementById('telegramUser').value.trim(),
+      program: currentProgram,
+      stream: getCurrentStream(),
+      academicYear: currentProgram === 'freshman' ? document.getElementById('academicYear').value : null,
+      semester: currentProgram === 'freshman' ? document.getElementById('semester').value : null,
+      selectedCourses: Array.from(selectedCoursesSet),
+      totalAmount: computeTotalFee()
+    };
+    
+    addRegistration(regData);
+    await sendEmailNotification(regData);
+    alert(`ምዝገባ ተሳክቷል! ለ ${fullName} ተመዝግቧል። አድሚን ኢሜይል ይደርሰዋል።`);
+    document.getElementById('fullName').value = ''; document.getElementById('phone').value = ''; document.getElementById('email').value = ''; document.getElementById('institution').value = ''; document.getElementById('telegramUser').value = ''; document.getElementById('paymentProof').value = '';
+    selectedCoursesSet = new Set(availableCourses.slice(0,5));
+    renderCourses();
+    document.querySelector('[data-tab="admin"]').click();
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active-panel'));
+    document.getElementById(btn.dataset.tab === 'enroll' ? 'enrollPanel' : 'adminPanel').classList.add('active-panel');
+    if (btn.dataset.tab === 'admin') renderAdminTable();
+  }));
+  document.getElementById('exportCSVBtn')?.addEventListener('click', exportCSV);
+  document.querySelector('.close-modal')?.addEventListener('click', () => document.getElementById('detailsModal').style.display = 'none');
+  window.onclick = e => { if (e.target === document.getElementById('detailsModal')) document.getElementById('detailsModal').style.display = 'none'; };
+  
+  function init() { loadRegistrations(); toggleSections(); renderCourses(); }
   init();
 </script>
 </body>
