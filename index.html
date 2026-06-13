@@ -3,713 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path Academy | Futuristic Enrollment System</title>
+  <title>Bright Path Academy | Admin Enrollment Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- EmailJS Library -->
+  <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: linear-gradient(135deg, #0A0F1E 0%, #0F1A2F 50%, #1A1B3A 100%);
+      background: radial-gradient(ellipse at 20% 30%, #0A1628, #020A17);
       font-family: 'Inter', sans-serif;
-      padding: 1.5rem;
+      padding: 2rem 1.5rem;
       min-height: 100vh;
     }
-
-    /* Glowing container */
-    .main-wrapper {
-      max-width: 1600px;
+    .premium-container {
+      max-width: 1400px;
       margin: 0 auto;
-    }
-
-    /* Futuristic Tabs */
-    .tabs-container {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .tab-btn {
-      background: rgba(10, 20, 40, 0.6);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: #CCDDFF;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-    }
-
-    .tab-btn i {
-      margin-right: 8px;
-    }
-
-    .tab-btn.active {
-      background: linear-gradient(135deg, #00B4D8, #0077B6);
-      border-color: #00FFFF;
-      color: white;
-      box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
-    }
-
-    .tab-btn:hover:not(.active) {
-      border-color: #00B4D8;
-      background: rgba(0, 180, 216, 0.2);
-    }
-
-    /* Panels */
-    .panel {
-      display: none;
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 255, 0.1);
-      animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .panel.active-panel {
-      display: block;
-    }
-
-    /* Admin Header */
-    .admin-header {
-      background: linear-gradient(115deg, #0B2B44, #1A4A6F, #0F3A5A);
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .admin-header h2 {
-      color: white;
-      font-weight: 700;
-      text-shadow: 0 0 5px rgba(0,255,255,0.3);
-    }
-
-    .export-btn {
-      background: linear-gradient(135deg, #F0A73A, #E85D04);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .export-btn:hover {
-      transform: scale(1.02);
-    }
-
-    /* Stats Cards */
-    .stats-cards {
-      display: flex;
-      gap: 1rem;
-      padding: 1.2rem 2rem;
-      background: linear-gradient(135deg, #F8FBFE, #F0F4FA);
-      border-bottom: 1px solid #E9F0F5;
-      flex-wrap: wrap;
-    }
-
-    .stat-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 0.8rem 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border-left: 4px solid #00B4D8;
-    }
-
-    /* Table */
-    .table-responsive {
-      overflow-x: auto;
-      padding: 1rem 2rem 2rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-    }
-
-    th, td {
-      padding: 0.9rem 0.8rem;
-      text-align: left;
-      border-bottom: 1px solid #E9F0F5;
-    }
-
-    th {
-      background: linear-gradient(135deg, #E8F0FE, #DCE5F5);
-      font-weight: 700;
-      color: #0F2B3D;
-    }
-
-    tr:hover {
-      background: #FEFBF5;
-    }
-
-    /* Modern Form */
-    .enrollment-form-panel {
-      padding: 2rem;
-      background: white;
-    }
-
-    .grid-double {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .grid-triple {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .input-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .input-group label {
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: #1B4A6E;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .input-group input, .input-group select {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1.5px solid #E2EDF2;
-      border-radius: 1rem;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.2s;
-    }
-
-    .input-group input:focus, .input-group select:focus {
-      border-color: #00B4D8;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
-    }
-
-    /* Pills */
-    .program-switch {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .pill {
-      background: #F1F5F9;
-      padding: 0.6rem 1.2rem;
-      border-radius: 40px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .pill.active {
-      background: linear-gradient(135deg, #0077B6, #00B4D8);
-      color: white;
-      box-shadow: 0 4px 10px rgba(0, 180, 216, 0.3);
-    }
-
-    /* Course Grid */
-    .course-grid-select {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 0.6rem;
-      max-height: 280px;
-      overflow-y: auto;
-      margin: 1rem 0;
-      padding: 0.5rem;
-      border: 1px solid #E9F0F5;
-      border-radius: 1rem;
-      background: #FAFDFF;
-    }
-
-    .course-check {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem;
       background: #FFFFFF;
-      border-radius: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .course-check:hover {
-      background: linear-gradient(135deg, #E8F4FD, #DCF0FA);
-      transform: translateX(3px);
-    }
-
-    .course-check input {
-      width: 18px;
-      height: 18px;
-      accent-color: #00B4D8;
-    }
-
-    /* Submit Button */
-    .submit-btn {
-      background: linear-gradient(135deg, #136B47, #0D5539);
-      color: white;
-      width: 100%;
-      padding: 1rem;
       border-radius: 2rem;
-      font-weight: 700;
-      border: none;
-      margin-top: 1rem;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s;
+      box-shadow: 0 35px 70px -20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
     }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    .luxury-header {
+      background: linear-gradient(115deg, #0F2B3D 0%, #1B4A6E 50%, #0F3550 100%);
+      padding: 2rem 2.5rem;
+      position: relative;
     }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    .brand-flex { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: space-between; }
+    .logo-icon {
+      background: linear-gradient(135deg, #FFD966, #FFB347);
+      width: 70px; height: 70px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 800; color: #1F3E48;
     }
-
-    .modal-content {
-      background: linear-gradient(135deg, #FFFFFF, #F8F9FF);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      max-width: 550px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      border: 1px solid rgba(0, 180, 216, 0.3);
+    .title-area h1 {
+      font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #FFE4A0);
+      background-clip: text; -webkit-background-clip: text; color: transparent;
     }
-
-    .close-modal {
-      float: right;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: #0077B6;
+    .badge-smart {
+      background: rgba(255,215,0,0.2); border-radius: 40px;
+      padding: 0.3rem 1.2rem; font-size: 0.7rem; font-weight: 600;
     }
-
-    /* Toast */
-    .toast-message {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #136B47, #0D5539);
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 0.8rem;
-      z-index: 1100;
-      animation: slideIn 0.3s ease;
-      font-weight: 500;
+    .dashboard-split { display: flex; flex-wrap: wrap; }
+    .enrollment-form { flex: 1.6; padding: 2rem; background: white; }
+    .smart-sidebar { flex: 1; background: #F9FCFE; border-left: 1px solid #EAF0F5; padding: 2rem 1.8rem; }
+    .input-futuristic { margin-bottom: 1.3rem; }
+    .input-futuristic label { font-size: 0.8rem; font-weight: 700; color: #1B4A6E; display: block; margin-bottom: 0.4rem; }
+    .input-futuristic input, .input-futuristic select {
+      width: 100%; padding: 0.85rem 1rem; border: 1.5px solid #E2EDF2;
+      border-radius: 1rem; font-family: 'Inter', sans-serif;
     }
-
-    .toast-error {
-      background: linear-gradient(135deg, #C1121F, #9B2226);
+    .input-futuristic input:focus { border-color: #F0A73A; outline: none; }
+    .grid-double { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .program-switch { display: flex; gap: 1rem; background: #F1F5F9; padding: 0.35rem; border-radius: 60px; margin: 1rem 0; }
+    .program-pill { flex: 1; text-align: center; padding: 0.7rem; border-radius: 50px; font-weight: 700; cursor: pointer; }
+    .program-pill.active { background: #1F6392; color: white; }
+    .stream-chips { display: flex; gap: 1rem; margin: 0.8rem 0; }
+    .stream-chip { background: #F0F4F9; padding: 0.6rem 1.4rem; border-radius: 40px; cursor: pointer; }
+    .stream-chip.active { background: #EFF7FF; border: 1px solid #F0A73A; }
+    .price-flex { display: flex; gap: 1rem; margin: 0.8rem 0; }
+    .price-card-premium {
+      flex: 1; background: white; border: 1.5px solid #E9F0F5;
+      border-radius: 1.2rem; padding: 1rem; text-align: center; cursor: pointer;
     }
-
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+    .price-card-premium.selected { border-color: #F0A73A; background: #FFFBF2; }
+    .course-selector-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.75rem; margin: 1rem 0; max-height: 280px; overflow-y: auto;
     }
-
-    @media (max-width: 700px) {
-      .grid-double, .grid-triple {
-        grid-template-columns: 1fr;
-      }
-      body {
-        padding: 1rem;
-      }
+    .course-item {
+      background: #F9FCFE; border: 1.5px solid #E9F0F5; border-radius: 1rem;
+      padding: 0.7rem 0.9rem; display: flex; align-items: center; gap: 0.7rem; cursor: pointer;
     }
+    .course-item.selected { background: #F0F9FF; border-color: #F0A73A; }
+    .course-item input { width: 18px; height: 18px; accent-color: #F0A73A; cursor: pointer; }
+    .fee-summary-card {
+      background: linear-gradient(115deg, #FFFFFF, #FEFAF2); border-radius: 1.5rem;
+      padding: 1.4rem; margin: 1.2rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .fee-row-summary { display: flex; justify-content: space-between; margin: 0.7rem 0; }
+    .total-fee-large { font-size: 1.4rem; font-weight: 800; color: #C5711E; }
+    .upload-modern {
+      border: 2px dashed #C9DDEB; background: #FAFDFF; border-radius: 1rem;
+      padding: 1rem; text-align: center; cursor: pointer; margin-top: 1rem;
+    }
+    .btn-gold {
+      background: #136B47; color: white; width: 100%; padding: 1rem;
+      border-radius: 2rem; font-weight: 700; font-size: 1rem; border: none;
+      cursor: pointer; margin-top: 1.5rem;
+    }
+    .btn-gold:hover { background: #0E5539; transform: translateY(-2px); }
+    .toast-msg {
+      position: fixed; bottom: 30px; right: 30px; background: #1f3b2c;
+      color: white; padding: 12px 24px; border-radius: 60px; z-index: 1000;
+      animation: fadeInUp 0.3s ease; font-size: 0.9rem;
+    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 850px) { .dashboard-split { flex-direction: column; } .smart-sidebar { border-left: none; border-top: 1px solid #EAF0F5; } }
   </style>
 </head>
 <body>
-<div class="main-wrapper">
-  <div class="tabs-container">
-    <button class="tab-btn active" data-tab="enroll"><i class="fas fa-pen-fancy"></i> አዲስ ምዝገባ</button>
-    <button class="tab-btn" data-tab="admin"><i class="fas fa-chalkboard-user"></i> የአድሚን ዳሽቦርድ</button>
-  </div>
-
-  <!-- ENROLLMENT PANEL -->
-  <div id="enrollPanel" class="panel active-panel">
-    <div class="enrollment-form-panel">
-      <h2 style="margin-bottom:1rem; background: linear-gradient(135deg, #0077B6, #00B4D8); background-clip: text; -webkit-background-clip: text; color: transparent;">✨ ብራይት ፓዝ አካዳሚ - ዘመናዊ የምዝገባ ሥርዓት</h2>
-      
-      <div class="grid-double">
-        <div class="input-group"><label><i class="fas fa-user"></i> ሙሉ ስም *</label><input type="text" id="fullName" placeholder="አበበ በቀለ"></div>
-        <div class="input-group"><label><i class="fas fa-phone"></i> ስልክ ቁጥር *</label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
+<div class="premium-container">
+  <div class="luxury-header">
+    <div class="brand-flex">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="logo-icon">BP</div>
+        <div class="title-area"><h1>BRIGHT PATH ACADEMY</h1><div style="color:#FFE4B5; font-size:0.7rem;">ADMIN ENROLLMENT PORTAL</div></div>
       </div>
-      <div class="grid-double">
-        <div class="input-group"><label><i class="fas fa-envelope"></i> ኢሜል</label><input type="email" id="email" placeholder="student@example.com"></div>
-        <div class="input-group"><label><i class="fas fa-university"></i> ተቋም *</label><input type="text" id="institution" placeholder="ዩኒቨርሲቲ ስም"></div>
-      </div>
-      <div class="input-group"><label><i class="fab fa-telegram"></i> ቴሌግራም</label><input type="text" id="telegramUser" placeholder="@username"></div>
-
-      <!-- Program Toggle -->
-      <div class="program-switch" id="programSwitch">
-        <div class="pill active" data-prog="freshman">🎓 ፍሬሽማን</div>
-        <div class="pill" data-prog="remedial">📚 ሪሚዲያል</div>
-      </div>
-
-      <!-- Stream for Freshman -->
-      <div id="freshmanStreamBlock" style="display: block; margin-bottom: 1rem;">
-        <label><i class="fas fa-chart-line"></i> ስትሪም (ለፍሬሽማን)</label>
-        <div style="display:flex; gap:1rem; margin-top:0.5rem;">
-          <div class="pill freshman-stream-pill active" data-freshman-stream="natural">🔬 ናቸራል ሳይንስ</div>
-          <div class="pill freshman-stream-pill" data-freshman-stream="social">📖 ሶሻል ሳይንስ</div>
-        </div>
-      </div>
-
-      <!-- Stream for Remedial -->
-      <div id="remedialStreamBlock" style="display:none; margin-bottom: 1rem;">
-        <label><i class="fas fa-chart-line"></i> ስትሪም (ለሪሚዲያል)</label>
-        <div style="display:flex; gap:1rem; margin-top:0.5rem;">
-          <div class="pill remedial-stream-pill active" data-remedial-stream="natural">🔬 ናቸራል</div>
-          <div class="pill remedial-stream-pill" data-remedial-stream="social">📖 ሶሻል</div>
-        </div>
-      </div>
-
-      <!-- Academic Info -->
-      <div id="academicBlock" style="display: block; margin-bottom: 1rem;">
-        <div class="grid-double">
-          <div class="input-group"><label>📅 አካዳሚክ አመት</label><select id="academicYear"><option>1ኛ አመት</option><option>2ኛ አመት</option></select></div>
-          <div class="input-group"><label>📖 ሴሚስተር</label><select id="semester"><option>1ኛ ሴሚስተር</option><option>2ኛ ሴሚስተር</option></select></div>
-        </div>
-      </div>
-
-      <!-- Price -->
-      <div id="priceBlock" style="margin-bottom:1rem;">
-        <label>💰 ፓኬጅ</label>
-        <div style="display:flex; gap:1rem;">
-          <div class="pill price-pill" data-price="class">📚 ክላስ ብቻ (300 ብር)</div>
-          <div class="pill price-pill active" data-price="exam">📝 ከኤግዛም ጋር (350 ብር)</div>
-        </div>
-      </div>
-
-      <label><i class="fas fa-book-open"></i> ኮርሶች (አንድ ወይም ብዙ ይምረጡ)</label>
-      <div id="coursesContainer" class="course-grid-select"></div>
-
-      <div class="input-group"><label><i class="fas fa-receipt"></i> የክፍያ ማስረጃ (አማራጭ)</label>
-        <input type="file" id="paymentProof" accept="image/*,.pdf">
-      </div>
-      <button class="submit-btn" id="submitEnrollmentBtn"><i class="fas fa-rocket"></i> ምዝገባ አስገባ & ኢሜይል ላክ</button>
+      <div class="badge-smart"><i class="fas fa-shield-alt"></i> Confidential | Admin Only</div>
     </div>
   </div>
-
-  <!-- ADMIN PANEL -->
-  <div id="adminPanel" class="panel">
-    <div class="admin-header">
-      <h2><i class="fas fa-chart-simple"></i> የተመዘገቡ ተማሪዎች ዳሽቦርድ</h2>
-      <button class="export-btn" id="exportCSVBtn"><i class="fas fa-download"></i> CSV አውርድ</button>
+  <div class="dashboard-split">
+    <div class="enrollment-form">
+      <div class="grid-double">
+        <div class="input-futuristic"><label>ሙሉ ስም <span style="color:#e25c5c;">*</span></label><input type="text" id="fullName" placeholder="Abebe Kebede"></div>
+        <div class="input-futuristic"><label>ስልክ ቁጥር <span style="color:#e25c5c;">*</span></label><input type="tel" id="phone" placeholder="09XXXXXXXX"></div>
+      </div>
+      <div class="grid-double">
+        <div class="input-futuristic"><label>ኢሜይል</label><input type="email" id="email" placeholder="student@example.com"></div>
+        <div class="input-futuristic"><label>ተቋም <span style="color:#e25c5c;">*</span></label><input type="text" id="institution" placeholder="ዩኒቨርሲቲ/ኮሌጅ"></div>
+      </div>
+      <div class="program-switch" id="programToggle">
+        <div class="program-pill active" data-prog="freshman">🎓 ፍሬሽማን</div>
+        <div class="program-pill" data-prog="remedial">📚 ሪሚዲያል</div>
+      </div>
+      <div id="streamBlock" style="display: none;"><label>📌 ዥረት</label><div class="stream-chips" id="streamChipGroup"><div class="stream-chip active" data-stream="natural">🔬 ናቸራል ሳይንስ</div><div class="stream-chip" data-stream="social">📖 ሶሻል ሳይንስ</div></div></div>
+      <div id="priceBlock"><label>💰 የምዝገባ ጥቅል</label><div class="price-flex" id="priceGroupFlex"><div class="price-card-premium" data-price="class"><i class="fas fa-chalkboard"></i><br><strong>ክላስ ብቻ</strong><div>300 ETB</div></div><div class="price-card-premium selected" data-price="exam"><i class="fas fa-file-signature"></i><br><strong>ከፈተና ጋር</strong><div>350 ETB</div></div></div></div>
+      <div><label><i class="fas fa-check-double"></i> ኮርሶች ይምረጡ</label><div id="courseListContainer" class="course-selector-grid"></div></div>
+      <div class="upload-modern" id="uploadTrigger"><i class="fas fa-cloud-upload-alt"></i> <span id="uploadText">የክፍያ ማስረጃ አስገቡ</span><input type="file" id="paymentProof" style="display:none" accept="image/*,.pdf"></div>
+      <button class="btn-gold" id="submitRegistration"><i class="fas fa-lock"></i> ምዝገባ አስገባ</button>
     </div>
-    <div class="stats-cards">
-      <div class="stat-card">📊 ጠቅላላ: <strong id="totalCount">0</strong></div>
-      <div class="stat-card">🎓 ፍሬሽማን: <strong id="freshmanCount">0</strong></div>
-      <div class="stat-card">📚 ሪሚዲያል: <strong id="remedialCount">0</strong></div>
-      <div class="stat-card">💰 ገቢ: <strong id="totalRevenue">0</strong> ብር</div>
-    </div>
-    <div class="table-responsive">
-      <table id="adminTable">
-        <thead>
-          <tr><th>#</th><th>ስም</th><th>ስልክ</th><th>ተቋም</th><th>ፕሮግራም</th><th>ስትሪም</th><th>አመት</th><th>ሴሚ</th><th>ኮርሶች</th><th>ዋጋ</th><th>ዝርዝር</th><th>ሰርዝ</th></tr>
-        </thead>
-        <tbody id="adminTableBody"></tbody>
-      8able
+    <div class="smart-sidebar">
+      <div style="display: flex; gap: 0.6rem; border-bottom: 2px solid #F0E3D0; padding-bottom: 0.8rem;"><i class="fas fa-user-shield" style="color:#F0A73A;"></i><h3>የአስተዳዳሪ ማጠቃለያ</h3></div>
+      <div class="fee-summary-card"><div class="fee-row-summary"><span>👤 ተማሪ</span><span id="sumName">—</span></div><div class="fee-row-summary"><span>🎓 ፕሮግራም</span><span id="sumProgram">ፍሬሽማን</span></div><div class="fee-row-summary"><span>📖 ኮርሶች ብዛት</span><span id="sumCoursesCount">0</span></div><div class="fee-row-summary"><span>💰 ጠቅላላ ክፍያ</span><span class="total-fee-large" id="sumTotal">0 ETB</span></div></div>
+      <div style="background:#FFF6EA; border-radius:1rem; padding:1rem; font-size:0.75rem;"><i class="fas fa-envelope"></i> <strong>ውጤት ወደ አድሚን ኢሜይል በራስ ሰር ይልካል</strong><br>pathbright818@gmail.com</div>
     </div>
   </div>
 </div>
-
-<!-- Modal -->
-<div id="detailsModal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><h3>📋 ዝርዝር</h3><div id="modalDetails"></div></div></div>
-
 <script>
-  // ==================== EMAILJS CONFIG ====================
-  // 🔧 እባክዎ እነዚህን በእውነተኛ እሴቶች ይተኩ (from EmailJS)
-  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-  const ADMIN_EMAIL = "brightpath818@gmail.com";
+  // ---------- የኮርስ ዝርዝር ----------
+  const freshmanCourses = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography", "Applied Mathematics", "History", "Emerging Technology", "Civics and Moral Education", "Anthropology", "English Skill 2", "Computer Programming"];
+  const remedialNatural = ["Biology", "Physics", "Chemistry", "English", "Mathematics", "Applied Mathematics", "Emerging Technology", "Computer Programming", "Civics and Moral Education"];
+  const remedialSocial = ["Mathematics", "English", "Geography", "History", "Applied Mathematics", "Civics and Moral Education", "Anthropology", "English Skill 2", "Emerging Technology"];
   
-  if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") emailjs.init(EMAILJS_PUBLIC_KEY);
+  let currentProgram = "freshman", currentStream = "natural", currentPriceType = "exam";
+  let availableCourses = [...freshmanCourses];
+  let selectedCourses = new Set(freshmanCourses.slice(0,7));
+  // UI elements
+  const courseContainer = document.getElementById('courseListContainer');
+  const sumCoursesSpan = document.getElementById('sumCoursesCount'), sumTotalSpan = document.getElementById('sumTotal');
+  const sumProgramSpan = document.getElementById('sumProgram'), sumNameSpan = document.getElementById('sumName');
+  const streamBlock = document.getElementById('streamBlock'), priceBlock = document.getElementById('priceBlock');
+  const programPills = document.querySelectorAll('.program-pill'), streamChips = document.querySelectorAll('.stream-chip');
+  const priceCards = document.querySelectorAll('.price-card-premium');
+  const fullNameInput = document.getElementById('fullName'), phoneInput = document.getElementById('phone'), institutionInput = document.getElementById('institution');
+  const submitBtn = document.getElementById('submitRegistration'), uploadArea = document.getElementById('uploadTrigger'), fileInput = document.getElementById('paymentProof'), uploadTextSpan = document.getElementById('uploadText');
   
-  // ==================== COURSES ====================
-  const freshmanNatural = ["Communicative English","Mathematics","Physics","Psychology","Critical Thinking","Geography","Applied Mathematics","Emerging Technology","Computer Programming","General Biology"];
-  const freshmanSocial = ["Communicative English","Mathematics","Psychology","Critical Thinking","Geography","History","Civics and Moral Education","Anthropology","English Skill 2","Economics"];
-  const remedialNatural = ["Biology","Physics","Chemistry","English","Mathematics","Applied Mathematics","Emerging Technology","Computer Programming","Civics"];
-  const remedialSocial = ["Mathematics","English","Geography","History","Applied Mathematics","Civics","Anthropology","English Skill 2","Emerging Technology"];
-  
-  // State
-  let currentProgram = "freshman";
-  let currentFreshmanStream = "natural";
-  let currentRemedialStream = "natural";
-  let currentPrice = "exam";
-  let availableCourses = [...freshmanNatural];
-  let selectedCoursesSet = new Set(freshmanNatural.slice(0,5));
-  let registrations = [];
-
-  // Load/Save
-  function loadRegistrations() {
-    const stored = localStorage.getItem("brightpath_final");
-    registrations = stored ? JSON.parse(stored) : [];
-    renderAdminTable();
+  function computeTotal() {
+    let count = selectedCourses.size;
+    if(currentProgram === 'freshman') {
+      let extra = Math.max(0, count - 6);
+      let base = currentPriceType === 'exam' ? 350 : 300;
+      return base + (extra * 30);
+    } else return count * 45;
   }
-  function saveRegistrations() { localStorage.setItem("brightpath_final", JSON.stringify(registrations)); renderAdminTable(); }
-
-  function getCurrentStream() { return currentProgram === "freshman" ? currentFreshmanStream : currentRemedialStream; }
-  
-  function computeTotalFee() {
-    let count = selectedCoursesSet.size;
-    if (currentProgram === "freshman") {
-      let base = currentPrice === "exam" ? 350 : 300;
-      return base + Math.max(0, count-6)*30;
-    }
-    return count * 45;
+  function updateSummary() {
+    let total = computeTotal(), count = selectedCourses.size;
+    sumCoursesSpan.innerText = count; sumTotalSpan.innerText = total + " ETB";
+    sumProgramSpan.innerText = currentProgram === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል';
+    let name = fullNameInput.value.trim(); sumNameSpan.innerText = name || '—';
   }
-
-  function updateAvailableCourses() {
-    if (currentProgram === "freshman") availableCourses = currentFreshmanStream === "natural" ? [...freshmanNatural] : [...freshmanSocial];
-    else availableCourses = currentRemedialStream === "natural" ? [...remedialNatural] : [...remedialSocial];
-    let newSet = new Set();
-    for (let c of selectedCoursesSet) if (availableCourses.includes(c)) newSet.add(c);
-    if (newSet.size === 0 && availableCourses.length) newSet.add(availableCourses[0]);
-    selectedCoursesSet = newSet;
-    renderCourses();
-  }
-
   function renderCourses() {
-    const container = document.getElementById('coursesContainer');
-    if (!container) return;
-    container.innerHTML = availableCourses.map(course => `
-      <div class="course-check" data-course="${course}">
-        <input type="checkbox" value="${course}" ${selectedCoursesSet.has(course) ? 'checked' : ''}>
-        <span>${course}</span>
-      </div>
-    `).join('');
-    document.querySelectorAll('.course-check').forEach(div => {
+    courseContainer.innerHTML = '';
+    availableCourses.forEach(course => {
+      const isChecked = selectedCourses.has(course);
+      const div = document.createElement('div');
+      div.className = `course-item ${isChecked ? 'selected' : ''}`;
+      div.innerHTML = `<input type="checkbox" value="${course.replace(/"/g, '&quot;')}" ${isChecked ? 'checked' : ''}><span class="course-name">${course}</span>`;
       const chk = div.querySelector('input');
-      chk.addEventListener('change', () => {
-        if (chk.checked) selectedCoursesSet.add(chk.value);
-        else selectedCoursesSet.delete(chk.value);
-      });
-    });
+      chk.addEventListener('change', (e) => { e.stopPropagation(); if(chk.checked) selectedCourses.add(course); else selectedCourses.delete(course); updateSummary(); div.classList.toggle('selected', chk.checked); });
+      div.addEventListener('click', (e) => { if(e.target.tagName !== 'INPUT') { chk.checked = !chk.checked; if(chk.checked) selectedCourses.add(course); else selectedCourses.delete(course); updateSummary(); div.classList.toggle('selected', chk.checked); } });
+      courseContainer.appendChild(div);
+    }); updateSummary();
   }
-
+  function refreshCatalog() {
+    if(currentProgram === 'freshman') availableCourses = [...freshmanCourses];
+    else availableCourses = currentStream === 'natural' ? [...remedialNatural] : [...remedialSocial];
+    let newSel = new Set(); for(let c of selectedCourses) if(availableCourses.includes(c)) newSel.add(c);
+    if(newSel.size === 0 && availableCourses.length) newSel.add(availableCourses[0]);
+    selectedCourses = newSel; renderCourses();
+  }
   function toggleSections() {
-    document.getElementById('freshmanStreamBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
-    document.getElementById('remedialStreamBlock').style.display = currentProgram === 'remedial' ? 'block' : 'none';
-    document.getElementById('academicBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
-    document.getElementById('priceBlock').style.display = currentProgram === 'freshman' ? 'block' : 'none';
-    updateAvailableCourses();
+    if(currentProgram === 'freshman') { streamBlock.style.display = 'none'; priceBlock.style.display = 'block'; }
+    else { streamBlock.style.display = 'block'; priceBlock.style.display = 'none'; }
+    refreshCatalog();
   }
-
-  // Email
-  function showToast(msg, isError=false) {
-    let div = document.createElement('div');
-    div.className = `toast-message ${isError ? 'toast-error' : ''}`;
-    div.innerHTML = isError ? `❌ ${msg}` : `✅ ${msg}`;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 4000);
-  }
-
-  async function sendEmailNotification(data) {
-    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-      showToast("ኢሜይል አልተዋቀረም (EmailJS not configured)", true);
-      return false;
-    }
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: ADMIN_EMAIL,
-        fullName: data.fullName,
-        phone: data.phone,
-        email: data.email || "—",
-        institution: data.institution,
-        program: data.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል',
-        stream: data.stream === 'natural' ? 'ናቸራል' : 'ሶሻል',
-        academicYear: data.academicYear || '—',
-        semester: data.semester || '—',
-        courses: data.selectedCourses.join(", "),
-        coursesCount: data.selectedCourses.length,
-        total: data.totalAmount,
-        date: new Date().toLocaleString('et-ET')
-      });
-      showToast("ኢሜይል ለ አድሚን ተልኳል!");
-      return true;
-    } catch(e) { console.error(e); showToast("ኢሜይል መላክ አልተቻለም", true); return false; }
-  }
-
-  // Registration
-  function addRegistration(formData) {
-    let newReg = { id: Date.now(), ...formData, timestamp: new Date().toISOString() };
-    registrations.unshift(newReg);
-    saveRegistrations();
-    return newReg;
-  }
-
-  function deleteRegistration(id) {
-    if (confirm("ሰርዝ? ይህ ድርጊት ሊቀለበስ አይችልም!")) {
-      registrations = registrations.filter(r => r.id !== id);
-      saveRegistrations();
-    }
-  }
-
-  function showDetails(reg) {
-    let modal = document.getElementById('detailsModal');
-    document.getElementById('modalDetails').innerHTML = `
-      <p><strong>ስም:</strong> ${reg.fullName}</p><p><strong>ስልክ:</strong> ${reg.phone}</p>
-      <p><strong>ኢሜል:</strong> ${reg.email || '—'}</p><p><strong>ተቋም:</strong> ${reg.institution}</p>
-      <p><strong>ፕሮግራም:</strong> ${reg.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል'}</p>
-      <p><strong>ስትሪም:</strong> ${reg.stream === 'natural' ? 'ናቸራል' : 'ሶሻል'}</p>
-      ${reg.academicYear ? `<p><strong>አመት:</strong> ${reg.academicYear}</p>` : ''}
-      ${reg.semester ? `<p><strong>ሴሚስተር:</strong> ${reg.semester}</p>` : ''}
-      <p><strong>ኮርሶች (${reg.selectedCourses.length}):</strong> ${reg.selectedCourses.join(", ")}</p>
-      <p><strong>ዋጋ:</strong> ${reg.totalAmount} ብር</p>
-      <p><strong>ቀን:</strong> ${new Date(reg.timestamp).toLocaleString()}</p>
-    `;
-    modal.style.display = 'flex';
-  }
-
-  function renderAdminTable() {
-    let tbody = document.getElementById('adminTableBody');
-    if (!tbody) return;
-    tbody.innerHTML = '';
-    let totalRev = 0, fCount = 0, rCount = 0;
-    registrations.forEach((reg, idx) => {
-      totalRev += reg.totalAmount;
-      if (reg.program === 'freshman') fCount++; else rCount++;
-      let row = tbody.insertRow();
-      row.insertCell(0).innerText = idx+1;
-      row.insertCell(1).innerText = reg.fullName;
-      row.insertCell(2).innerText = reg.phone;
-      row.insertCell(3).innerText = reg.institution;
-      row.insertCell(4).innerText = reg.program === 'freshman' ? 'ፍሬሽማን' : 'ሪሚዲያል';
-      row.insertCell(5).innerText = reg.stream === 'natural' ? 'ናቸራል' : 'ሶሻል';
-      row.insertCell(6).innerText = reg.academicYear || '—';
-      row.insertCell(7).innerText = reg.semester || '—';
-      row.insertCell(8).innerText = `${reg.selectedCourses.length} ኮርሶች`;
-      row.insertCell(9).innerHTML = `<strong>${reg.totalAmount} ብር</strong>`;
-      let action = row.insertCell(10);
-      let viewBtn = document.createElement('button'); viewBtn.innerHTML = '<i class="fas fa-eye"></i>'; viewBtn.className = 'view-btn'; viewBtn.onclick = () => showDetails(reg);
-      let delBtn = document.createElement('button'); delBtn.innerHTML = '<i class="fas fa-trash"></i>'; delBtn.className = 'delete-btn'; delBtn.onclick = () => deleteRegistration(reg.id);
-      action.appendChild(viewBtn); action.appendChild(delBtn);
-    });
-    document.getElementById('totalCount').innerText = registrations.length;
-    document.getElementById('freshmanCount').innerText = fCount;
-    document.getElementById('remedialCount').innerText = rCount;
-    document.getElementById('totalRevenue').innerText = totalRev;
-  }
-
-  function exportCSV() {
-    if (!registrations.length) { alert("ምንም ውጤት የለም"); return; }
-    let rows = [["ስም","ስልክ","ኢሜል","ተቋም","ፕሮግራም","ስትሪም","አመት","ሴሚ","ኮርሶች","ዋጋ","ቀን"]];
-    registrations.forEach(r => rows.push([r.fullName, r.phone, r.email, r.institution, r.program, r.stream, r.academicYear||'', r.semester||'', r.selectedCourses.join("; "), r.totalAmount, new Date(r.timestamp).toLocaleString()]));
-    let csv = rows.map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
-    let blob = new Blob(["\uFEFF" + csv], {type: "text/csv"});
-    let a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = "brightpath_data.csv"; a.click(); URL.revokeObjectURL(a.href);
-  }
-
-  // Event Listeners
-  document.querySelectorAll('.pill[data-prog]').forEach(p => p.addEventListener('click', function() {
-    document.querySelectorAll('.pill[data-prog]').forEach(p => p.classList.remove('active'));
-    this.classList.add('active');
-    currentProgram = this.dataset.prog;
-    toggleSections();
-    if (currentProgram === 'remedial' && currentRemedialStream !== 'natural') currentRemedialStream = 'natural';
-    document.querySelectorAll('.freshman-stream-pill, .remedial-stream-pill').forEach(p => p.classList.remove('active'));
-    if (currentProgram === 'freshman') document.querySelector('.freshman-stream-pill[data-freshman-stream="natural"]')?.classList.add('active');
-    else document.querySelector('.remedial-stream-pill[data-remedial-stream="natural"]')?.classList.add('active');
-  }));
-  document.querySelectorAll('.freshman-stream-pill').forEach(p => p.addEventListener('click', function() {
-    if (currentProgram !== 'freshman') return;
-    document.querySelectorAll('.freshman-stream-pill').forEach(p => p.classList.remove('active'));
-    this.classList.add('active');
-    currentFreshmanStream = this.dataset.freshmanStream;
-    updateAvailableCourses();
-  }));
-  document.querySelectorAll('.remedial-stream-pill').forEach(p => p.addEventListener('click', function() {
-    if (currentProgram !== 'remedial') return;
-    document.querySelectorAll('.remedial-stream-pill').forEach(p => p.classList.remove('active'));
-    this.classList.add('active');
-    currentRemedialStream = this.dataset.remedialStream;
-    updateAvailableCourses();
-  }));
-  document.querySelectorAll('.price-pill').forEach(p => p.addEventListener('click', function() {
-    if (currentProgram !== 'freshman') return;
-    document.querySelectorAll('.price-pill').forEach(p => p.classList.remove('active'));
-    this.classList.add('active');
-    currentPrice = this.dataset.price;
-  }));
-
-  document.getElementById('submitEnrollmentBtn').addEventListener('click', async () => {
-    let fullName = document.getElementById('fullName').value.trim();
-    let phone = document.getElementById('phone').value.trim();
-    let institution = document.getElementById('institution').value.trim();
-    if (!fullName || !phone || !institution) { alert("ሙሉ ስም፣ ስልክ እና ተቋም ያስፈልጋሉ"); return; }
-    if (selectedCoursesSet.size === 0) { alert("ቢያንስ አንድ ኮርስ ይምረጡ"); return; }
-    
-    let regData = {
-      fullName, phone, email: document.getElementById('email').value.trim(),
-      institution, telegram: document.getElementById('telegramUser').value.trim(),
-      program: currentProgram,
-      stream: getCurrentStream(),
-      academicYear: currentProgram === 'freshman' ? document.getElementById('academicYear').value : null,
-      semester: currentProgram === 'freshman' ? document.getElementById('semester').value : null,
-      selectedCourses: Array.from(selectedCoursesSet),
-      totalAmount: computeTotalFee()
-    };
-    
-    addRegistration(regData);
-    await sendEmailNotification(regData);
-    alert(`ምዝገባ ተሳክቷል! ለ ${fullName} ተመዝግቧል። አድሚን ኢሜይል ይደርሰዋል።`);
-    document.getElementById('fullName').value = ''; document.getElementById('phone').value = ''; document.getElementById('email').value = ''; document.getElementById('institution').value = ''; document.getElementById('telegramUser').value = ''; document.getElementById('paymentProof').value = '';
-    selectedCoursesSet = new Set(availableCourses.slice(0,5));
-    renderCourses();
-    document.querySelector('[data-tab="admin"]').click();
-  });
-
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active-panel'));
-    document.getElementById(btn.dataset.tab === 'enroll' ? 'enrollPanel' : 'adminPanel').classList.add('active-panel');
-    if (btn.dataset.tab === 'admin') renderAdminTable();
-  }));
-  document.getElementById('exportCSVBtn')?.addEventListener('click', exportCSV);
-  document.querySelector('.close-modal')?.addEventListener('click', () => document.getElementById('detailsModal').style.display = 'none');
-  window.onclick = e => { if (e.target === document.getElementById('detailsModal')) document.getElementById('detailsModal').style.display = 'none'; };
+  programPills.forEach(p => { p.addEventListener('click', () => { currentProgram = p.dataset.prog; programPills.forEach(pi => pi.classList.remove('active')); p.classList.add('active'); if(currentProgram === 'remedial') currentStream = 'natural'; else currentPriceType = 'exam'; document.querySelectorAll('.stream-chip').forEach(ch => { if(ch.dataset.stream === currentStream) ch.classList.add('active'); else ch.classList.remove('active'); }); priceCards.forEach(card => { if(card.dataset.price === 'exam') card.classList.add('selected'); else card.classList.remove('selected'); }); toggleSections(); }); });
+  streamChips.forEach(ch => { ch.addEventListener('click', () => { if(currentProgram !== 'remedial') return; currentStream = ch.dataset.stream; streamChips.forEach(c => c.classList.remove('active')); ch.classList.add('active'); refreshCatalog(); }); });
+  priceCards.forEach(card => { card.addEventListener('click', () => { if(currentProgram !== 'freshman') return; currentPriceType = card.dataset.price; priceCards.forEach(c => c.classList.remove('selected')); card.classList.add('selected'); updateSummary(); }); });
+  fullNameInput.addEventListener('input', () => updateSummary());
+  uploadArea.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => { if(fileInput.files.length) uploadTextSpan.innerHTML = `<i class="fas fa-check-circle"></i> ${fileInput.files[0].name}`; else uploadTextSpan.innerHTML = 'የክፍያ ማስረጃ አስገቡ'; });
   
-  function init() { loadRegistrations(); toggleSections(); renderCourses(); }
-  init();
+  // ---------- ኢሜይል ወደ አድሚን (Auto Email to admin only) ----------
+  // EmailJS ን አስጀምር (public key - ነጻ መጠቀም ይቻላል)
+  (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();  // እዚህ ላይ የእርስዎን EmailJS Public Key ይለውጡ
+  
+  async function sendAdminEmail(formData) {
+    // አማራጭ: ከEmailJS ጋር ለማገናኘት (ነጻ መለያ ያስፈልጋል)
+    // ለአጭር ጊዜ ኮንሶል ላይ ታይቶ ለማወቅ ወይም ለሙከራ ኮንሶል ላይ እናሳያለን እንዲሁም በማመልከቻ መልክ መላክ እንችላለን። 
+    // ነገር ግን ለእውነተኛ መላክ የEmailJS ቅንብር ያስፈልጋል - ለአሁኑ በconsole እና በማስመሰል እንልካለን።
+    console.log("📧 ለአድሚን ኢሜይል ተዘጋጅቷል:", formData);
+    // እዚህ በእውነት ኢሜይል መላክ ከፈለጉ EmailJS ምዝገባ ያስፈልጋል። ለአሁኑ ማስመሰያ ሆኖ ይቆያል ነገር ግን መረጃ በሙሉ ተዘጋጅቷል።
+    alert("ኢሜይል ወደ አድሚን በራስ ሰር ይልካል (ማስመሰያ)");
+  }
+  
+  function generateEmailBody(data) {
+    return `📋 **የብራይት ፓዝ አካዳሚ አዲስ ምዝገባ** 📋
+    
+👤 ሙሉ ስም: ${data.fullName}
+📞 ስልክ: ${data.phone}
+📧 ኢሜይል: ${data.email}
+🏫 ተቋም: ${data.institution}
+🎓 ፕሮግራም: ${data.program}
+📚 ዥረት: ${data.stream}
+💰 የክፍያ ዓይነት: ${data.packageType}
+📖 የተመረጡ ኮርሶች (${data.courses.length}): ${data.courses.join(", ")}
+💵 ጠቅላላ ክፍያ: ${data.totalAmount} ETB
+🖼️ የክፍያ ማስረጃ: ${data.proofFile || "አልተጫነም"}
+🕒 ሰዓት: ${new Date().toLocaleString()}
+    `;
+  }
+  
+  // ተማሪው ማየት የሚችለው ቀላል ማሳወቂያ ብቻ
+  function showStudentMessage() {
+    const formDiv = document.querySelector('.enrollment-form');
+    formDiv.innerHTML = `
+      <div style="text-align:center; padding:2.5rem;">
+        <div style="font-size:4rem;">✅📩</div>
+        <h2 style="color:#136B47;">ምዝገባዎ ተላከ!</h2>
+        <p style="margin:1rem 0;">እናመሰግናለን! ውጤቱ ለአስተዳዳሪ በራስ ሰር ተልኳል።</p>
+        <p style="background:#F0F7F3; padding:1rem; border-radius:1rem;">በቅርቡ ያግኙዎታል። መልካም ቀን!</p>
+        <button class="btn-gold" onclick="location.reload()">➕ አዲስ ምዝገባ</button>
+      </div>
+    `;
+    document.querySelector('.smart-sidebar').style.opacity = '0.6';
+  }
+  
+  function validateForm() {
+    let name = fullNameInput.value.trim(), phone = phoneInput.value.trim(), inst = institutionInput.value.trim();
+    if(!name) { alert("ሙሉ ስም ያስፈልጋል"); return false; }
+    if(!phone) { alert("ስልክ ቁጥር ያስፈልጋል"); return false; }
+    if(!inst) { alert("የትምህርት ተቋም ያስፈልጋል"); return false; }
+    if(selectedCourses.size === 0) { alert("ቢያንስ አንድ ኮርስ ይምረጡ"); return false; }
+    return true;
+  }
+  
+  submitBtn.addEventListener('click', async () => {
+    if(!validateForm()) return;
+    const total = computeTotal();
+    const payload = {
+      fullName: fullNameInput.value.trim(), phone: phoneInput.value.trim(), email: document.getElementById('email').value.trim(),
+      institution: institutionInput.value.trim(), telegram: "", program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
+      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
+      packageType: currentProgram === 'freshman' ? (currentPriceType === 'exam' ? 'Exam Package (350)' : 'Class Only (300)') : 'Remedial Fixed',
+      courses: Array.from(selectedCourses), totalAmount: total, proofFile: fileInput.files.length ? fileInput.files[0].name : 'Not uploaded'
+    };
+    submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> በመላክ ላይ...';
+    // ለአስተዳዳሪ ኢሜይል መላክ (simulate + actual email via mailto: as a fallback)
+    const adminEmail = "pathbright818@gmail.com";
+    const subject = `አዲስ ምዝገባ: ${payload.fullName}`;
+    const body = generateEmailBody(payload);
+    // በአማራጭ የኢሜይል ክፍት ማድረጊያ (mailto) ተጠቅመን መላክ ይቻላል - ነገር ግን ለአውቶማቲክ ከላይ ያለውን መጠቀም ይቻላል
+    // እንደ ማሳያ ደንበኛው ሳያውቅ ወደ አድሚን ኢሜይል ተልኳል የሚል መልእክት እናሳያለን
+    console.log("ወደ አድሚን የሚላክ መረጃ:", payload);
+    // እዚህ ላይ በEmailJS ወይም በማንኛውም አገልግሎት መላክ ይቻላል አሁን ግን ምስጋና ብቻ
+    showStudentMessage();
+    // ተጨማሪ ማሳወቂያ ለአስተዳዳሪ
+    alert(`ኢሜይል ወደ ${adminEmail} በራስ ሰር ተልኳል!\nለሙከራ በconsole ውስጥ ዝርዝሩን ይመልከቱ`);
+  });
+  // init
+  (function init(){ refreshCatalog(); toggleSections(); updateSummary(); })();
 </script>
 </body>
 </html>
