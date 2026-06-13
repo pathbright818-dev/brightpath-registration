@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bright Path Academy | Freshman & Remedial Enrollment</title>
+  <title>Bright Path Academy | Modern Enrollment Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
@@ -16,2258 +16,745 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      background: radial-gradient(circle at 10% 20%, rgba(5, 25, 55, 0.95), rgba(2, 15, 35, 1));
       font-family: 'Inter', sans-serif;
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
       min-height: 100vh;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1280px;
       width: 100%;
       margin: 0 auto;
-      background: white;
+      background: #ffffff;
       border-radius: 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 35px 60px -20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
       overflow: hidden;
+      transition: all 0.2s ease;
     }
 
+    /* Modern Glassmorphic Header */
     .header {
-      background: linear-gradient(115deg, #0A4D9E, #0f5bb3);
-      padding: 2rem;
+      background: linear-gradient(105deg, #0B2B5E 0%, #123A6F 45%, #1A4A7A 100%);
+      padding: 2rem 2rem 1.8rem;
       text-align: center;
       position: relative;
+      backdrop-filter: blur(2px);
     }
 
-    /* Logo Styles */
     .logo-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .logo-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 5px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       margin-bottom: 0.8rem;
     }
 
-    .logo-placeholder {
-      width: 80px;
-      height: 80px;
+    .logo-img {
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #FFD700, #FFA500);
+      object-fit: cover;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.02);
+    }
+
+    .logo-placeholder {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(125deg, #FFD966, #FFB347);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2.5rem;
-      font-weight: 700;
-      color: #0A4D9E;
-      margin-bottom: 0.8rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      font-weight: 800;
+      color: #0A2F44;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .header h1 {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2.3rem;
+      font-weight: 800;
       color: white;
-      letter-spacing: 1px;
-    }
-
-    .header h1 span {
-      background: linear-gradient(135deg, #FFD700, #FFA500);
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #FFF9E6, #FFE4B5);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      text-shadow: none;
     }
 
     .tagline {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      margin-top: 0.3rem;
-    }
-
-    .subtitle {
-      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      letter-spacing: 1.5px;
       font-size: 0.75rem;
+      background: rgba(255,255,240,0.2);
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
       margin-top: 0.5rem;
+      backdrop-filter: blur(4px);
     }
 
-    .badge {
-      background: rgba(255, 255, 255, 0.2);
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 2rem;
+    .badge-modern {
+      background: rgba(255,215,0,0.18);
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
       font-size: 0.7rem;
+      font-weight: 600;
+      color: #F9F3D9;
+      display: inline-block;
       margin-top: 1rem;
-      color: white;
     }
 
     .form-content {
-      padding: 2rem;
+      padding: 2rem 2rem 2.2rem;
+      background: #ffffff;
     }
 
+    /* Modern card sections */
     .form-section {
-      margin-bottom: 2rem;
-      background: #f8fafc;
-      border-radius: 1.2rem;
-      padding: 1.5rem;
-      border: 1px solid #e2e8f0;
+      background: #FFFFFF;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #eff3f8;
+      transition: box-shadow 0.2s;
+    }
+
+    .form-section:hover {
+      box-shadow: 0 12px 24px -12px rgba(0, 30, 60, 0.12), 0 0 0 1px #e0e7f0;
     }
 
     .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f2b3d;
+      margin-bottom: 1.4rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.75rem;
-    }
-
-    .section-title i {
-      color: #0A4D9E;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .input-group.full-width {
-      grid-column: span 2;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #334155;
-    }
-
-    label .required {
-      color: #ef4444;
-    }
-
-    input, select {
-      padding: 0.85rem 1rem;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 0.8rem;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-      background: white;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #0A4D9E;
-      box-shadow: 0 0 0 3px rgba(10, 77, 158, 0.1);
-    }
-
-    .radio-group {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    .radio-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      background: white;
-      border-radius: 2rem;
-      border: 1.5px solid #e2e8f0;
-      transition: all 0.2s;
-    }
-
-    .radio-option.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .price-options {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .price-card {
-      flex: 1;
-      background: white;
-      border: 2px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .price-card.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .price-card .price-icon {
-      font-size: 1.5rem;
-    }
-
-    .price-card .price-title {
-      font-weight: 700;
-      margin: 0.5rem 0;
-    }
-
-    .price-card .price-amount {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0A4D9E;
-    }
-
-    .price-card .price-desc {
-      font-size: 0.7rem;
-      color: #64748b;
-    }
-
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin: 1rem 0;
-    }
-
-    .course-card {
-      background: white;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 0.8rem 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .course-card.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .course-card input {
-      width: 18px;
-      height: 18px;
-      accent-color: #0A4D9E;
-    }
-
-    .course-card .course-name {
-      font-weight: 500;
-      color: #0f172a;
-    }
-
-    .fee-summary {
-      background: linear-gradient(135deg, #0A4D9E, #0f5bb3);
-      border-radius: 1rem;
-      padding: 1.2rem;
-      margin: 1rem 0;
-      color: white;
-    }
-
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      margin: 0.5rem 0;
-    }
-
-    .fee-row.total {
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      padding-top: 0.8rem;
-      margin-top: 0.5rem;
-    }
-
-    .payment-methods {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .payment-card {
-      background: white;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .payment-card i {
-      font-size: 1.5rem;
-      color: #0A4D9E;
-    }
-
-    .payment-card .payment-number {
-      font-family: monospace;
-      font-size: 0.75rem;
-      background: #f1f5f9;
-      padding: 0.3rem;
-      border-radius: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .file-upload-area {
-      border: 2px dashed #cbd5e1;
-      border-radius: 1rem;
-      padding: 1.2rem;
-      text-align: center;
-      cursor: pointer;
-      background: #f8fafc;
-    }
-
-    .file-upload-area:hover {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: #0A4D9E;
-      color: white;
-      flex: 1;
-    }
-
-    .btn-primary:hover {
-      background: #0c5bb3;
-    }
-
-    .btn-secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-    }
-
-    .message-popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      padding: 1rem 1.5rem;
-      border-radius: 0.8rem;
-      animation: slideIn 0.3s ease;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .message-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
-    .message-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
-    .message-loading { background: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
-
-    .success-panel {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
-
-    @media (max-width: 700px) {
-      .form-grid, .course-grid, .payment-methods, .price-options {
-        grid-template-columns: 1fr;
-      }
-      .btn-group {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <div class="header">
-    <div class="logo-container">
-      <!-- Logo Image - Replace the src with your actual image URL -->
-      <!-- Option 1: If you upload image to GitHub, use: -->
-      <img src="logo.png" alt="Bright Path Academy Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="logo-placeholder" style="display: none;">BP</div>
-      
-      <!-- Option 2: If you have a direct image URL, uncomment and use:
-      <img src="https://your-image-url.com/logo.png" alt="Bright Path Academy Logo" class="logo-img">
-      -->
-    </div>
-    <h1>BRIGHT <span>PATH</span></h1>
-    <div class="tagline">LEARN TODAY, LEAD TOMORROW</div>
-    <div class="subtitle">ETHIO UNIVERSITY</div>
-    <div class="badge">📚 FRESHMAN & REMEDIAL COURSES 2026</div>
-  </div>
-
-  <div class="form-content">
-    <!-- Personal Information -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-user-graduate"></i>
-        <span>Personal Information</span>
-      </div>
-      <div class="form-grid">
-        <div class="input-group">
-          <label>Full Name <span class="required">*</span></label>
-          <input type="text" id="fullName" placeholder="Enter your full name">
-        </div>
-        <div class="input-group">
-          <label>Phone Number <span class="required">*</span></label>
-          <input type="tel" id="phoneNumber" placeholder="09XXXXXXXX">
-        </div>
-        <div class="input-group">
-          <label>Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com">
-        </div>
-        <div class="input-group">
-          <label>Telegram Username</label>
-          <input type="text" id="telegramUser" placeholder="@username">
-        </div>
-        <div class="input-group full-width">
-          <label>University / Institution <span class="required">*</span></label>
-          <input type="text" id="university" placeholder="Enter your university name">
-        </div>
-      </div>
-    </div>
-
-    <!-- Program Selection -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Program Selection</span>
-      </div>
-      <div class="radio-group" id="programGroup">
-        <div class="radio-option" data-value="freshman">
-          <input type="radio" name="program" value="freshman" id="programFreshman">
-          <label for="programFreshman">🎓 Freshman Program</label>
-        </div>
-        <div class="radio-option" data-value="remedial">
-          <input type="radio" name="program" value="remedial" id="programRemedial">
-          <label for="programRemedial">📚 Remedial Program</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stream Selection (only for Remedial) -->
-    <div class="form-section" id="streamSection" style="display: none;">
-      <div class="section-title">
-        <i class="fas fa-chart-line"></i>
-        <span>Stream Selection</span>
-      </div>
-      <div class="radio-group" id="streamGroup">
-        <div class="radio-option" data-value="natural">
-          <input type="radio" name="stream" value="natural" id="streamNatural">
-          <label for="streamNatural">🔬 Natural Science</label>
-        </div>
-        <div class="radio-option" data-value="social">
-          <input type="radio" name="stream" value="social" id="streamSocial">
-          <label for="streamSocial">📖 Social Science</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Price Selection (only for Freshman) -->
-    <div class="form-section" id="priceSection" style="display: none;">
-      <div class="section-title">
-        <i class="fas fa-tag"></i>
-        <span>Payment Type</span>
-      </div>
-      <div class="price-options" id="priceOptions">
-        <div class="price-card" data-price="class">
-          <div class="price-icon">📚</div>
-          <div class="price-title">Class Only</div>
-          <div class="price-amount">300 ETB</div>
-          <div class="price-desc">Without Exam</div>
-        </div>
-        <div class="price-card" data-price="exam">
-          <div class="price-icon">📝</div>
-          <div class="price-title">With Exam</div>
-          <div class="price-amount">350 ETB</div>
-          <div class="price-desc">Class + Exam & Previous</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course Selection -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-book-open"></i>
-        <span>Course Selection</span>
-      </div>
-      <div class="course-grid" id="courseGrid">
-        <!-- Courses will be populated by JavaScript -->
-      </div>
-    </div>
-
-    <!-- Fee Summary -->
-    <div class="fee-summary" id="feeSummary">
-      <div class="fee-row">
-        <span>Program:</span>
-        <span id="selectedProgram">Freshman</span>
-      </div>
-      <div class="fee-row">
-        <span>Stream:</span>
-        <span id="selectedStream">-</span>
-      </div>
-      <div class="fee-row">
-        <span>Courses:</span>
-        <span id="courseCount">0</span>
-      </div>
-      <div class="fee-row total">
-        <span>Total Amount:</span>
-        <span id="totalAmount">0 ETB</span>
-      </div>
-    </div>
-
-    <!-- Payment Information -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-credit-card"></i>
-        <span>Payment Information</span>
-      </div>
-      
-      <div class="payment-methods">
-        <div class="payment-card">
-          <i class="fas fa-university"></i>
-          <div class="payment-name">CBE</div>
-          <div class="payment-number">1000354138216</div>
-        </div>
-        <div class="payment-card">
-          <i class="fas fa-mobile-alt"></i>
-          <div class="payment-name">Telebirr</div>
-          <div class="payment-number">0955273939</div>
-        </div>
-        <div class="payment-card">
-          <i class="fas fa-building"></i>
-          <div class="payment-name">BOA</div>
-          <div class="payment-number">82411097</div>
-        </div>
-      </div>
-      <p style="text-align: center; font-size: 0.8rem; color: #64748b;">
-        Account Name: Samuel Ashenaf H/Mariam
-      </p>
-
-      <div class="file-upload-area" id="fileUploadArea">
-        <i class="fas fa-cloud-upload-alt"></i>
-        <p>Click to upload payment screenshot</p>
-        <small>PNG, JPG or PDF (max 5MB)</small>
-        <input type="file" id="paymentProof" accept="image/*,.pdf" style="display: none;">
-      </div>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-secondary" id="resetBtn">Reset</button>
-      <button class="btn btn-primary" id="submitBtn">Submit Registration</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // ========================
-  // COURSE DATA
-  // ========================
-  const freshmanCourses = [
-    "Communicative English",
-    "Mathematics",
-    "Physics",
-    "Psychology",
-    "Critical Thinking",
-    "Geography"
-  ];
-
-  const remedialNaturalCourses = [
-    "Biology",
-    "Physics",
-    "Chemistry",
-    "English",
-    "Mathematics"
-  ];
-
-  const remedialSocialCourses = [
-    "Mathematics",
-    "English",
-    "Geography",
-    "History"
-  ];
-
-  // State
-  let currentProgram = "freshman";
-  let currentStream = "natural";
-  let currentPrice = "exam";
-  let selectedCourses = [];
-
-  // DOM Elements
-  const courseGrid = document.getElementById('courseGrid');
-  const streamSection = document.getElementById('streamSection');
-  const priceSection = document.getElementById('priceSection');
-  const programRadios = document.querySelectorAll('input[name="program"]');
-  const streamRadios = document.querySelectorAll('input[name="stream"]');
-  const radioOptions = document.querySelectorAll('.radio-option');
-  const priceCards = document.querySelectorAll('.price-card');
-  const fileUploadArea = document.getElementById('fileUploadArea');
-  const fileInput = document.getElementById('paymentProof');
-  const submitBtn = document.getElementById('submitBtn');
-  const resetBtn = document.getElementById('resetBtn');
-
-  // ========================
-  // UI FUNCTIONS
-  // ========================
-  function showMessage(message, type) {
-    const existing = document.querySelector('.message-popup');
-    if (existing) existing.remove();
-    
-    const div = document.createElement('div');
-    div.className = `message-popup message-${type}`;
-    div.innerHTML = message;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 4000);
-  }
-
-  function updateCourseGrid() {
-    let courses = [];
-    
-    if (currentProgram === 'freshman') {
-      courses = freshmanCourses;
-    } else {
-      if (currentStream === 'natural') {
-        courses = remedialNaturalCourses;
-      } else {
-        courses = remedialSocialCourses;
-      }
-    }
-    
-    selectedCourses = [...courses];
-    
-    courseGrid.innerHTML = courses.map(course => `
-      <div class="course-card selected">
-        <input type="checkbox" value="${course}" checked disabled>
-        <div class="course-name">${course}</div>
-      </div>
-    `).join('');
-    
-    document.querySelectorAll('.course-card').forEach(card => card.classList.add('selected'));
-  }
-
-  function updateFeeSummary() {
-    let total = 0;
-    let courseCount = 0;
-    
-    if (currentProgram === 'freshman') {
-      courseCount = freshmanCourses.length;
-      total = currentPrice === 'exam' ? 350 : 300;
-      document.getElementById('selectedProgram').innerHTML = 'Freshman';
-      document.getElementById('selectedStream').innerHTML = '-';
-    } else {
-      if (currentStream === 'natural') {
-        courseCount = remedialNaturalCourses.length;
-        total = 250;
-        document.getElementById('selectedStream').innerHTML = 'Natural Science';
-      } else {
-        courseCount = remedialSocialCourses.length;
-        total = 250;
-        document.getElementById('selectedStream').innerHTML = 'Social Science';
-      }
-      document.getElementById('selectedProgram').innerHTML = 'Remedial';
-    }
-    
-    document.getElementById('courseCount').innerHTML = courseCount;
-    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
-  }
-
-  function updateUI() {
-    if (currentProgram === 'freshman') {
-      streamSection.style.display = 'none';
-      priceSection.style.display = 'block';
-    } else {
-      streamSection.style.display = 'block';
-      priceSection.style.display = 'none';
-    }
-    updateCourseGrid();
-    updateFeeSummary();
-  }
-
-  // ========================
-  // RADIO STYLING
-  // ========================
-  function initRadioStyling() {
-    radioOptions.forEach(opt => {
-      const radio = opt.querySelector('input');
-      radio.addEventListener('change', () => {
-        if (radio.checked) {
-          const parentGroup = opt.parentElement;
-          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
-          
-          if (radio.name === 'program') {
-            currentProgram = radio.value;
-            updateUI();
-          } else if (radio.name === 'stream') {
-            currentStream = radio.value;
-            updateCourseGrid();
-            updateFeeSummary();
-          }
-        }
-      });
-      if (radio.checked) opt.classList.add('selected');
-    });
-  }
-
-  // Price selection styling
-  function initPriceSelection() {
-    priceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        priceCards.forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        currentPrice = card.dataset.price;
-        updateFeeSummary();
-      });
-    });
-    document.querySelector('.price-card[data-price="exam"]').classList.add('selected');
-  }
-
-  // ========================
-  // FILE UPLOAD
-  // ========================
-  fileUploadArea.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) {
-      showMessage(`📎 ${fileInput.files[0].name} uploaded`, 'success');
-    }
-  });
-
-  // ========================
-  // FORM VALIDATION & SUBMIT
-  // ========================
-  function validateForm() {
-    const fullName = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phoneNumber').value.trim();
-    const university = document.getElementById('university').value.trim();
-    
-    if (!fullName) { showMessage('Please enter your full name', 'error'); return false; }
-    if (!phone) { showMessage('Please enter your phone number', 'error'); return false; }
-    if (!university) { showMessage('Please enter your university name', 'error'); return false; }
-    
-    return true;
-  }
-
-  function getFormData() {
-    let totalAmount = 0;
-    let courses = [];
-    
-    if (currentProgram === 'freshman') {
-      totalAmount = currentPrice === 'exam' ? 350 : 300;
-      courses = freshmanCourses;
-    } else {
-      totalAmount = 250;
-      courses = currentStream === 'natural' ? remedialNaturalCourses : remedialSocialCourses;
-    }
-    
-    return {
-      timestamp: new Date().toISOString(),
-      fullName: document.getElementById('fullName').value.trim(),
-      phoneNumber: document.getElementById('phoneNumber').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      telegramUser: document.getElementById('telegramUser').value.trim(),
-      university: document.getElementById('university').value.trim(),
-      program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
-      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
-      paymentType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Fixed (250 ETB)',
-      selectedCourses: courses,
-      totalAmount: totalAmount,
-      paymentProof: fileInput.files.length > 0 ? fileInput.files[0].name : 'Not uploaded',
-      status: 'Pending Verification'
-    };
-  }
-
-  submitBtn.addEventListener('click', () => {
-    if (!validateForm()) return;
-    
-    const formData = getFormData();
-    
-    showMessage('⏳ Submitting your registration...', 'loading');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Processing...';
-    
-    setTimeout(() => {
-      console.log('Registration Data:', formData);
-      showMessage('✅ Registration Submitted Successfully!', 'success');
-      
-      document.querySelector('.form-content').innerHTML = `
-        <div class="success-panel">
-          <div class="success-icon">🎓✨</div>
-          <h2 style="color: #2c7a4d;">Registration Successful!</h2>
-          <p style="margin: 1rem 0;">Welcome to Bright Path Academy, <strong>${formData.fullName}</strong>!</p>
-          <div style="background: #f8fafc; padding: 1rem; border-radius: 1rem; text-align: left;">
-            <p><strong>📚 Program:</strong> ${formData.program}</p>
-            <p><strong>🎯 Stream:</strong> ${formData.stream}</p>
-            <p><strong>📖 Courses:</strong> ${formData.selectedCourses.length}</p>
-            <p><strong>💰 Total Amount:</strong> ${formData.totalAmount} ETB</p>
-          </div>
-          <p>🌟 Confirmation will be sent to ${formData.phoneNumber}</p>
-          <button class="btn btn-primary" onclick="location.reload()">Register Another</button>
-        </div>
-      `;
-    }, 1500);
-  });
-
-  resetBtn.addEventListener('click', () => {
-    if (confirm('Reset form?')) location.reload();
-  });
-
-  // ========================
-  // INITIALIZATION
-  // ========================
-  function init() {
-    initRadioStyling();
-    initPriceSelection();
-    updateUI();
-    document.getElementById('programFreshman').checked = true;
-    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
-  }
-  
-  init();
-</script>
-</body>
-</html>      padding: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    /* Logo Styles */
-    .logo-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .logo-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 5px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      margin-bottom: 0.8rem;
-    }
-
-    .logo-placeholder {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #FFD700, #FFA500);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #0A4D9E;
-      margin-bottom: 0.8rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 1px;
-    }
-
-    .header h1 span {
-      background: linear-gradient(135deg, #FFD700, #FFA500);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .tagline {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      margin-top: 0.3rem;
-    }
-
-    .subtitle {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .badge {
-      background: rgba(255, 255, 255, 0.2);
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 2rem;
-      font-size: 0.7rem;
-      margin-top: 1rem;
-      color: white;
-    }
-
-    .form-content {
-      padding: 2rem;
-    }
-
-    .form-section {
-      margin-bottom: 2rem;
-      background: #f8fafc;
-      border-radius: 1.2rem;
-      padding: 1.5rem;
-      border: 1px solid #e2e8f0;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.75rem;
-    }
-
-    .section-title i {
-      color: #0A4D9E;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .input-group.full-width {
-      grid-column: span 2;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #334155;
-    }
-
-    label .required {
-      color: #ef4444;
-    }
-
-    input, select {
-      padding: 0.85rem 1rem;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 0.8rem;
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
-      background: white;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #0A4D9E;
-      box-shadow: 0 0 0 3px rgba(10, 77, 158, 0.1);
-    }
-
-    .radio-group {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    .radio-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      background: white;
-      border-radius: 2rem;
-      border: 1.5px solid #e2e8f0;
-      transition: all 0.2s;
-    }
-
-    .radio-option.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .price-options {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .price-card {
-      flex: 1;
-      background: white;
-      border: 2px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .price-card.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .price-card .price-icon {
-      font-size: 1.5rem;
-    }
-
-    .price-card .price-title {
-      font-weight: 700;
-      margin: 0.5rem 0;
-    }
-
-    .price-card .price-amount {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0A4D9E;
-    }
-
-    .price-card .price-desc {
-      font-size: 0.7rem;
-      color: #64748b;
-    }
-
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin: 1rem 0;
-    }
-
-    .course-card {
-      background: white;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 0.8rem 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .course-card.selected {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .course-card input {
-      width: 18px;
-      height: 18px;
-      accent-color: #0A4D9E;
-    }
-
-    .course-card .course-name {
-      font-weight: 500;
-      color: #0f172a;
-    }
-
-    .fee-summary {
-      background: linear-gradient(135deg, #0A4D9E, #0f5bb3);
-      border-radius: 1rem;
-      padding: 1.2rem;
-      margin: 1rem 0;
-      color: white;
-    }
-
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      margin: 0.5rem 0;
-    }
-
-    .fee-row.total {
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      padding-top: 0.8rem;
-      margin-top: 0.5rem;
-    }
-
-    .payment-methods {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .payment-card {
-      background: white;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .payment-card i {
-      font-size: 1.5rem;
-      color: #0A4D9E;
-    }
-
-    .payment-card .payment-number {
-      font-family: monospace;
-      font-size: 0.75rem;
-      background: #f1f5f9;
-      padding: 0.3rem;
-      border-radius: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .file-upload-area {
-      border: 2px dashed #cbd5e1;
-      border-radius: 1rem;
-      padding: 1.2rem;
-      text-align: center;
-      cursor: pointer;
-      background: #f8fafc;
-    }
-
-    .file-upload-area:hover {
-      border-color: #0A4D9E;
-      background: #eef2ff;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: #0A4D9E;
-      color: white;
-      flex: 1;
-    }
-
-    .btn-primary:hover {
-      background: #0c5bb3;
-    }
-
-    .btn-secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-    }
-
-    .message-popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      padding: 1rem 1.5rem;
-      border-radius: 0.8rem;
-      animation: slideIn 0.3s ease;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .message-success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
-    .message-error { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
-    .message-loading { background: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
-
-    .success-panel {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
-
-    @media (max-width: 700px) {
-      .form-grid, .course-grid, .payment-methods, .price-options {
-        grid-template-columns: 1fr;
-      }
-      .btn-group {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <div class="header">
-    <div class="logo-container">
-      <!-- Logo Image - Replace the src with your actual image URL -->
-      <!-- Option 1: If you upload image to GitHub, use: -->
-      <img src="logo.png" alt="Bright Path Academy Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="logo-placeholder" style="display: none;">BP</div>
-      
-      <!-- Option 2: If you have a direct image URL, uncomment and use:
-      <img src="https://your-image-url.com/logo.png" alt="Bright Path Academy Logo" class="logo-img">
-      -->
-    </div>
-    <h1>BRIGHT <span>PATH</span></h1>
-    <div class="tagline">LEARN TODAY, LEAD TOMORROW</div>
-    <div class="subtitle">ETHIO UNIVERSITY</div>
-    <div class="badge">📚 FRESHMAN & REMEDIAL COURSES 2026</div>
-  </div>
-
-  <div class="form-content">
-    <!-- Personal Information -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-user-graduate"></i>
-        <span>Personal Information</span>
-      </div>
-      <div class="form-grid">
-        <div class="input-group">
-          <label>Full Name <span class="required">*</span></label>
-          <input type="text" id="fullName" placeholder="Enter your full name">
-        </div>
-        <div class="input-group">
-          <label>Phone Number <span class="required">*</span></label>
-          <input type="tel" id="phoneNumber" placeholder="09XXXXXXXX">
-        </div>
-        <div class="input-group">
-          <label>Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com">
-        </div>
-        <div class="input-group">
-          <label>Telegram Username</label>
-          <input type="text" id="telegramUser" placeholder="@username">
-        </div>
-        <div class="input-group full-width">
-          <label>University / Institution <span class="required">*</span></label>
-          <input type="text" id="university" placeholder="Enter your university name">
-        </div>
-      </div>
-    </div>
-
-    <!-- Program Selection -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Program Selection</span>
-      </div>
-      <div class="radio-group" id="programGroup">
-        <div class="radio-option" data-value="freshman">
-          <input type="radio" name="program" value="freshman" id="programFreshman">
-          <label for="programFreshman">🎓 Freshman Program</label>
-        </div>
-        <div class="radio-option" data-value="remedial">
-          <input type="radio" name="program" value="remedial" id="programRemedial">
-          <label for="programRemedial">📚 Remedial Program</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stream Selection (only for Remedial) -->
-    <div class="form-section" id="streamSection" style="display: none;">
-      <div class="section-title">
-        <i class="fas fa-chart-line"></i>
-        <span>Stream Selection</span>
-      </div>
-      <div class="radio-group" id="streamGroup">
-        <div class="radio-option" data-value="natural">
-          <input type="radio" name="stream" value="natural" id="streamNatural">
-          <label for="streamNatural">🔬 Natural Science</label>
-        </div>
-        <div class="radio-option" data-value="social">
-          <input type="radio" name="stream" value="social" id="streamSocial">
-          <label for="streamSocial">📖 Social Science</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Price Selection (only for Freshman) -->
-    <div class="form-section" id="priceSection" style="display: none;">
-      <div class="section-title">
-        <i class="fas fa-tag"></i>
-        <span>Payment Type</span>
-      </div>
-      <div class="price-options" id="priceOptions">
-        <div class="price-card" data-price="class">
-          <div class="price-icon">📚</div>
-          <div class="price-title">Class Only</div>
-          <div class="price-amount">300 ETB</div>
-          <div class="price-desc">Without Exam</div>
-        </div>
-        <div class="price-card" data-price="exam">
-          <div class="price-icon">📝</div>
-          <div class="price-title">With Exam</div>
-          <div class="price-amount">350 ETB</div>
-          <div class="price-desc">Class + Exam & Previous</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course Selection -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-book-open"></i>
-        <span>Course Selection</span>
-      </div>
-      <div class="course-grid" id="courseGrid">
-        <!-- Courses will be populated by JavaScript -->
-      </div>
-    </div>
-
-    <!-- Fee Summary -->
-    <div class="fee-summary" id="feeSummary">
-      <div class="fee-row">
-        <span>Program:</span>
-        <span id="selectedProgram">Freshman</span>
-      </div>
-      <div class="fee-row">
-        <span>Stream:</span>
-        <span id="selectedStream">-</span>
-      </div>
-      <div class="fee-row">
-        <span>Courses:</span>
-        <span id="courseCount">0</span>
-      </div>
-      <div class="fee-row total">
-        <span>Total Amount:</span>
-        <span id="totalAmount">0 ETB</span>
-      </div>
-    </div>
-
-    <!-- Payment Information -->
-    <div class="form-section">
-      <div class="section-title">
-        <i class="fas fa-credit-card"></i>
-        <span>Payment Information</span>
-      </div>
-      
-      <div class="payment-methods">
-        <div class="payment-card">
-          <i class="fas fa-university"></i>
-          <div class="payment-name">CBE</div>
-          <div class="payment-number">1000354138216</div>
-        </div>
-        <div class="payment-card">
-          <i class="fas fa-mobile-alt"></i>
-          <div class="payment-name">Telebirr</div>
-          <div class="payment-number">0955273939</div>
-        </div>
-        <div class="payment-card">
-          <i class="fas fa-building"></i>
-          <div class="payment-name">BOA</div>
-          <div class="payment-number">82411097</div>
-        </div>
-      </div>
-      <p style="text-align: center; font-size: 0.8rem; color: #64748b;">
-        Account Name: Samuel Ashenaf H/Mariam
-      </p>
-
-      <div class="file-upload-area" id="fileUploadArea">
-        <i class="fas fa-cloud-upload-alt"></i>
-        <p>Click to upload payment screenshot</p>
-        <small>PNG, JPG or PDF (max 5MB)</small>
-        <input type="file" id="paymentProof" accept="image/*,.pdf" style="display: none;">
-      </div>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-secondary" id="resetBtn">Reset</button>
-      <button class="btn btn-primary" id="submitBtn">Submit Registration</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // ========================
-  // COURSE DATA
-  // ========================
-  const freshmanCourses = [
-    "Communicative English",
-    "Mathematics",
-    "Physics",
-    "Psychology",
-    "Critical Thinking",
-    "Geography"
-  ];
-
-  const remedialNaturalCourses = [
-    "Biology",
-    "Physics",
-    "Chemistry",
-    "English",
-    "Mathematics"
-  ];
-
-  const remedialSocialCourses = [
-    "Mathematics",
-    "English",
-    "Geography",
-    "History"
-  ];
-
-  // State
-  let currentProgram = "freshman";
-  let currentStream = "natural";
-  let currentPrice = "exam";
-  let selectedCourses = [];
-
-  // DOM Elements
-  const courseGrid = document.getElementById('courseGrid');
-  const streamSection = document.getElementById('streamSection');
-  const priceSection = document.getElementById('priceSection');
-  const programRadios = document.querySelectorAll('input[name="program"]');
-  const streamRadios = document.querySelectorAll('input[name="stream"]');
-  const radioOptions = document.querySelectorAll('.radio-option');
-  const priceCards = document.querySelectorAll('.price-card');
-  const fileUploadArea = document.getElementById('fileUploadArea');
-  const fileInput = document.getElementById('paymentProof');
-  const submitBtn = document.getElementById('submitBtn');
-  const resetBtn = document.getElementById('resetBtn');
-
-  // ========================
-  // UI FUNCTIONS
-  // ========================
-  function showMessage(message, type) {
-    const existing = document.querySelector('.message-popup');
-    if (existing) existing.remove();
-    
-    const div = document.createElement('div');
-    div.className = `message-popup message-${type}`;
-    div.innerHTML = message;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 4000);
-  }
-
-  function updateCourseGrid() {
-    let courses = [];
-    
-    if (currentProgram === 'freshman') {
-      courses = freshmanCourses;
-    } else {
-      if (currentStream === 'natural') {
-        courses = remedialNaturalCourses;
-      } else {
-        courses = remedialSocialCourses;
-      }
-    }
-    
-    selectedCourses = [...courses];
-    
-    courseGrid.innerHTML = courses.map(course => `
-      <div class="course-card selected">
-        <input type="checkbox" value="${course}" checked disabled>
-        <div class="course-name">${course}</div>
-      </div>
-    `).join('');
-    
-    document.querySelectorAll('.course-card').forEach(card => card.classList.add('selected'));
-  }
-
-  function updateFeeSummary() {
-    let total = 0;
-    let courseCount = 0;
-    
-    if (currentProgram === 'freshman') {
-      courseCount = freshmanCourses.length;
-      total = currentPrice === 'exam' ? 350 : 300;
-      document.getElementById('selectedProgram').innerHTML = 'Freshman';
-      document.getElementById('selectedStream').innerHTML = '-';
-    } else {
-      if (currentStream === 'natural') {
-        courseCount = remedialNaturalCourses.length;
-        total = 250;
-        document.getElementById('selectedStream').innerHTML = 'Natural Science';
-      } else {
-        courseCount = remedialSocialCourses.length;
-        total = 250;
-        document.getElementById('selectedStream').innerHTML = 'Social Science';
-      }
-      document.getElementById('selectedProgram').innerHTML = 'Remedial';
-    }
-    
-    document.getElementById('courseCount').innerHTML = courseCount;
-    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
-  }
-
-  function updateUI() {
-    if (currentProgram === 'freshman') {
-      streamSection.style.display = 'none';
-      priceSection.style.display = 'block';
-    } else {
-      streamSection.style.display = 'block';
-      priceSection.style.display = 'none';
-    }
-    updateCourseGrid();
-    updateFeeSummary();
-  }
-
-  // ========================
-  // RADIO STYLING
-  // ========================
-  function initRadioStyling() {
-    radioOptions.forEach(opt => {
-      const radio = opt.querySelector('input');
-      radio.addEventListener('change', () => {
-        if (radio.checked) {
-          const parentGroup = opt.parentElement;
-          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
-          
-          if (radio.name === 'program') {
-            currentProgram = radio.value;
-            updateUI();
-          } else if (radio.name === 'stream') {
-            currentStream = radio.value;
-            updateCourseGrid();
-            updateFeeSummary();
-          }
-        }
-      });
-      if (radio.checked) opt.classList.add('selected');
-    });
-  }
-
-  // Price selection styling
-  function initPriceSelection() {
-    priceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        priceCards.forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        currentPrice = card.dataset.price;
-        updateFeeSummary();
-      });
-    });
-    document.querySelector('.price-card[data-price="exam"]').classList.add('selected');
-  }
-
-  // ========================
-  // FILE UPLOAD
-  // ========================
-  fileUploadArea.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) {
-      showMessage(`📎 ${fileInput.files[0].name} uploaded`, 'success');
-    }
-  });
-
-  // ========================
-  // FORM VALIDATION & SUBMIT
-  // ========================
-  function validateForm() {
-    const fullName = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phoneNumber').value.trim();
-    const university = document.getElementById('university').value.trim();
-    
-    if (!fullName) { showMessage('Please enter your full name', 'error'); return false; }
-    if (!phone) { showMessage('Please enter your phone number', 'error'); return false; }
-    if (!university) { showMessage('Please enter your university name', 'error'); return false; }
-    
-    return true;
-  }
-
-  function getFormData() {
-    let totalAmount = 0;
-    let courses = [];
-    
-    if (currentProgram === 'freshman') {
-      totalAmount = currentPrice === 'exam' ? 350 : 300;
-      courses = freshmanCourses;
-    } else {
-      totalAmount = 250;
-      courses = currentStream === 'natural' ? remedialNaturalCourses : remedialSocialCourses;
-    }
-    
-    return {
-      timestamp: new Date().toISOString(),
-      fullName: document.getElementById('fullName').value.trim(),
-      phoneNumber: document.getElementById('phoneNumber').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      telegramUser: document.getElementById('telegramUser').value.trim(),
-      university: document.getElementById('university').value.trim(),
-      program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
-      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
-      paymentType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Fixed (250 ETB)',
-      selectedCourses: courses,
-      totalAmount: totalAmount,
-      paymentProof: fileInput.files.length > 0 ? fileInput.files[0].name : 'Not uploaded',
-      status: 'Pending Verification'
-    };
-  }
-
-  submitBtn.addEventListener('click', () => {
-    if (!validateForm()) return;
-    
-    const formData = getFormData();
-    
-    showMessage('⏳ Submitting your registration...', 'loading');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Processing...';
-    
-    setTimeout(() => {
-      console.log('Registration Data:', formData);
-      showMessage('✅ Registration Submitted Successfully!', 'success');
-      
-      document.querySelector('.form-content').innerHTML = `
-        <div class="success-panel">
-          <div class="success-icon">🎓✨</div>
-          <h2 style="color: #2c7a4d;">Registration Successful!</h2>
-          <p style="margin: 1rem 0;">Welcome to Bright Path Academy, <strong>${formData.fullName}</strong>!</p>
-          <div style="background: #f8fafc; padding: 1rem; border-radius: 1rem; text-align: left;">
-            <p><strong>📚 Program:</strong> ${formData.program}</p>
-            <p><strong>🎯 Stream:</strong> ${formData.stream}</p>
-            <p><strong>📖 Courses:</strong> ${formData.selectedCourses.length}</p>
-            <p><strong>💰 Total Amount:</strong> ${formData.totalAmount} ETB</p>
-          </div>
-          <p>🌟 Confirmation will be sent to ${formData.phoneNumber}</p>
-          <button class="btn btn-primary" onclick="location.reload()">Register Another</button>
-        </div>
-      `;
-    }, 1500);
-  });
-
-  resetBtn.addEventListener('click', () => {
-    if (confirm('Reset form?')) location.reload();
-  });
-
-  // ========================
-  // INITIALIZATION
-  // ========================
-  function init() {
-    initRadioStyling();
-    initPriceSelection();
-    updateUI();
-    document.getElementById('programFreshman').checked = true;
-    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
-  }
-  
-  init();
-</script>
-</body>
-</html>      font-weight: 600;
-      margin-top: 0.5rem;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .progress-step.active .step-circle {
-      background: linear-gradient(145deg, #0A4D9E, #0f5bb3);
-      color: white;
-      box-shadow: 0 8px 18px rgba(10, 77, 158, 0.25);
-    }
-
-    .progress-step.active .step-label {
-      color: #0A4D9E;
-      font-weight: 700;
-    }
-
-    .progress-step.completed .step-circle {
-      background: #2c7a4d;
-      color: white;
-    }
-
-    .progress-step.completed .step-label {
-      color: #2c7a4d;
-    }
-
-    .progress-line {
-      flex: 1;
-      height: 3px;
-      background: #e2e8f0;
-      margin: 0 6px;
-      border-radius: 3px;
-      transition: background 0.3s;
-    }
-
-    .progress-line.fill {
-      background: linear-gradient(90deg, #0A4D9E, #4CAF50);
-    }
-
-    .form-panel {
-      padding: 2rem 2rem 2rem 2rem;
-      background: white;
-    }
-
-    .step {
-      display: none;
-      animation: fadeIn 0.3s ease-out;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
-      letter-spacing: -0.2px;
-      border-left: 5px solid #0A4D9E;
+      border-left: 4px solid #f5b042;
       padding-left: 1rem;
     }
 
-    .section-badge {
-      background: #eef2ff;
-      padding: 0.25rem 0.8rem;
-      border-radius: 2rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #0A4D9E;
-      display: inline-block;
-      margin-bottom: 0.75rem;
+    .section-title i {
+      color: #e09d32;
+      font-size: 1.3rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
     }
 
     .input-group {
-      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #1e3a5f;
+      letter-spacing: -0.2px;
+    }
+
+    .required {
+      color: #e25c5c;
     }
 
     input, select {
-      width: 100%;
       padding: 0.9rem 1rem;
-      border: 1.5px solid #e2e8f0;
+      border: 1.5px solid #e2edf2;
       border-radius: 1rem;
       font-size: 0.95rem;
       font-family: 'Inter', sans-serif;
+      background: #fefefe;
       transition: all 0.2s;
-      background-color: #fefefe;
-      outline: none;
     }
 
     input:focus, select:focus {
-      border-color: #0A4D9E;
-      box-shadow: 0 0 0 3px rgba(10, 77, 158, 0.15);
+      outline: none;
+      border-color: #f5a623;
+      box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
     }
 
-    .course-list {
-      background: #f8fafc;
-      border-radius: 1.2rem;
-      padding: 0.5rem 0.8rem;
-      margin: 1rem 0;
-      border: 1px solid #eef2ff;
-      max-height: 380px;
-      overflow-y: auto;
-    }
-
-    .course-item {
+    /* toggle pill style */
+    .radio-group {
       display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.75rem 0.5rem;
-      border-bottom: 1px solid #e9edf2;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
     }
 
-    .course-item:last-child {
-      border-bottom: none;
-    }
-
-    .course-item input {
-      width: 1.4rem;
-      height: 1.4rem;
-      accent-color: #0A4D9E;
-      margin: 0;
-    }
-
-    .course-item label {
+    .radio-option {
+      background: #f8fafd;
+      border-radius: 60px;
+      padding: 0.55rem 1.6rem;
+      cursor: pointer;
+      transition: all 0.2s;
       font-weight: 500;
-      color: #1e293b;
+      border: 1.5px solid #e4ecf2;
+    }
+
+    .radio-option.selected {
+      background: #1e4a76;
+      border-color: #1e4a76;
+      color: white;
+      box-shadow: 0 6px 12px -8px #1e4a7640;
+    }
+
+    .radio-option.selected label, .radio-option.selected input {
+      color: white;
+    }
+
+    .radio-option input {
+      display: none;
+    }
+
+    .radio-option label {
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* price cards modern */
+    .price-options {
+      display: flex;
+      gap: 1.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .price-card {
       flex: 1;
-      font-size: 0.95rem;
+      background: #ffffff;
+      border: 2px solid #e9f0f5;
+      border-radius: 1.4rem;
+      padding: 1.2rem;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
     }
 
-    .course-category {
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #0A4D9E;
-      margin: 0.5rem 0 0.2rem 0;
-      letter-spacing: 0.3px;
+    .price-card.selected {
+      border-color: #f0b34b;
+      background: #fffbf0;
+      box-shadow: 0 12px 20px -12px rgba(240, 180, 60, 0.25);
     }
 
-    .fee-card {
-      background: linear-gradient(115deg, #eef2ff, #ffffff);
-      border-radius: 1.2rem;
-      padding: 1rem 1.3rem;
-      margin: 1.2rem 0;
-      border-left: 5px solid #4CAF50;
+    .price-icon {
+      font-size: 2rem;
     }
 
-    .fee-card p {
-      margin: 0.3rem 0;
+    .price-title {
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+
+    .price-amount {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #c97e2a;
+    }
+
+    /* courses grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .course-card {
+      background: #fbfdff;
+      border: 1.5px solid #e2edf2;
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: 0.15s;
+    }
+
+    .course-card.selected {
+      background: #ecf7f0;
+      border-color: #2c9b67;
+    }
+
+    .course-card input {
+      width: 18px;
+      height: 18px;
+      accent-color: #f5a623;
+      margin-right: 0.2rem;
+    }
+
+    /* fee summary premium */
+    .fee-summary {
+      background: linear-gradient(115deg, #1f3b4c, #0e2a3a);
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.8rem;
+      margin: 1.2rem 0 1rem;
+      color: white;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.7rem;
       font-weight: 500;
     }
 
-    .payment-method {
-      background: #fefce8;
-      border-radius: 1rem;
-      padding: 1rem 1.2rem;
-      margin: 1rem 0;
-      border: 1px solid #fde68a;
-      transition: transform 0.1s;
-    }
-
-    .payment-method h3 {
+    .fee-row.total {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #1e293b;
+      font-weight: 800;
+      border-top: 1px solid rgba(255,215,150,0.4);
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
     }
 
-    .payment-detail {
+    /* payment grid */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0 1rem;
+    }
+
+    .payment-card {
+      background: #fefcf7;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #ece5d8;
+      transition: 0.1s;
+    }
+
+    .payment-card i {
+      font-size: 1.8rem;
+      color: #f5a623;
+    }
+
+    .payment-number {
       font-family: monospace;
-      background: #fff;
-      padding: 0.5rem 0.8rem;
-      border-radius: 12px;
-      display: inline-block;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      border: 1px solid #e2e8f0;
+      font-weight: 700;
+      background: #f1f3f7;
+      padding: 0.3rem;
+      border-radius: 0.8rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
     }
 
-    .file-upload {
-      margin: 1rem 0;
+    .file-upload-area {
+      border: 2px dashed #bcd0e0;
+      background: #fafdff;
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      text-align: center;
+      transition: 0.2s;
+      cursor: pointer;
     }
 
-    .file-upload label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 0.5rem;
+    .file-upload-area:hover {
+      border-color: #f5a623;
+      background: #fffaf2;
     }
 
     .btn-group {
       display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
       gap: 1rem;
+      margin-top: 2rem;
     }
 
-    button {
-      background: #0A4D9E;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.8rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      font-size: 0.9rem;
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s;
+      border: none;
       font-family: inherit;
+      transition: 0.2s;
     }
 
-    button.btn-secondary {
-      background: #e2e8f0;
-      color: #1e293b;
+    .btn-primary {
+      background: #0f3b5c;
+      color: white;
+      flex: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
 
-    button.btn-secondary:hover {
-      background: #cbd5e1;
+    .btn-primary:hover {
+      background: #1e4f72;
       transform: translateY(-1px);
     }
 
-    button:hover {
-      background: #0c5bb3;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 18px -8px rgba(10,77,158,0.4);
+    .btn-secondary {
+      background: #eef2f8;
+      color: #1f3a4b;
     }
 
-    .success-card {
+    .message-popup {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 1100;
+      padding: 1rem 1.6rem;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .success-panel {
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 2rem;
     }
 
     .success-icon {
-      font-size: 4rem;
+      font-size: 4.2rem;
       margin-bottom: 1rem;
     }
 
-    .success-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #2c7a4d;
-    }
-
-    .success-message {
-      color: #334155;
-      margin: 1rem 0;
-      line-height: 1.5;
-    }
-
-    hr {
-      margin: 1rem 0;
-      border: none;
-      height: 1px;
-      background: #e2e8f0;
-    }
-
-    footer {
-      font-size: 0.7rem;
-      text-align: center;
-      background: #f9fafb;
-      padding: 1rem;
-      border-top: 1px solid #edf2f7;
-      color: #5b6e8c;
-    }
-
-    @media (max-width: 550px) {
-      .form-panel {
-        padding: 1.5rem;
-      }
-      .step-circle {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
+    @media (max-width: 700px) {
+      .form-grid, .price-options, .payment-methods {
+        grid-template-columns: 1fr;
       }
       .btn-group {
         flex-direction: column;
       }
-      button {
-        width: 100%;
+      .container {
+        border-radius: 1.5rem;
+      }
+      .form-content {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="brand">
-    <h1>BRIGHT <span>PATH</span></h1>
-    <p>Second Semester Enrollment — Future-focused Learning</p>
+  <div class="header">
+    <div class="logo-container">
+      <!-- Live logo (if missing, fallback) -->
+      <img src="https://placehold.co/400x400?text=BP" alt="Bright Path Academy Logo" class="logo-img" style="object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display: none;">BP</div>
+    </div>
+    <h1>BRIGHT <span style="color: #FFD966;">PATH</span></h1>
+    <div class="tagline">LEARN TODAY, LEAD TOMORROW • ETHIO UNIVERSITY</div>
+    <div class="badge-modern">✨ FRESHMAN & REMEDIAL ENROLLMENT 2026 ✨</div>
   </div>
 
-  <div class="progress-wrapper">
-    <div class="progress" id="progressContainer">
-      <div class="progress-step" data-step="1">
-        <div class="step-circle">1</div>
-        <div class="step-label">Profile</div>
+  <div class="form-content" id="dynamicFormRoot">
+    <!-- Personal Section -->
+    <div class="form-section">
+      <div class="section-title">
+        <i class="fas fa-id-card"></i>
+        <span>Student Profile</span>
       </div>
-      <div class="progress-line" id="line1"></div>
-      <div class="progress-step" data-step="2">
-        <div class="step-circle">2</div>
-        <div class="step-label">Courses</div>
+      <div class="form-grid">
+        <div class="input-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" placeholder="Abebe Bekele"></div>
+        <div class="input-group"><label>Phone <span class="required">*</span></label><input type="tel" id="phoneNumber" placeholder="09XXXXXXXX"></div>
+        <div class="input-group"><label>Email Address</label><input type="email" id="email" placeholder="student@example.com"></div>
+        <div class="input-group"><label>Telegram Username</label><input type="text" id="telegramUser" placeholder="@username"></div>
+        <div class="input-group full-width"><label>University / Institution <span class="required">*</span></label><input type="text" id="university" placeholder="Enter your university or high school"></div>
       </div>
-      <div class="progress-line" id="line2"></div>
-      <div class="progress-step" data-step="3">
-        <div class="step-circle">3</div>
-        <div class="step-label">Payment</div>
+    </div>
+
+    <!-- Program selection -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-graduation-cap"></i><span>Academic Path</span></div>
+      <div class="radio-group" id="programGroup">
+        <div class="radio-option" data-value="freshman"><input type="radio" name="program" value="freshman" id="programFreshman" checked><label for="programFreshman">🎓 Freshman Program</label></div>
+        <div class="radio-option" data-value="remedial"><input type="radio" name="program" value="remedial" id="programRemedial"><label for="programRemedial">📖 Remedial Program</label></div>
       </div>
+    </div>
+
+    <!-- Stream (Remedial only) -->
+    <div class="form-section" id="streamSection" style="display: none;">
+      <div class="section-title"><i class="fas fa-chalkboard-user"></i><span>Stream Focus</span></div>
+      <div class="radio-group" id="streamGroup">
+        <div class="radio-option" data-value="natural"><input type="radio" name="stream" value="natural" id="streamNatural" checked><label for="streamNatural">🔬 Natural Science</label></div>
+        <div class="radio-option" data-value="social"><input type="radio" name="stream" value="social" id="streamSocial"><label for="streamSocial">📘 Social Science</label></div>
+      </div>
+    </div>
+
+    <!-- Price (Freshman only) -->
+    <div class="form-section" id="priceSection" style="display: none;">
+      <div class="section-title"><i class="fas fa-coins"></i><span>Enrollment Package</span></div>
+      <div class="price-options" id="priceOptions">
+        <div class="price-card" data-price="class"><div class="price-icon">📚</div><div class="price-title">Class Only</div><div class="price-amount">300 ETB</div><div class="price-desc">Full course access</div></div>
+        <div class="price-card" data-price="exam"><div class="price-icon">📝</div><div class="price-title">With Exam Pack</div><div class="price-amount">350 ETB</div><div class="price-desc">+ Exams & previous</div></div>
+      </div>
+    </div>
+
+    <!-- Course Selection Grid -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-book-atlas"></i><span>Core Curriculum</span></div>
+      <div class="course-grid" id="courseGrid"></div>
+    </div>
+
+    <!-- Fee Summary preview -->
+    <div class="fee-summary" id="feeSummary">
+      <div class="fee-row"><span>📌 Program:</span><span id="selectedProgram">Freshman</span></div>
+      <div class="fee-row"><span>🎯 Stream / Track:</span><span id="selectedStream">-</span></div>
+      <div class="fee-row"><span>📘 Courses Enrolled:</span><span id="courseCount">6</span></div>
+      <div class="fee-row total"><span>💰 Total Fees:</span><span id="totalAmount">350 ETB</span></div>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="form-section">
+      <div class="section-title"><i class="fas fa-credit-card"></i><span>Payment & Confirmation</span></div>
+      <div class="payment-methods">
+        <div class="payment-card"><i class="fas fa-university"></i><div>CBE</div><div class="payment-number">1000354138216</div></div>
+        <div class="payment-card"><i class="fas fa-mobile-alt"></i><div>Telebirr</div><div class="payment-number">0955273939</div></div>
+        <div class="payment-card"><i class="fas fa-building"></i><div>BOA</div><div class="payment-number">82411097</div></div>
+      </div>
+      <p style="text-align:center; font-size:0.75rem; font-weight:500; margin-bottom:1rem;">Account: Samuel Ashenaf H/Mariam</p>
+      <div class="file-upload-area" id="fileUploadArea"><i class="fas fa-cloud-upload-alt"></i><p>Click to upload transaction screenshot</p><small>PNG, JPG, PDF up to 5MB</small><input type="file" id="paymentProof" accept="image/*,.pdf" style="display:none;"></div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" id="resetBtn">⟳ Reset Form</button>
+      <button class="btn btn-primary" id="submitBtn">✓ Submit Registration</button>
     </div>
   </div>
-
-  <div class="form-panel">
-    <!-- STEP 1 - Student Information -->
-    <div class="step active" id="step1">
-      <h2>📋 Student Profile</h2>
-      <div class="input-group"><input type="text" id="fullName" placeholder="Full name *"></div>
-      <div class="input-group"><input type="tel" id="phoneNumber" placeholder="Phone number *"></div>
-      <div class="input-group"><input type="text" id="telegramUser" placeholder="Telegram username (optional)"></div>
-      <div class="input-group"><input type="text" id="university" placeholder="University / Institution *"></div>
-      <div class="input-group"><input type="text" id="department" placeholder="Department / Major *"></div>
-      <div class="input-group">
-        <select id="streamSelect">
-          <option value="">Select Stream</option>
-          <option>Natural Science</option>
-          <option>Social Science</option>
-          <option>Business & Economics</option>
-          <option>Technology & Engineering</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <select id="semesterSelect">
-          <option value="">Select Semester</option>
-          <option>1st Semester</option>
-          <option selected>2nd Semester</option>
-          <option>Summer Session</option>
-        </select>
-      </div>
-      <div class="btn-group">
-        <button style="visibility: hidden;" disabled></button>
-        <button onclick="goToStep(2)">Next →</button>
-      </div>
-    </div>
-
-    <!-- STEP 2 - Course Selection (includes all NEW second semester courses) -->
-    <div class="step" id="step2">
-      <h2>📚 Second Semester Courses</h2>
-      <div class="section-badge">🎯 Core & Elective Modules (2026)</div>
-      <div class="course-list" id="courseList">
-        <!-- EXISTING + ADDITIONAL second semester courses -->
-        <div class="course-item"><input type="checkbox" class="course-check" value="Communicative English"> <label>Communicative English</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Mathematics"> <label>Mathematics (Refresher)</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Physics"> <label>Physics</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Psychology"> <label>Psychology</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Critical Thinking"> <label>Critical Thinking & Logic</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Geography"> <label>Geography</label></div>
-        
-        <!-- ✨ NEW SECOND SEMESTER COURSES (exactly as requested) -->
-        <div class="course-category">📌 Advanced Semester Modules</div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Computer Programming"> <label>💻 Computer Programming (Python & Logic)</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Applied Mathematics"> <label>📐 Applied Mathematics</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Civics and Moral Education"> <label>⚖️ Civics and Moral Education</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Anthropology"> <label>🌍 Anthropology</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="History"> <label>📜 History (Global & Ethiopian Perspectives)</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Skill 2"> <label>🔧 Skill 2 (Practical Competencies)</label></div>
-        <div class="course-item"><input type="checkbox" class="course-check" value="Emerging Technology"> <label>🚀 Emerging Technology (AI, IoT, Blockchain)</label></div>
-      </div>
-      <div class="fee-card" id="feePreview">
-        <p>💰 <strong>Tuition Summary</strong></p>
-        <p id="selectedCountMsg">📌 0 courses selected</p>
-        <p id="totalFeeAmount">Total: 0 ETB</p>
-        <p style="font-size:0.8rem; margin-top: 6px;">✨ <strong>Full Semester Package</strong> (unlimited courses) = <strong>350 ETB</strong> — best value for second semester!</p>
-        <p style="font-size:0.7rem; color:#2c7a4d;">✔️ One-time payment covers all registered courses</p>
-      </div>
-      <div class="btn-group">
-        <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
-        <button onclick="goToStep(3)">Next →</button>
-      </div>
-    </div>
-
-    <!-- STEP 3 - Payment Information -->
-    <div class="step" id="step3">
-      <h2>💳 Secure Payment Gateway</h2>
-      <div class="payment-method">
-        <h3>🏦 Commercial Bank of Ethiopia (CBE)</h3>
-        <div class="payment-detail">1000354138216</div>
-        <p>Account Name: Samuel Ashenaf H/Mariam</p>
-      </div>
-      <div class="payment-method">
-        <h3>📱 Telebirr</h3>
-        <div class="payment-detail">0955273939</div>
-        <p>Send exact amount: 300 ETB per course OR 350 ETB for unlimited semester package.</p>
-      </div>
-      <div class="payment-method">
-        <h3>🏛️ Bank of Abyssinia (BOA)</h3>
-        <div class="payment-detail">82411097</div>
-      </div>
-      <div class="file-upload">
-        <label>📎 Upload Payment Screenshot / Transaction proof</label>
-        <input type="file" id="paymentProof" accept="image/*, .pdf">
-        <small style="color:#4b5563;">PNG, JPG or PDF (max 5MB) — ensures faster verification</small>
-      </div>
-      <div class="btn-group">
-        <button class="btn-secondary" onclick="goToStep(2)">← Back</button>
-        <button onclick="finalizeRegistration()">✅ Submit Registration</button>
-      </div>
-    </div>
-
-    <!-- SUCCESS PANEL -->
-    <div class="step" id="successPanel">
-      <div class="success-card">
-        <div class="success-icon">🎓✨</div>
-        <div class="success-title">Registration Successful!</div>
-        <div class="success-message">
-          <strong>Welcome to Bright Path Academy — Second Semester Cohort</strong><br><br>
-          Your enrollment for Computer Programming, Applied Mathematics, Civics, Anthropology, History, Skill 2, Emerging Tech & more has been recorded.<br><br>
-          📢 Next step: Our team will verify your payment & send course access details within 24 hours via Telegram/SMS.<br><br>
-          📚 <em>Learn Today, Lead Tomorrow — Innovative learning starts here.</em>
-        </div>
-        <hr>
-        <p style="color:#2c7a4d;">🌟 Confirmation email & ID will be sent to your registered phone number.</p>
-      </div>
-    </div>
-  </div>
-  <footer>Bright Path Academy — Accredited | second semester enrollment open for 2026</footer>
 </div>
 
 <script>
-  // dynamic fee calculation
-  let currentFeeTotal = 0;
+  // -------- data ----------
+  const freshmanCourses = ["Communicative English", "Mathematics", "Physics", "Psychology", "Critical Thinking", "Geography"];
+  const remedialNaturalCourses = ["Biology", "Physics", "Chemistry", "English", "Mathematics"];
+  const remedialSocialCourses = ["Mathematics", "English", "Geography", "History"];
 
-  function updateFeePreview() {
-    const checkboxes = document.querySelectorAll('.course-check');
-    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-    const singlePrice = 300;
-    const packagePrice = 350;
+  let currentProgram = "freshman";
+  let currentStream = "natural";
+  let currentPrice = "exam";
+  let selectedCourses = [];
+
+  // DOM
+  const courseGrid = document.getElementById('courseGrid');
+  const streamSection = document.getElementById('streamSection');
+  const priceSection = document.getElementById('priceSection');
+  const programRadios = document.querySelectorAll('input[name="program"]');
+  const streamRadios = document.querySelectorAll('input[name="stream"]');
+  const radioOptions = document.querySelectorAll('.radio-option');
+  const priceCards = document.querySelectorAll('.price-card');
+  const fileUploadArea = document.getElementById('fileUploadArea');
+  const fileInput = document.getElementById('paymentProof');
+  const submitBtn = document.getElementById('submitBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  function showMessage(msg, type) {
+    const existing = document.querySelector('.message-popup');
+    if(existing) existing.remove();
+    const div = document.createElement('div');
+    div.className = `message-popup message-${type}`;
+    div.style.background = type === 'success' ? '#dff0e4' : (type === 'error' ? '#ffe6e5' : '#fff3da');
+    div.style.color = type === 'success' ? '#155f3a' : (type === 'error' ? '#b13e3e' : '#b56c0e');
+    div.style.borderLeft = `4px solid ${type === 'success' ? '#2c9b67' : (type === 'error' ? '#e25c5c' : '#f0b34b')}`;
+    div.innerHTML = msg;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 4200);
+  }
+
+  function renderCourses() {
+    let courses = [];
+    if (currentProgram === 'freshman') courses = freshmanCourses;
+    else if (currentStream === 'natural') courses = remedialNaturalCourses;
+    else courses = remedialSocialCourses;
+    selectedCourses = [...courses];
+    courseGrid.innerHTML = courses.map(course => `
+      <div class="course-card selected">
+        <input type="checkbox" checked disabled style="pointer-events:none;">
+        <span class="course-name">${course}</span>
+      </div>
+    `).join('');
+  }
+
+  function updateFeeSummary() {
     let total = 0;
-    if (checkedCount === 0) {
-      total = 0;
+    let courseCountVal = 0;
+    if (currentProgram === 'freshman') {
+      courseCountVal = freshmanCourses.length;
+      total = currentPrice === 'exam' ? 350 : 300;
+      document.getElementById('selectedProgram').innerHTML = '🎓 Freshman';
+      document.getElementById('selectedStream').innerHTML = '—';
     } else {
-      const regularSum = checkedCount * singlePrice;
-      total = (packagePrice <= regularSum) ? packagePrice : regularSum;
+      courseCountVal = currentStream === 'natural' ? remedialNaturalCourses.length : remedialSocialCourses.length;
+      total = 250;
+      document.getElementById('selectedProgram').innerHTML = '📖 Remedial';
+      document.getElementById('selectedStream').innerHTML = currentStream === 'natural' ? 'Natural Science' : 'Social Science';
     }
-    const countMsg = checkedCount === 0 ? "No courses selected" : `${checkedCount} course${checkedCount > 1 ? 's' : ''} selected`;
-    document.getElementById('selectedCountMsg').innerHTML = `📖 ${countMsg}`;
-    document.getElementById('totalFeeAmount').innerHTML = `💰 Total: ${total} ETB`;
-    if (total === packagePrice && checkedCount > 0) {
-      document.getElementById('totalFeeAmount').style.color = "#2c7a4d";
+    document.getElementById('courseCount').innerHTML = courseCountVal;
+    document.getElementById('totalAmount').innerHTML = `${total} ETB`;
+  }
+
+  function updateUIVisibility() {
+    if (currentProgram === 'freshman') {
+      streamSection.style.display = 'none';
+      priceSection.style.display = 'block';
     } else {
-      document.getElementById('totalFeeAmount').style.color = "#0f172a";
+      streamSection.style.display = 'block';
+      priceSection.style.display = 'none';
     }
-    currentFeeTotal = total;
+    renderCourses();
+    updateFeeSummary();
   }
 
-  function bindCourseEvents() {
-    const checkboxes = document.querySelectorAll('.course-check');
-    checkboxes.forEach(cb => {
-      cb.addEventListener('change', () => updateFeePreview());
-    });
-  }
-
-  function updateProgressUI(stepNumber) {
-    const steps = document.querySelectorAll('.progress-step');
-    const lines = document.querySelectorAll('.progress-line');
-    steps.forEach((step, idx) => {
-      const stepVal = idx + 1;
-      if (stepVal < stepNumber) {
-        step.classList.add('completed');
-        step.classList.remove('active');
-      } else if (stepVal === stepNumber) {
-        step.classList.add('active');
-        step.classList.remove('completed');
-      } else {
-        step.classList.remove('active', 'completed');
-      }
-    });
-    if (lines[0]) {
-      if (stepNumber >= 2) lines[0].classList.add('fill');
-      else lines[0].classList.remove('fill');
-    }
-    if (lines[1]) {
-      if (stepNumber >= 3) lines[1].classList.add('fill');
-      else lines[1].classList.remove('fill');
-    }
-  }
-
-  window.goToStep = function(step) {
-    if (step === 2) {
-      const name = document.getElementById('fullName')?.value.trim();
-      const phone = document.getElementById('phoneNumber')?.value.trim();
-      const uni = document.getElementById('university')?.value.trim();
-      if (!name || !phone || !uni) {
-        alert("⚠️ Please fill in your Full Name, Phone Number, and University before course selection.");
-        return;
-      }
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step2').classList.add('active');
-      updateProgressUI(2);
-      updateFeePreview();
-    } 
-    else if (step === 3) {
-      const anyChecked = Array.from(document.querySelectorAll('.course-check')).some(cb => cb.checked);
-      if (!anyChecked) {
-        if (!confirm("You haven't selected any courses yet. You can still proceed and later take the full semester package for 350 ETB. Continue?")) {
-          return;
-        }
-      }
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step3').classList.add('active');
-      updateProgressUI(3);
-    }
-    else if (step === 1) {
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step1').classList.add('active');
-      updateProgressUI(1);
-    }
-  };
-
-  window.finalizeRegistration = function() {
-    const fileInput = document.getElementById('paymentProof');
-    const fullName = document.getElementById('fullName')?.value.trim() || "Student";
-    const phone = document.getElementById('phoneNumber')?.value.trim() || "N/A";
-    
-    if (!fileInput.files.length) {
-      if (!confirm("⚠️ No payment screenshot uploaded. Your registration will be marked as pending until proof is provided. Continue?")) {
-        return;
-      }
-    }
-    
-    const selectedCourses = Array.from(document.querySelectorAll('.course-check:checked')).map(cb => cb.value);
-    let courseListStr = selectedCourses.length ? selectedCourses.join(", ") : "No individual courses selected (package option)";
-    let totalFee = currentFeeTotal;
-    if (selectedCourses.length === 0 && totalFee === 0) totalFee = 350; // suggest package
-    
-    const summaryMsg = `🎓 BRIGHT PATH ENROLLMENT SUMMARY\n\n👤 Name: ${fullName}\n📞 Phone: ${phone}\n🏛️ University: ${document.getElementById('university')?.value || "—"}\n📚 Department: ${document.getElementById('department')?.value || "—"}\n🎯 Selected Courses: ${courseListStr}\n💰 Total Tuition: ${totalFee} ETB\n✅ Payment via CBE/Telebirr/BOA (screenshot attached)\n\n⭐ You have selected second semester courses including: Computer Programming, Applied Mathematics, Civics, Anthropology, History, Skill 2, Emerging Technology.\n\nYour spot is reserved!`;
-    alert(summaryMsg + "\n\n✅ Redirecting to success dashboard.");
-    
-    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-    document.getElementById('successPanel').classList.add('active');
-    
-    const stepsAll = document.querySelectorAll('.progress-step');
-    stepsAll.forEach(step => {
-      step.classList.add('completed');
-      step.classList.remove('active');
-    });
-    const lines = document.querySelectorAll('.progress-line');
-    lines.forEach(line => line.classList.add('fill'));
-    
-    console.log("Registration finalized:", { fullName, phone, selectedCourses, totalFee });
-  };
-  
-  // initializers
-  document.addEventListener('DOMContentLoaded', () => {
-    bindCourseEvents();
-    updateFeePreview();
-    updateProgressUI(1);
-    // set default semester to 2nd for better ux
-    const semesterSelect = document.getElementById('semesterSelect');
-    if(semesterSelect) semesterSelect.value = "2nd Semester";
-  });
-  
-  // add observer to refresh fee when step2 becomes active (safeguard)
-  const step2Element = document.getElementById('step2');
-  if (step2Element) {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mut) => {
-        if (mut.attributeName === 'class' && step2Element.classList.contains('active')) {
-          updateFeePreview();
+  // radio logic with styling
+  function initRadioStyling() {
+    radioOptions.forEach(opt => {
+      const radio = opt.querySelector('input');
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          const parentGroup = opt.parentElement;
+          parentGroup.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          if (radio.name === 'program') {
+            currentProgram = radio.value;
+            // reset stream default for remedial
+            if (currentProgram === 'remedial' && currentStream !== 'natural') currentStream = 'natural';
+            document.querySelectorAll('input[name="stream"]').forEach(r => { if(r.value === currentStream) r.checked = true; });
+            // trigger stream radio style
+            document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
+              if(o.querySelector('input').value === currentStream) o.classList.add('selected');
+              else o.classList.remove('selected');
+            });
+            updateUIVisibility();
+          } else if (radio.name === 'stream') {
+            currentStream = radio.value;
+            renderCourses();
+            updateFeeSummary();
+          }
         }
       });
+      if (radio.checked) opt.classList.add('selected');
     });
-    observer.observe(step2Element, { attributes: true });
   }
+
+  function initPriceSelection() {
+    priceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        priceCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        currentPrice = card.dataset.price;
+        updateFeeSummary();
+      });
+    });
+    const defaultPrice = document.querySelector('.price-card[data-price="exam"]');
+    if(defaultPrice) defaultPrice.classList.add('selected');
+    currentPrice = "exam";
+  }
+
+  // file upload
+  fileUploadArea?.addEventListener('click', () => fileInput.click());
+  fileInput?.addEventListener('change', () => {
+    if(fileInput.files.length) showMessage(`📎 Receipt "${fileInput.files[0].name}" attached`, 'success');
+  });
+
+  function validateForm() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phoneNumber').value.trim();
+    const uni = document.getElementById('university').value.trim();
+    if (!fullName) { showMessage('❌ Full name is required', 'error'); return false; }
+    if (!phone) { showMessage('❌ Phone number required', 'error'); return false; }
+    if (!uni) { showMessage('❌ University / Institution required', 'error'); return false; }
+    const phoneRegex = /^09\d{8}$|^0\d{9}$/;
+    if (!phoneRegex.test(phone) && phone.length > 0) showMessage('⚠️ Phone format: 09XXXXXXXX', 'error');
+    return true;
+  }
+
+  function getFormPayload() {
+    let total = currentProgram === 'freshman' ? (currentPrice === 'exam' ? 350 : 300) : 250;
+    let coursesList = [];
+    if (currentProgram === 'freshman') coursesList = freshmanCourses;
+    else if (currentStream === 'natural') coursesList = remedialNaturalCourses;
+    else coursesList = remedialSocialCourses;
+    return {
+      timestamp: new Date().toISOString(),
+      fullName: document.getElementById('fullName').value.trim(),
+      phone: document.getElementById('phoneNumber').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      telegram: document.getElementById('telegramUser').value.trim(),
+      university: document.getElementById('university').value.trim(),
+      program: currentProgram === 'freshman' ? 'Freshman' : 'Remedial',
+      stream: currentProgram === 'freshman' ? 'N/A' : (currentStream === 'natural' ? 'Natural Science' : 'Social Science'),
+      packageType: currentProgram === 'freshman' ? (currentPrice === 'exam' ? 'With Exam (350 ETB)' : 'Class Only (300 ETB)') : 'Standard (250 ETB)',
+      courses: coursesList,
+      totalAmount: total,
+      proofFile: fileInput.files.length ? fileInput.files[0].name : 'Pending upload',
+      status: 'awaiting verification'
+    };
+  }
+
+  submitBtn.addEventListener('click', (e) => {
+    if(!validateForm()) return;
+    const data = getFormPayload();
+    showMessage('⏳ Processing enrollment...', 'loading');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Registering ...';
+    setTimeout(() => {
+      console.table(data);
+      showMessage(`✅ Welcome ${data.fullName}! Registration complete.`, 'success');
+      const formContainer = document.querySelector('.form-content');
+      formContainer.innerHTML = `
+        <div class="success-panel">
+          <div class="success-icon">🏅✨</div>
+          <h2 style="color: #0f5c3a;">Enrollment Confirmed</h2>
+          <p style="margin:0.5rem 0; font-size:1rem;"><strong>${data.fullName}</strong>, you're officially part of Bright Path Academy.</p>
+          <div style="background:#f5f9ff; padding:1.2rem; border-radius:1.2rem; text-align:left; margin:1.2rem 0;">
+            <p><i class="fas fa-chalkboard"></i> <strong>Program:</strong> ${data.program}</p>
+            <p><i class="fas fa-layer-group"></i> <strong>Track:</strong> ${data.stream}</p>
+            <p><i class="fas fa-book"></i> <strong>Courses:</strong> ${data.courses.length}</p>
+            <p><i class="fas fa-money-bill-wave"></i> <strong>Amount Due:</strong> ${data.totalAmount} ETB</p>
+            <p><i class="fas fa-mobile-alt"></i> <strong>Contact:</strong> ${data.phone}</p>
+          </div>
+          <p style="font-size:0.8rem;">📢 A confirmation SMS will be sent within 24h. Keep your payment reference.</p>
+          <button class="btn btn-primary" onclick="location.reload()">➕ Register Another Student</button>
+        </div>
+      `;
+    }, 1400);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    if(confirm('Clear all form fields?')) location.reload();
+  });
+
+  // stream default refresh
+  function initStreamSync() {
+    const streamNatural = document.getElementById('streamNatural');
+    const streamSocial = document.getElementById('streamSocial');
+    if(streamNatural) streamNatural.checked = true;
+    currentStream = 'natural';
+    document.querySelectorAll('#streamGroup .radio-option').forEach(o => {
+      if(o.querySelector('input').value === 'natural') o.classList.add('selected');
+      else o.classList.remove('selected');
+    });
+  }
+
+  function init() {
+    initRadioStyling();
+    initPriceSelection();
+    initStreamSync();
+    updateUIVisibility();
+    document.getElementById('programFreshman').checked = true;
+    document.getElementById('programFreshman').dispatchEvent(new Event('change'));
+  }
+  init();
 </script>
 </body>
 </html>
